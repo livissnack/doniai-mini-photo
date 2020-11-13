@@ -1,0 +1,13 @@
+/* pages/test/player.wxss */
+.video-player{
+  width: 100%;
+}
+
+.flex-end {
+  justify-content: flex-end;
+}
+
+/* .price-box {
+  display: flex;
+  justify-content: flex-end;
+} */

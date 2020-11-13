@@ -1,0 +1,34 @@
+<!--pages/user/signin.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">签到领分</view>
+  </cu-custom>
+  <view class="box">
+    <view class="flex justify-between bg-blue padding-xs">
+      <view class="text-white text-lg margin-top">
+        已累计签到：3天
+      </view>
+      <view class="">
+        <button class="cu-btn bg-white margin-tb-sm">
+          <text class="text-gray text-sm">已签到</text>
+        </button>
+      </view>
+    </view>
+    <view class="cu-bar margin-top bg-white">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>签到日历（2020年11月）
+      </view>
+    </view>
+    <view class="grid col-7 padding-sm">
+      <view class="margin-tb-sm text-center flex justify-between">
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+        <button class="cu-btn sm round bg-blue shadow">1日</button>
+      </view>
+    </view>
+  </view>
+</view>

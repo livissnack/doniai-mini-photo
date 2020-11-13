@@ -1,0 +1,63 @@
+<!--pages/address/create.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">地址管理</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text>
+        新增收件人
+      </view>
+    </view>
+    <form>
+      <view class="cu-form-group">
+        <view class="title">收件人</view>
+        <input placeholder="请填写收件人姓名"></input>
+        <text class="cuIcon-addressbook" bindtap="openPhoneContact"></text>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">手机号码</view>
+        <input placeholder="输入框带标签"></input>
+      </view>
+      <view class="cu-form-group">
+        <view class="title">所在地区</view>
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="picker">{{region[0]}} {{region[1]}} {{region[2]}}</view>
+        </picker>
+        <view bindtap="getLocation">
+          <text class="text-black text-xs">定位</text>
+          <text class="cuIcon-location text-xs"></text>
+        </view>
+      </view>
+      <view class="cu-form-group align-start">
+        <view class="title">详细地址</view>
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" clearable bindinput="textareaBInput" placeholder="多行文本输入框"></textarea>
+        <text class="cuIcon-voicefill text-sm margin-top-lg" bindtap="getVoiceAddressText"></text>
+      </view>
+      <view class="cu-form-group margin-top align-start">
+        <view class="title">标签</view>
+        <view class="padding-sm flex">
+          <view class="padding-xs" wx:for="{{tags}}" wx:key wx:if="{{item.name!='gray'}}">
+            <view class="cu-tag round sm bg-{{item.name}}">{{item.title}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-form-group margin-top align-start">
+        <view class="title">
+          <view class="text-sm text-black">设置默认地址</view>
+          <view class="text-xs text-gray">提醒：每次下单会默认使用该地址</view>
+        </view>
+        <view class="action margin-top">
+          <switch class="xs" bindchange="SetShadow"></switch>
+        </view>
+      </view>
+    </form>
+    <view class="padding flex flex-direction">
+      <button class="cu-btn bg-green margin-tb-sm">
+        <text class="cuIcon-add iconfont-spin"></text>
+        保存
+      </button>
+    </view>
+  </view>
+</view>

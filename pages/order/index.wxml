@@ -1,0 +1,69 @@
+<!-- pages/order/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">订单</view>
+  </cu-custom>
+  <view class="box">
+    <scroll-view scroll-x class="bg-white nav">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{top_menu.id==TabCur?'text-orange cur':''}}" wx:for="{{nav_top_menus}}" wx:for-item="top_menu" wx:key="index" bindtap="tabSelect" data-id="{{top_menu.id}}">
+          {{top_menu.menu_text}}
+        </view>
+      </view>
+    </scroll-view>
+    <view class="order-list">
+      <view class="cu-card dynamic">
+        <view class="cu-item shadow padding">
+          <view class="margin-top-sm flex justify-start">
+            <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+            <view class="content margin-left-lg">
+              <view class="text-grey">莫甘娜</view>
+              <view class="text-gray text-content text-df">凯尔，你被自己的光芒变的盲目。</view>
+            </view>
+          </view>
+          <view class="padding-lg text-sm">
+            <view class="flex justify-end">
+              <view class="text-gray margin-right-sm">总价：￥40.00</view>
+              <view class="text-black ">实付款：￥40.00</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2018年12月4日</view>
+            <view class="flex flex-wrap justify-between align-center bg-white">
+              <button class="cu-btn round bg-red sm">删除订单</button>
+              <button class="cu-btn round margin-left-sm bg-green sm" bindtap="jumpLogisticPage">
+                查看物流
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="cu-card dynamic">
+        <view class="cu-item shadow padding">
+          <view class="margin-top-sm flex justify-start">
+            <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
+            <view class="content margin-left-lg">
+              <view class="text-grey">莫甘娜</view>
+              <view class="text-gray text-content text-df">凯尔，你被自己的光芒变的盲目。</view>
+            </view>
+          </view>
+          <view class="padding-lg text-sm">
+            <view class="flex justify-end">
+              <view class="text-gray margin-right-sm">总价：￥40.00</view>
+              <view class="text-black ">实付款：￥40.00</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <view class="text-gray text-df">2018年12月4日</view>
+            <view class="flex flex-wrap justify-between align-center bg-white">
+              <button class="cu-btn round bg-red sm" bindtap="delOrder">删除订单</button>
+              <button class="cu-btn round margin-left-sm bg-green sm" bindtap="jumpLogisticPage">
+                查看物流
+              </button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

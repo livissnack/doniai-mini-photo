@@ -1,0 +1,12 @@
+<!--pages/ocr/index.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">拍照取字</view>
+  </cu-custom>
+  <view class="box">
+    <view class="margin-xl bg-white padding-xl radius shadow-lg">
+      <view class="text-center margin-bottom text-sm text-grey">拍照取字超时，怎么办？</view>
+      <view class="text-content text-sm">就爱打打打打看</view>
+    </view>
+  </view>
+</view>

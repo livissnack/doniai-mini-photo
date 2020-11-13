@@ -1,0 +1,61 @@
+<!-- pages/user/contact/contact.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">个人信息</view>
+  </cu-custom>
+  <view class="box">
+    <view class="userinfo">
+      <button class="cu-btn bg-red margin-tb-sm" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        <text class="cuIcon-add iconfont-spin"></text>
+        获取头像昵称
+      </button>
+      <view class="userinfo" wx:else>
+        <view class="cu-list menu-avatar">
+          <view class="cu-item">
+            <view class="cu-avatar radius lg" style="background-image:url({{userInfo.avatarUrl}});">
+              <view class="cu-tag badge">up</view>
+            </view>
+            <view class="content">
+              <view class="text-black flex justify-between">
+                <view class="text-cut">{{userInfo.nickName}}</view>
+                 <view class="text-cut text-sm">积分：200</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="cu-bar bg-white solid-bottom">
+          <view class="action">
+            <text class="cuIcon-title text-orange"></text>
+            相关操作
+          </view>
+        </view>
+        <view class="cu-list menu">
+          <view class="cu-item arrow">
+            <button class="cu-btn content" bindtap="jumpSigninPage">
+              <text class="cuIcon-send text-cyan"></text>
+              <text class="text-grey">去签到</text>
+            </button>
+          </view>
+          <view class="cu-item arrow">
+            <button class="cu-btn content" open-type="contact">
+              <text class="cuIcon-weixin text-olive"></text>
+              <text class="text-grey">在线咨询</text>
+            </button>
+          </view>
+          <view class="cu-item arrow">
+            <button class="cu-btn content" bindtap="callContact">
+              <text class="cuIcon-phone text-blue"></text>
+              <text class="text-grey">电话咨询</text>
+            </button>
+          </view>
+          <view class="cu-item arrow" bindtap="jumpAddressPage">
+            <button class="cu-btn content">
+              <text class="cuIcon-locationfill text-orange"></text>
+              <text class="text-grey">收货地址</text>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

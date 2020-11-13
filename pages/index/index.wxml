@@ -1,0 +1,71 @@
+<!--pages/index/index.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">智能证件照</view>
+  </cu-custom>
+  <view class="box">
+    <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{swiperList}}" wx:key>
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </swiper-item>
+    </swiper>
+    <view class="cu-bar search bg-white padding-top">
+      <view class="search-form round">
+        <text class="cuIcon-search"></text>
+        <input adjust-position="{{false}}" type="text" placeholder="搜索工具名称" confirm-type="search" />
+      </view>
+      <view class="action">
+        <button class="cu-btn bg-green shadow-blur round">搜索</button>
+      </view>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">热门工具</text>
+      </view>
+    </view>
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item" bindtap="uploadImageToOss">
+        <view class="cuIcon-cardboardfill text-red"></view>
+        <text>拍照取字</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-recordfill text-blue"></view>
+        <text>文字翻译</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-picfill text-yellow"></view>
+        <text>植物识别</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-picfill text-yellow"></view>
+        <text>智能证件照</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-more text-gray"></view>
+        <text>更多</text>
+      </view>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">常见问题</text>
+      </view>
+    </view>
+    <view class="cu-list menu sm-border">
+      <view class="cu-item cu-item-custom arrow" bindtap="jumpQuestionPage">
+        <view class="content">
+          <text class="cuIcon-tagfill text-red"></text>
+          <text class="text-grey text-sm">拍照取字超时，怎么办？</text>
+        </view>
+      </view>
+      <view class="cu-item cu-item-custom arrow">
+        <view class="content">
+          <text class="cuIcon-tagfill text-red"></text>
+          <text class="text-grey text-sm">上传图片错误？</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

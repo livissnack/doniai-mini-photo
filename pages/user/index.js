@@ -115,6 +115,12 @@ Page({
     })
   },
 
+  jumpAboutPage() {
+    wx.navigateTo({
+      url: '/pages/about/index'
+    })
+  },
+
   callContact() {
     wx.makePhoneCall({
       phoneNumber: '15302661170'

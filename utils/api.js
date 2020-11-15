@@ -30,8 +30,6 @@ export const updateAddress = (data) => post(`${API_ROOT}/api/address/edit`, data
 
 export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data);
 
-export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data);
-
 
 /*********************************************************************************************登录体系*********************************************************************/
 
@@ -40,7 +38,7 @@ export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data)
  * Api/Login/getsessionkey
  * @param {object} data 
  */
-export const getOpenid = (data) => post(`${API_ROOT}/Api/Login/getsessionkey`, data);
+//export const getOpenid = (data) => post(`${API_ROOT}/Api/Login/getsessionkey`, data);
 
 /**
  * 用openid 来登录系统，

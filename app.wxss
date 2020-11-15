@@ -105,3 +105,20 @@
 .text-light {
   font-weight: 300;
 }
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gx-inline {
+  display: inline-block;
+}
+
+.text-cneter {
+  text-align: center;
+}
+
+.btn-center{
+  margin: 0 auto;
+}

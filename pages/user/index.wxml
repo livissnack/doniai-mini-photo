@@ -54,6 +54,18 @@
               <text class="text-grey">收货地址</text>
             </button>
           </view>
+          <view class="cu-item arrow" bindtap="jumpAboutPage">
+            <button class="cu-btn content">
+              <text class="cuIcon-questionfill text-orange"></text>
+              <text class="text-grey">关于</text>
+            </button>
+          </view>
+          <view class="cu-item">
+            <button class="cu-btn content">
+              <text class="cuIcon-settingsfill text-orange"></text>
+              <text class="text-grey">版本V1.0.0</text>
+            </button>
+          </view>
         </view>
       </view>
     </view>

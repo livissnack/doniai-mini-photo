@@ -74,6 +74,18 @@ Page({
     })
   },
 
+  jumpTrsanlatePage() {
+    wx.navigateTo({
+      url: '/pages/translate/index'
+    })
+  },
+
+  jumpCropPage() {
+    wx.navigateTo({
+      url: '/pages/crop/index'
+    })
+  },
+
   uploadImageToOss() {
     wx.chooseImage({
       count: 1, // 默认最多一次选择9张图

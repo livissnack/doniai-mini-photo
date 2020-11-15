@@ -1,0 +1,12 @@
+<!--pages/crop/index.wxml-->
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut"></image-cropper>
+
+<view class='bottom'>
+  <view class="margin-tb-sm text-center">
+    <button class="cu-btn round bg-pink shadow sm" bindtap='submit'>确定</button>
+    <button class="cu-btn round bg-olive shadow sm" catchtouchstart='rotate' catchtouchend='end' data-type="rotate">旋转</button>
+    <button class="cu-btn round bg-mauve shadow sm" catchtap='upload'>上传</button>
+    <button class="cu-btn round bg-brown shadow sm">取消</button>
+  </view>
+</view>
+

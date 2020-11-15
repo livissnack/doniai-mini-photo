@@ -26,11 +26,11 @@
       </view>
     </view>
     <view class="cu-list grid col-3 no-border">
-      <view class="cu-item" bindtap="uploadImageToOss">
+      <view class="cu-item" bindtap="jumpCropPage">
         <view class="cuIcon-cardboardfill text-red"></view>
         <text>拍照取字</text>
       </view>
-      <view class="cu-item">
+      <view class="cu-item" bindtap="jumpTrsanlatePage">
         <view class="cuIcon-recordfill text-blue"></view>
         <text>文字翻译</text>
       </view>

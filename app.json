@@ -9,7 +9,10 @@
     "pages/order/logistic",
     "pages/address/edit",
     "pages/address/create",
-    "pages/user/signin"
+    "pages/user/signin",
+    "pages/translate/index",
+    "pages/about/index",
+    "pages/crop/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -23,7 +26,8 @@
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-custom": "/colorui/components/cu-custom",
+    "image-cropper": "/colorui/components/image-cropper"
   },
   "tabBar": {
     "color": "#7a7e83",

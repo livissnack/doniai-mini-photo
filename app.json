@@ -12,7 +12,9 @@
     "pages/user/signin",
     "pages/translate/index",
     "pages/about/index",
-    "pages/crop/index"
+    "pages/crop/index",
+    "pages/photo/index",
+    "pages/photo/detail"
   ],
   "permission": {
     "scope.userLocation": {

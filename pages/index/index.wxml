@@ -38,7 +38,7 @@
         <view class="cuIcon-picfill text-yellow"></view>
         <text>植物识别</text>
       </view>
-      <view class="cu-item">
+      <view class="cu-item" bindtap="jumpPhotoPage">
         <view class="cuIcon-picfill text-yellow"></view>
         <text>智能证件照</text>
       </view>

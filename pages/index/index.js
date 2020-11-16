@@ -86,6 +86,12 @@ Page({
     })
   },
 
+  jumpPhotoPage() {
+    wx.navigateTo({
+      url: '/pages/photo/index'
+    })
+  },
+
   uploadImageToOss() {
     wx.chooseImage({
       count: 1, // 默认最多一次选择9张图

@@ -1,0 +1,4 @@
+/* pages/photo/index.wxss */
+.text-gx-sm {
+  font-size: 23rpx!important;
+}

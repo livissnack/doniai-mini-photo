@@ -64,6 +64,11 @@
           "pathName": "pages/user/signin",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/photo/index",
+          "pathName": "pages/photo/index",
+          "scene": null
         }
       ]
     }

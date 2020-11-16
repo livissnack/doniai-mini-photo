@@ -1,0 +1,26 @@
+<!--pages/photo/detail.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">专业证件照</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">一寸</text>
+      </view>
+    </view>
+    <view class="padding bg-white">
+      <view class="flex">
+        <view class="flex align-center">
+          <view class="text-sm">
+            <text class="text-red">
+              <text class=" cuIcon-roundcheckfill text-green"></text>支持保存电子照
+            </text>
+            <text class="text-price text-red">支持保存电子照</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

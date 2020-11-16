@@ -14,7 +14,7 @@
               <view class="gx-inline">
                 <picker bindchange="sourcePickerChange" range-key="name" value="{{code}}" range="{{langs}}">
                   <view class="picker">
-                    <view class="text-cyan gx-inline text-center">中文</view>
+                    <view class="text-cyan gx-inline text-center">{{source_lang_text}}</view>
                     <view class="cuIcon-unfold gx-inline text-blue"></view>
                   </view>
                 </picker>
@@ -42,7 +42,7 @@
               <view class="gx-inline">
                 <picker bindchange="targetPickerChange" range-key="name" value="{{code}}" range="{{langs}}">
                   <view class="picker">
-                    <view class="text-cyan gx-inline text-center">英文</view>
+                    <view class="text-cyan gx-inline text-center">{{target_lang_text}}</view>
                     <view class="cuIcon-unfold gx-inline text-blue"></view>
                   </view>
                 </picker>

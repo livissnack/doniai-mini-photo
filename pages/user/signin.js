@@ -1,12 +1,11 @@
 // pages/user/signin.js
-const util = require('../../utils/helper.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    weekdays: util.getWeekDay('2020-11-13')
+    weekdays: []
   },
 
   /**

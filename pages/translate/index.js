@@ -1,4 +1,6 @@
 // pages/translate/index.js
+import { getTranslate } from '../../utils/api'
+import { isEmpty } from '../../utils/helper'
 Page({
 
   /**
@@ -7,14 +9,16 @@ Page({
   data: {
     source_focus: false,
     source_text: '',
-    source_lang: 'zh',
+    source_lang: 'zh-CN',
+    source_lang_text: '中文',
 
     target_focus: false,
     target_text: '',
-    target_lang: 'en',
+    target_lang: 'en_US',
+    target_lang_text: '英文',
     langs: [
-      {name: '中文', code: 'zh'},
-      {name: '英文', code: 'en'}
+      {name: '中文', code: 'zh-CN'},
+      {name: '英文', code: 'en_US'}
     ]
   },
 
@@ -44,8 +48,13 @@ Page({
       wx.setClipboardData({
         data: target_text,
         success: function(res) {
-          CopySaveOcrContent(getApp().globalData.uid, target_text).then(res => {
-            console.log(res)
+          wx.showToast({
+            title: '复制成功',
+            duration: 3000
+          })
+          wx.getClipboardData({
+            success: function (res) {
+            }
           })
         }
       });
@@ -55,8 +64,10 @@ Page({
   sourcePickerChange(e) {
     let index = e.detail.value;
     let selectLang = this.data.langs[index].code
+    let selectText = this.data.langs[index].name
     this.setData({
-      source_lang: selectLang
+      source_lang: selectLang,
+      source_lang_text: selectText
     })
   },
   source_focus: function() {
@@ -75,8 +86,10 @@ Page({
   targetPickerChange(e) {
     let index = e.detail.value;
     let selectLang = this.data.langs[index].code
+    let selectText = this.data.langs[index].name
     this.setData({
-      target_lang: selectLang
+      target_lang: selectLang,
+      target_lang_text: selectText
     })
   },
   target_focus: function() {
@@ -92,15 +105,23 @@ Page({
   },
 
   doTranslate() {
+ 
     let source_text = this.data.source_text;
     if(isEmpty(source_text)) {
       return wx.showToast({title: '翻译内容为空'});
     }
     wx.showLoading({title: '翻译中'});
-    getTranslateText(source_text).then(res => {
+
+    let trans_data = {
+      q: source_text,
+      from: this.data.source_lang,
+      to: this.data.target_lang,
+    };
+    getTranslate(trans_data).then(res => {
+      console.log(res);
       wx.hideLoading();
       this.setData({
-        target_text: res.data === null ? '翻译结果为空' : res.data
+        target_text: res.data.to_content === null ? '翻译结果为空' : res.data.to_content
       })
     }).catch(e => {
       wx.showToast({title: '请求失败'});
@@ -160,6 +181,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: 'DoniaiMini-轻奢的智能证件照小程序',
+      imageUrl: '/images/share.jpg',
+      path: '/pages/translate/index'
+    }
   }
 })

@@ -1,4 +1,5 @@
 //app.js
+import {getOpenid} from "./utils/api"
 App({
   onLaunch: function() {
     wx.getSystemInfo({
@@ -16,7 +17,13 @@ App({
     // 登录
     wx.login({
       success: res => {
-        console.log(res)
+        let request_data = {code: res.code};
+        getOpenid(request_data).then(res => {
+          this.globalData.openid = res.data.openid;
+          this.globalData.token = res.data.token;
+        }).catch(e => {
+          wx.showToast({title: '请求失败'});
+        })
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -42,6 +49,8 @@ App({
     })
   },
   globalData: {
+    token: null,
+    openid: null,
     userInfo: null,
     wechatDevelopKey: 'GILBZ-JYWEU-A52V6-2GDYQ-GV6ZQ-FDBZA',
     tempFilePaths: [],

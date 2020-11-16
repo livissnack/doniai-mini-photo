@@ -9,10 +9,10 @@ import {get, post, put, del} from './request';
  * https://www.doniai.com/
  * @type {string}
  */
-export const API_ROOT = 'https://www.doniai.com';
+export const API_ROOT = 'https://doniai.ltd';
 
 export const getOpenid = (data) => post(`${API_ROOT}/api/user/login`, data);
-export const authLogin = (data) => post(`${API_ROOT}/api/user/auth`, data);
+export const authLogin = (data, headers) => post(`${API_ROOT}/api/user/auth`, data, headers);
 
 export const getPhotoHistory = () => get(`${API_ROOT}/api/user/photo_history`);
 

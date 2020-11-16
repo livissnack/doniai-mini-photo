@@ -1,4 +1,4 @@
-const formatTime = (date) => {
+export function formatTime(date) {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
   const day = date.getDate()
@@ -10,36 +10,65 @@ const formatTime = (date) => {
   // + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-const formatNumber = (n) => {
+export function formatNumber(n) {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
 
-const getWeekDay = (dateString) => {
-  console.log(dateString)
-  let dateStringReg = /^\d{4}[/-]\d{1,2}[/-]\d{1,2}$/
 
-  if (dateString.match(dateStringReg)) {
-    let presentDate = new Date(dateString),
-      today = presentDate.getDay() !== 0 ? presentDate.getDay() : 7
+export function isEmpty(obj) {
+  try {
+    if (obj == null || obj == undefined) {
+      return true
+    }
+    //判断数字是否是NaN
+    if (typeof obj === 'number') {
+      if (isNaN(obj)) {
+        return true
+      } else {
+        return false
+      }
+    }
+    //判断参数是否是布尔、函数、日期、正则，是则返回false
+    if (
+      typeof obj === 'boolean' ||
+      typeof obj === 'function' ||
+      obj instanceof Date ||
+      obj instanceof RegExp
+    ) {
+      return false
+    }
+    //判断参数是否是字符串，去空，如果长度为0则返回true
+    if (typeof obj === 'string') {
+      if (obj.trim().length == 0) {
+        return true
+      } else {
+        return false
+      }
+    }
 
-    return Array.from(new Array(7), function (val, index) {
-      return formatDate(
-        new Date(
-          presentDate.getTime() - (today - index - 1) * 24 * 60 * 60 * 1000
-        )
-      )
-    })
-  } else {
-    throw new Error('dateString should be like "yyyy-mm-dd" or "yyyy/mm/dd"')
+    if (typeof obj === 'object') {
+      //判断参数是否是数组，数组为空则返回true
+      if (obj instanceof Array) {
+        if (obj.length == 0) {
+          return true
+        } else {
+          return false
+        }
+      }
+
+      //判断参数是否是对象，判断是否是空对象，是则返回true
+      if (obj instanceof Object) {
+        //判断对象属性个数
+        if (Object.getOwnPropertyNames(obj).length == 0) {
+          return true
+        } else {
+          return false
+        }
+      }
+    }
+  } catch (e) {
+    console.log(e)
+    return false
   }
-
-  function formatDate(date) {
-    return date.getDate()
-  }
-}
-
-module.exports = {
-  formatTime: formatTime,
-  getWeekDay: getWeekDay
 }

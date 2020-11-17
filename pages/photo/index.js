@@ -65,9 +65,14 @@ Page({
   },
 
   jumpPhotoDetailPage() {
-    console.log()
     wx.navigateTo({
       url: '/pages/photo/detail'
+    })
+  },
+
+  jumpPhotoHistoryPage() {
+    wx.navigateTo({
+      url: '/pages/photo/history'
     })
   }
 })

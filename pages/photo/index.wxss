@@ -2,3 +2,8 @@
 .text-gx-sm {
   font-size: 23rpx!important;
 }
+
+.gx-photo-history {
+  font-weight: bold;
+  text-decoration: underline;
+}

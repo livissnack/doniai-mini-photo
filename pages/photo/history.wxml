@@ -1,0 +1,45 @@
+<!-- pages/photo/history.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">专业证件照</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text>
+        列表-制作历史
+      </view>
+    </view>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{response.items}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+        <view class="cu-avatar lg" style="background-image:url({{item.image_url}});"></view>
+        <view class="content">
+          <view class="text-grey">一寸</view>
+          <view class="text-gray text-sm">
+            <text class="cuIcon-infofill text-red"></text>
+            {{item.size}}
+          </view>
+        </view>
+        <view class="action gx-action">
+          <view class="text-grey text-xs">{{m1.format(item.created_time)}}</view>
+          <view class="cu-tag round bg-grey sm">{{item.ph_id}}</view>
+        </view>
+        <view class="move">
+          <view class="bg-grey">置顶</view>
+          <view class="bg-red">删除</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<wxs module="m1">
+  function format(ts) {
+    var d = getDate(ts)
+    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-')
+      + ' '
+      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')
+  }
+  module.exports.format = format
+</wxs>

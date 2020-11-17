@@ -14,7 +14,8 @@ export const API_ROOT = 'https://doniai.ltd';
 export const getOpenid = (data) => post(`${API_ROOT}/api/user/login`, data);
 export const authLogin = (data, headers) => post(`${API_ROOT}/api/user/auth`, data, headers);
 
-export const getPhotoHistory = () => get(`${API_ROOT}/api/user/photo_history`);
+export const getPhotoHistorys = (data, headers) => post(`${API_ROOT}/api/photo_history`, data, headers);
+export const getPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/detail`, data, headers);
 
 export const getQuestions = () => get(`${API_ROOT}/api/question`);
 export const getQuestion = (question_id) => get(`${API_ROOT}/api/question/detail?question_id=${question_id}`);

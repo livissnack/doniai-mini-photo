@@ -1,0 +1,4 @@
+/* pages/photo/history.wxss */
+.gx-action {
+  width: 200rpx!important;
+}

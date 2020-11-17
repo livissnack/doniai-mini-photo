@@ -9,6 +9,10 @@
         <text class="cuIcon-title text-red"></text>
         <text class="text-gray text-black text-bold">热门规格</text>
       </view>
+
+      <view class="action" bindtap="jumpPhotoHistoryPage">
+        <text class="text-gray gx-photo-history text-black text-bold">历史制作</text>
+      </view>
     </view>
     <view class="cu-bar search bg-white padding-top">
       <view class="search-form round">

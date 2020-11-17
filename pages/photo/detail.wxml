@@ -11,14 +11,70 @@
       </view>
     </view>
     <view class="padding bg-white">
-      <view class="flex">
-        <view class="flex align-center">
-          <view class="text-sm">
-            <text class="text-red">
-              <text class=" cuIcon-roundcheckfill text-green"></text>支持保存电子照
-            </text>
-            <text class="text-price text-red">支持保存电子照</text>
+      <view class="flex align-start">
+        <view class="text-red sm">
+          <text class=" cuIcon-roundcheckfill text-green"></text>支持保存电子照
+        </view>
+        <view class="text-red sm margin-left-lg">
+          <text class=" cuIcon-roundcheckfill text-green"></text>支持冲印、邮寄
+        </view>
+      </view>
+
+      <view class="gx-solid-bottom margin-top-lg"></view>
+
+      <view class="flex justify-between margin-top-lg">
+        <view class="text-red sm margin-left-lg">
+          <text class="block text-black lg">像素大小</text>
+          <text class="block text-gray sm">295*413 px</text>
+        </view>
+
+        <view class="text-red sm margin-left-lg">
+          <text class="block text-black lg">照片尺寸</text>
+          <text class="block text-gray sm">2.5*3.5cm</text>
+        </view>
+
+        <view class="text-red sm margin-left-lg">
+          <text class="block text-black lg">照片格式</text>
+          <text class="block text-gray lg">jpg、png</text>
+        </view>
+      </view>
+
+      <view class="padding gx-card margin-top-lg">
+        <view class="flex justify-between">
+          <view class="text-black lg">背景色</view>
+          <view class="flex">
+            <view class="gx-color bg-blue margin-left-xs"></view>
+            <view class="gx-color bg-white margin-left-xs"></view>
+            <view class="gx-color bg-red margin-left-xs"></view>
+            <view class="gx-color bg-cyan margin-left-xs"></view>
+            <view class="gx-color bg-olive margin-left-xs"></view>
           </view>
+        </view>
+
+        <view class="flex justify-between padding-top-sm">
+          <view class="text-black lg">文件大小</view>
+          <view class="text-gray sm">无要求</view>
+        </view>
+
+        <view class="flex justify-between padding-top-sm">
+          <view class="text-black lg">文件格式</view>
+          <view class="text-gray sm">jpg</view>
+        </view>
+
+        <view class="flex justify-between padding-top-sm">
+          <view class="text-black lg">其他要求</view>
+          <view class="text-gray sm">无要求</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="foot padding bg-white">
+      <view class="flex justify-between margin-top gard-end">
+        <view class="padding" bindtap="chooseImage">
+          <button class="cu-btn bg-olive margin-tb-sm">相册上传</button>
+        </view>
+        <view class="padding" bindtap="takeImage">
+          <button class="cu-btn bg-blue margin-tb-sm">直接拍照</button>
         </view>
       </view>
     </view>

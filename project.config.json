@@ -68,6 +68,12 @@
         {
           "name": "pages/photo/index",
           "pathName": "pages/photo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/photo/detail",
+          "pathName": "pages/photo/detail",
           "scene": null
         }
       ]

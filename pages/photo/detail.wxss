@@ -1,1 +1,21 @@
 /* pages/photo/detail.wxss */
+.gx-solid-bottom {
+  border: 1rpx solid #aaaaaa;
+}
+
+.gx-card {
+  background-color: #eeeeee;
+  border-radius: 10rpx;
+}
+
+.gx-color {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.foot {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+	bottom: 0;
+}

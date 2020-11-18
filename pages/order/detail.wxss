@@ -1,0 +1,5 @@
+/* pages/order/detail.wxss */
+.gx-right {
+  display: flex;
+  justify-content: flex-end;
+}

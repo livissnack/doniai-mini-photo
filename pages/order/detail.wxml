@@ -1,0 +1,120 @@
+<!-- pages/order/detail.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">订单详情</view>
+  </cu-custom>
+  <view class="box bg-white">
+    <view class="solid">
+      <view class="solid-bottom padding text-left">
+        <button class="cu-btn block bg-blue lg">
+          <text class="cuIcon-timefill"></text>
+          <text class="text-white">订单待付款 29分07秒</text>
+        </button>
+      </view>
+      <view class="cu-list menu solid sm-border card-menu margin-top">
+        <view class="solid-bottom padding text-left">
+          <view class="action">
+            <text class="cuIcon-title text-red"></text>
+            <text class="text-gray text-black text-bold">订单内容</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">商品名称</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">一寸（蓝底）</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">商品规格</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">295*413px | 25*35cm</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">价格</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">￥ 4.99</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">增值服务</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">无</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">合计</text>
+          </view>
+          <view class="action">
+            <text class="text-red text-sm">￥4.99</text>
+          </view>
+        </view>
+      </view>
+      <view class="cu-list menu solid sm-border card-menu margin-top">
+        <view class="solid-bottom padding text-left">
+          <view class="action">
+            <text class="cuIcon-title text-red"></text>
+            <text class="text-gray text-black text-bold">订单信息</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">订单编号</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">20201118134502125666</text>
+            <view class="cu-tag round bg-blue light sm">复制</view>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-sm">下单时间</text>
+          </view>
+          <view class="action">
+            <text class="text-grey text-sm">2020-11-18 10:37:22</text>
+          </view>
+        </view>
+      </view>
+      <view class="cu-list menu solid sm-border card-menu margin-top margin-bottom">
+        <view class="cu-item">
+          <view class="content">
+            <text class="text-grey text-xs">客服时间：周一至周五 9：00~11：30 13：00~17：00（节假日除外）</text>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content">
+            <button class="cu-btn line-blue shadow margin-tb-sm" bindtap="callContact">
+              <text class="cuIcon-phone"></text>
+              <text class="text-black">电话客服</text>
+            </button>
+          </view>
+          <view class="action">
+            <button class="cu-btn line-blue shadow margin-tb-sm" open-type="contact">
+              <text class="cuIcon-comment"></text>
+              <text class="text-black">在线客服</text>
+            </button>
+          </view>
+        </view>
+        <view class="cu-item">
+          <view class="content gx-right">
+            <button class="cu-btn bg-red shadow margin-tb-sm margin-right">
+              <text class="text-white">取消订单</text>
+            </button>
+            <button class="cu-btn bg-blue shadow margin-tb-sm">
+              <text class="text-white">去支付</text>
+            </button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

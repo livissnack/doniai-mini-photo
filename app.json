@@ -15,7 +15,9 @@
     "pages/crop/index",
     "pages/photo/index",
     "pages/photo/detail",
-    "pages/photo/history"
+    "pages/photo/history",
+    "pages/photo/preview",
+    "pages/order/detail"
   ],
   "permission": {
     "scope.userLocation": {

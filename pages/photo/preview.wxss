@@ -1,0 +1,8 @@
+/* pages/photo/preview.wxss */
+.image-center {
+  margin: 0 auto;
+}
+
+.text-underline {
+  text-decoration: underline;
+}

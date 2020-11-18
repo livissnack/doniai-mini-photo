@@ -74,6 +74,18 @@
         {
           "name": "pages/photo/detail",
           "pathName": "pages/photo/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/photo/preview",
+          "pathName": "pages/photo/preview",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/order/detail",
+          "pathName": "pages/order/detail",
           "scene": null
         }
       ]

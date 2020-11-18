@@ -1,0 +1,129 @@
+<!-- pages/photo/preview.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">证件照预览</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">图片预览</text>
+      </view>
+    </view>
+    <view class="bg-white cu-bar padding-top-xl">
+      <view class="image-center">
+        <image class="solid" mode="aspectFit" src="{{preview_image_url}}"></image>
+      </view>
+    </view>
+    <view class="bg-white cu-bar padding-top-xs">
+      <view class="image-center text-underline">添加文字</view>
+    </view>
+    <view class="foot">
+      <view class="flex justify-between bg-white">
+        <view class="padding">
+          <button class="cu-btn bg-olive margin-tb-sm">换底色</button>
+        </view>
+        <view class="padding">
+          <button class="cu-btn bg-blue margin-tb-sm">美颜</button>
+        </view>
+        <view class="padding">
+          <button class="cu-btn bg-red margin-tb-sm">换装</button>
+        </view>
+      </view>
+      <view class="flex justify-between bg-white">
+        <view class="padding">
+          <button class="cu-btn line-blue shadow margin-tb-sm" bindtap="showModal" data-target="ChooseModal">
+            <text class="cuIcon-pulldown"></text>
+            <text class="text-black">保存电子照</text>
+          </button>
+        </view>
+        <view class="padding">
+          <button class="cu-btn line-green shadow margin-tb-sm">
+            <text class="cuIcon-sponsor"></text>
+            <text class="text-black">冲印排版照</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
+  <view class="cu-dialog bg-white" catchtap>
+    <view class="cu-bar bg-white radius solid-bottom">
+      <view class="action text-blue" bindtap="hideModal"></view>
+      <view class="action text-green" bindtap="hideModal">
+        <text class="cuIcon-roundclosefill lg text-gray"></text>
+      </view>
+    </view>
+    <view class="cu-card article no-card padding-top">
+      <view class="cu-item shadow">
+        <view class="content">
+          <image mode="aspectFit" src="{{preview_image_url}}"></image>
+          <view class="desc">
+            <view class="text-content text-left">
+              <view class="block text-black  light sm">一寸</view>
+              <view class="block text-black light sm">包含[单张电子照]和[排版照]</view>
+              <view class="block text-black light sm">
+                已选底色 |
+                <view class="cu-tag bg-blue light sm"></view>
+              </view>
+            </view>
+            <view class="text-left">
+              <view class="block text-black light sm">￥ 4.99</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">可选服务</text>
+      </view>
+    </view>
+    <view class="grid col-2 padding-sm">
+      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn orange lg block {{item.checked?'line-green':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}">
+          <text class="text-black text-sm">{{item.name}}</text>
+          <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">
+            HOT
+          </view>
+        </button>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <button class="cu-btn block bg-blue lg" bindtap="showModal" data-target="DialogModal2">
+        <text class="cuIcon-pulldown"></text>
+        <text class="text-white">支付￥4.99 保存电子照</text>
+      </button>
+    </view>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">证照支付</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <view class="block text-black  light sm">一寸</view>
+      <view class="block text-black light sm">包含[单张电子照]和[排版照]</view>
+      <view class="block text-black light sm">
+        已选底色 |
+        <view class="cu-tag bg-blue light sm"></view>
+      </view>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-green " bindtap="hideModal">
+        <text class="cuIcon-roundclosefill"></text>
+        取消支付
+      </view>
+      <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">
+        <text class="cuIcon-moneybagfill"></text>
+        确定支付
+      </view>
+    </view>
+  </view>
+</view>

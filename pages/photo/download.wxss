@@ -1,0 +1,4 @@
+/* pages/order/download.wxss */
+.image-center {
+  margin: 0 auto;
+}

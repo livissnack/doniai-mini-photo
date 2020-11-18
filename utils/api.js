@@ -17,6 +17,9 @@ export const authLogin = (data, headers) => post(`${API_ROOT}/api/user/auth`, da
 export const getPhotoHistorys = (data, headers) => post(`${API_ROOT}/api/photo_history`, data, headers);
 export const getPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/detail`, data, headers);
 
+export const getAllSpec = (data, headers) => post(`${API_ROOT}/api/photo_spec`, data, headers);
+export const getSpec = (data, headers) => post(`${API_ROOT}/api/photo_spec/detail`, data, headers);
+
 export const getQuestions = () => get(`${API_ROOT}/api/question`);
 export const getQuestion = (question_id) => get(`${API_ROOT}/api/question/detail?question_id=${question_id}`);
 

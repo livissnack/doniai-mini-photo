@@ -17,7 +17,8 @@
     "pages/photo/detail",
     "pages/photo/history",
     "pages/photo/preview",
-    "pages/order/detail"
+    "pages/order/detail",
+    "pages/photo/download"
   ],
   "permission": {
     "scope.userLocation": {

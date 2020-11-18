@@ -6,6 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    CustomBar: app.globalData.CustomBar,
     request: {
       page: 1,
       size: 20
@@ -64,6 +65,7 @@ Page({
 
   // ListTouch计算方向
   ListTouchMove(e) {
+    console.log(e)
     this.setData({
       ListTouchDirection:
         e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left',
@@ -87,7 +89,7 @@ Page({
   },
 
   getPhotoHistorys() {
-    let auth_token = app.globalData.token
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
     let request_data = this.data.request
     let headers = {
       Authorization: `Bearer ${auth_token}`,
@@ -100,5 +102,17 @@ Page({
     }).catch(e => {
       wx.showToast({title: '请求失败'});
     })
+  },
+
+  jumpPhotoDownloadPage(event) {
+    let ph_id = event.currentTarget.dataset.id
+    if(ph_id === null || ph_id === undefined || ph_id ==='') {
+      wx.showToast({ title: '编号ID为空…', icon: 'fail', duration: 2000 })
+      return
+    } else {
+      wx.navigateTo({
+        url: `/pages/photo/download?ph_id=${ph_id}`
+      })
+    }
   }
 })

@@ -9,7 +9,6 @@
         <text class="cuIcon-title text-red"></text>
         <text class="text-gray text-black text-bold">热门规格</text>
       </view>
-
       <view class="action" bindtap="jumpPhotoHistoryPage">
         <text class="text-gray gx-photo-history text-black text-bold">历史制作</text>
       </view>
@@ -17,165 +16,28 @@
     <view class="cu-bar search bg-white padding-top">
       <view class="search-form round">
         <text class="cuIcon-search"></text>
-        <input adjust-position="{{false}}" type="text" placeholder="搜索你想拍摄的规格名称、尺寸" confirm-type="search" />
+        <input adjust-position="{{false}}" bindinput="changeSearchValue" value="{{request.keyword}}" type="text" placeholder="搜索你想拍摄的规格名称、尺寸" confirm-type="search" />
       </view>
       <view class="action">
-        <button class="cu-btn bg-green shadow-blur round">搜索</button>
+        <button class="cu-btn bg-green shadow-blur round" bindtap="doSearch">搜索</button>
       </view>
     </view>
     <view class="padding bg-white">
-      <view class="flex">
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">一寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295*413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
+      <view class="bg-white padding solid">
+        <view class="grid col-2 margin-bottom text-left">
+          <view class="padding-xs" wx:for="{{response}}" wx:key="index" bindtap="jumpPhotoDetailPage" data-id="{{item.photo_spec_id}}">
+            <view class="cu-card solid article no-card">
+              <view class="cu-item shadow">
+                <view class="title">
+                  <view class="text-cut text-bold">{{item.title}}</view>
                 </view>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">二寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295 x 413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="flex">
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">一寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295*413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">二寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295 x 413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="flex">
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">一寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295*413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">二寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295 x 413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-
-      <view class="flex">
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">一寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295*413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </view>
-        </view>
-
-        <view class="flex-sub solid padding-xs margin-xs radius" bindtap="jumpPhotoDetailPage">
-          <view class="cu-card article no-card">
-            <view class="cu-item shadow">
-              <view class="title">
-                <view class="text-cut text-bold">二寸</view>
-              </view>
-              <view class="content">
-                <view class="desc">
-                  <view class="text-content text-sm text-gx-sm">像素尺寸：295 x 413 px</view>
-                  <view>
-                    <view class="cu-tag bg-red light sm round">电子照</view>
-                    <view class="cu-tag bg-green light sm round">冲印</view>
+                <view class="content">
+                  <view class="desc">
+                    <view class="text-sm text-black">尺寸：{{item.size}}</view>
+                    <view>
+                      <view class="cu-tag bg-red light sm round">电子照</view>
+                      <view class="cu-tag bg-green light sm round">冲印</view>
+                    </view>
                   </view>
                 </view>
               </view>

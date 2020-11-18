@@ -14,7 +14,7 @@
     <view class="order-list">
       <view class="cu-card dynamic">
         <view class="cu-item shadow padding">
-          <view class="margin-top-sm flex justify-start">
+          <view class="margin-top-sm flex justify-start" bindtab="jumpOrderDetailPage">
             <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
             <view class="content margin-left-lg">
               <view class="text-grey">莫甘娜</view>
@@ -40,7 +40,7 @@
       </view>
       <view class="cu-card dynamic">
         <view class="cu-item shadow padding">
-          <view class="margin-top-sm flex justify-start">
+          <view class="margin-top-sm flex justify-start" bindtab="jumpOrderDetailPage">
             <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
             <view class="content margin-left-lg">
               <view class="text-grey">莫甘娜</view>

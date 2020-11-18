@@ -47,6 +47,13 @@ Page({
     })
   },
 
+  jumpOrderDetailPage() {
+    console.log('dadsa')
+    wx.navigateTo({
+      url: '/pages/order/detail',
+    })
+  },
+
   delOrder() {
     wx.showModal({
       title: '提示',

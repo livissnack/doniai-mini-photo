@@ -23,6 +23,10 @@ App({
             .then((res) => {
               this.globalData.openid = res.data.openid
               this.globalData.token = res.data.token
+              wx.setStorage({
+                key: 'token',
+                data: res.data.token,
+              });
             })
             .catch((e) => {
               wx.showToast({ title: '请求失败' })

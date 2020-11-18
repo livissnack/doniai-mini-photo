@@ -1,0 +1,35 @@
+<!--pages/order/download.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">证件照历史详情</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">图片预览</text>
+      </view>
+    </view>
+    <view class="bg-white cu-bar padding-top-xl">
+      <view class="image-center">
+        <image class="solid" mode="aspectFit" src="{{response.image_url}}"></image>
+      </view>
+    </view>
+    <view class="foot">
+      <view class="flex justify-between bg-white">
+        <view class="padding">
+          <button class="cu-btn bg-blue shadow margin-tb-sm" bindtap="downloadPhoto">
+            <text class="cuIcon-pulldown"></text>
+            <text class="text-white">下载电子照</text>
+          </button>
+        </view>
+        <view class="padding">
+          <button class="cu-btn bg-green shadow margin-tb-sm" bindtap="downloadPrintPhoto">
+            <text class="cuIcon-pulldown"></text>
+            <text class="text-white">下载排版照</text>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

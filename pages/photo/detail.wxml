@@ -7,17 +7,17 @@
     <view class="cu-bar bg-white solid-bottom">
       <view class="action">
         <text class="cuIcon-title text-red"></text>
-        <text class="text-gray text-black text-bold">一寸</text>
+        <text class="text-gray text-black text-bold">{{spec.title}}</text>
       </view>
     </view>
     <view class="padding bg-white">
       <view class="flex align-start">
         <view class="text-red sm">
-          <text class=" cuIcon-roundcheckfill text-green"></text>
+          <text class="cuIcon-roundcheckfill text-green"></text>
           支持保存电子照
         </view>
         <view class="text-red sm margin-left-lg">
-          <text class=" cuIcon-roundcheckfill text-green"></text>
+          <text class="{{spec.is_you === 1 ? 'cuIcon-roundcheckfill text-green' : 'cuIcon-roundclosefill text-gray'}}"></text>
           支持冲印、邮寄
         </view>
       </view>
@@ -29,7 +29,7 @@
         </view>
         <view class="text-red sm margin-left-lg">
           <text class="block text-black lg">照片尺寸</text>
-          <text class="block text-gray sm">2.5*3.5cm</text>
+          <text class="block text-gray sm">{{spec.size}}</text>
         </view>
         <view class="text-red sm margin-left-lg">
           <text class="block text-black lg">照片格式</text>

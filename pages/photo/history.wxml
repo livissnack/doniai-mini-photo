@@ -11,7 +11,7 @@
       </view>
     </view>
     <view class="cu-list menu-avatar">
-      <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{response.items}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{response.items}}" wx:key="index" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" bindtap="jumpPhotoDownloadPage" data-id="{{item.ph_id}}">
         <view class="cu-avatar lg" style="background-image:url({{item.image_url}});"></view>
         <view class="content">
           <view class="text-grey">一寸</view>

@@ -9,6 +9,7 @@ Page({
     response: {
       ph_id: null,
       image_url: '',
+      print_image_url: '',
       size: '',
       remark: '',
       created_time: '',
@@ -81,8 +82,19 @@ Page({
   },
 
   downloadPhoto() {
-    wx.showLoading({ title: '下载中...' })
+    wx.showToast({
+      title: '下载中...',
+      icon: 'success',
+      duration: 2000,
+    })
     let img_url = this.data.response.image_url
+    if (img_url === '' || img_url === null || img_url === undefined) {
+      wx.showToast({
+        title: '未生成照片',
+        icon: 'none',
+        duration: 2000,
+      })
+    }
     wx.downloadFile({
       url: img_url,
       success: (res) => {
@@ -91,18 +103,51 @@ Page({
           wx.saveImageToPhotosAlbum({
             filePath: img,
             success: (result) => {
-              wx.showLoading({
+              wx.showToast({
                 title: '保存成功',
                 icon: 'success',
                 duration: 2000,
               })
             },
-            fail: () => {
-              wx.showLoading({
-                title: '保存失败',
-                icon: 'fail',
-                duration: 2000,
-              })
+            fail: (err) => {
+              if (err.errMsg) {
+                wx.showModal({
+                  title: '提示',
+                  content: '你好请先授权，在保存图片',
+                  showCancel: false,
+                  success: (result) => {
+                    console.log(result)
+                    if (result.confirm) {
+                      wx.openSetting({
+                        success: (settingdata) => {
+                          if (
+                            settingdata.authSetting['scope.writePhotosAlbum']
+                          ) {
+                            wx.saveImageToPhotosAlbum({
+                              filePath: img,
+                              success: (result) => {
+                                wx.showToast({
+                                  title: '保存成功',
+                                  icon: 'success',
+                                  duration: 2000,
+                                })
+                              },
+                              fail: () => {},
+                              complete: () => {},
+                            })
+                          } else {
+                            wx.showModal({
+                              title: '温馨提示',
+                              content: '授权失败，请稍后重新获取',
+                              showCancel: false,
+                            })
+                          }
+                        },
+                      })
+                    }
+                  },
+                })
+              }
             },
             complete: () => {
               wx.hideLoading()
@@ -120,6 +165,86 @@ Page({
   },
 
   downloadPrintPhoto() {
-    wx.showLoading({ title: '功能未未开放', icon: 'fail', duration: 2000 })
+    wx.showToast({
+      title: '下载中...',
+      icon: 'success',
+      duration: 2000,
+    })
+    let img_url = this.data.response.print_image_url
+    if (img_url === '' || img_url === null || img_url === undefined) {
+      wx.showToast({
+        title: '未生成排版照片',
+        icon: 'none',
+        duration: 2000,
+      })
+    }
+    wx.downloadFile({
+      url: img_url,
+      success: (res) => {
+        if (res.statusCode === 200) {
+          let img = res.tempFilePath
+          wx.saveImageToPhotosAlbum({
+            filePath: img,
+            success: (result) => {
+              wx.showLoading({
+                title: '保存成功',
+                icon: 'success',
+                duration: 2000,
+              })
+            },
+            fail: (err) => {
+              if (err.errMsg) {
+                wx.showModal({
+                  title: '提示',
+                  content: '你好请先授权，在保存图片',
+                  showCancel: false,
+                  success: (result) => {
+                    if (result.confirm) {
+                      wx.openSetting({
+                        success: (settingdata) => {
+                          if (
+                            settingdata.authSetting['scope.writePhotosAlbum']
+                          ) {
+                            wx.saveImageToPhotosAlbum({
+                              filePath: img,
+                              success: (result) => {
+                                wx.showToast({
+                                  title: '保存成功',
+                                  icon: 'success',
+                                  duration: 2000,
+                                })
+                              },
+                              fail: (e) => {
+                                console.log(e)
+                              },
+                              complete: () => {},
+                            })
+                          } else {
+                            wx.showModal({
+                              title: '温馨提示',
+                              content: '授权失败，请稍后重新获取',
+                              showCancel: false,
+                            })
+                          }
+                        },
+                      })
+                    }
+                  },
+                })
+              }
+            },
+            complete: () => {
+              wx.hideLoading()
+            },
+          })
+        }
+      },
+      fail: () => {
+        wx.hideLoading()
+      },
+      complete: () => {
+        wx.hideLoading()
+      },
+    })
   },
 })

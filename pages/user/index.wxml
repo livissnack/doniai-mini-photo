@@ -18,7 +18,7 @@
             <view class="content">
               <view class="text-black flex justify-between">
                 <view class="text-cut">{{userInfo.nickName}}</view>
-                 <view class="text-cut text-sm">积分：200</view>
+                 <view class="text-cut text-sm">积分：{{balance}}</view>
               </view>
             </view>
           </view>

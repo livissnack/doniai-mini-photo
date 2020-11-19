@@ -1,5 +1,6 @@
 // pages/user/contact/contact.js
 const app = getApp()
+import {getBalance} from '../../utils/api'
 
 Page({
   /**
@@ -9,6 +10,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    balance: 0
   },
 
   /**
@@ -41,6 +43,7 @@ Page({
         },
       })
     }
+    this.balance()
     console.log(app.globalData.userInfo)
   },
 
@@ -109,6 +112,20 @@ Page({
   callContact() {
     wx.makePhoneCall({
       phoneNumber: '15302661170',
+    })
+  },
+
+  balance() {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      Authorization: `Bearer ${auth_token}`,
+    }
+    getBalance({}, headers).then(res => {
+      this.setData({
+        balance: res.balance
+      })
+    }).catch(e => {
+      wx.showToast({title: '请求失败'});
     })
   },
 })

@@ -32,13 +32,13 @@
       </view>
       <view class="flex justify-between bg-white">
         <view class="padding">
-          <button class="cu-btn line-blue shadow margin-tb-sm" bindtap="showModal" data-target="ChooseModal">
+          <button class="cu-btn line-blue shadow margin-tb-sm" bindtap="{{is_pay ? 'downloadPhoto' : 'showModal'}}" data-target="{{is_pay ? '' : 'ChooseModal'}}">
             <text class="cuIcon-pulldown"></text>
             <text class="text-black">保存电子照</text>
           </button>
         </view>
         <view class="padding">
-          <button class="cu-btn line-green shadow margin-tb-sm">
+          <button class="cu-btn line-green shadow margin-tb-sm" bindtap="{{is_pay ? 'downloadPrintPhoto' : 'showModal'}}" data-target="{{is_pay ? '' : 'ChooseModal'}}">
             <text class="cuIcon-sponsor"></text>
             <text class="text-black">冲印排版照</text>
           </button>
@@ -92,7 +92,7 @@
       </view>
     </view>
     <view class="solid-bottom padding text-left">
-      <button class="cu-btn block bg-blue lg" bindtap="showModal" data-target="DialogModal2">
+      <button class="cu-btn block bg-blue lg" bindtap="pay">
         <text class="cuIcon-pulldown"></text>
         <text class="text-white">支付￥4.99 保存电子照</text>
       </button>

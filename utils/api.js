@@ -34,6 +34,10 @@ export const updateAddress = (data) => post(`${API_ROOT}/api/address/edit`, data
 
 export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data);
 
+export const getBalance = (data, headers) => post(`${API_ROOT}/api/user/balance`, data, headers);
+
+export const doPay = (data, headers) => post(`${API_ROOT}/api/pay/photo`, data, headers);
+
 
 /*********************************************************************************************登录体系*********************************************************************/
 

@@ -27,7 +27,6 @@ Page({
       photo_spec_id: spec_id
     })
     this.getSpec(spec_id)
-    console.log(spec_id, this.photo_spec_id)
   },
 
   /**
@@ -73,32 +72,31 @@ Page({
       success(res) {
         let auth_token = app.globalData.token || wx.getStorageSync('token')
         let file_path = res.tempFilePaths[0]
-        console.log(auth_token)
         if (auth_token === null) {
-          wx.showToast({ title: '未授权登录…', icon: 'fail', duration: 2000 })
+          wx.showToast({ title: '未授权登录…', icon: 'none', duration: 2000 })
           return
         }
         if (file_path === null || file_path === undefined) {
-          wx.showToast({ title: '上传文件异常…', icon: 'fail', duration: 2000 })
+          wx.showToast({ title: '上传文件异常…', icon: 'none', duration: 2000 })
           return
         }
         wx.showLoading({ title: '上传中,请稍等…' })
         wx.uploadFile({
-          url: `${API_ROOT}/api/ai/photo_to_text`,
-          filePath: res.tempFilePaths[0],
+          url: `${API_ROOT}/api/photo/make`,
+          filePath: file_path,
           name: 'file',
           header: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${auth_token}`,
           },
           formData: {
-            spec: 2,
-            bk: 'blue',
+            spec_id: 1
           },
           success: (result) => {
+            wx.hideLoading()
             let make_res = typeof result.data === 'string' ? JSON.parse(result.data) : result.data
             if(make_res.code !== 0) {
-              wx.showLoading({ title: '证照制作异常…' })
+              wx.showToast({ title: '图片规格不符合', icon: 'none', duration: 2000 })
             } else {
               wx.navigateTo({
                 url: '/pages/photo/preview',
@@ -128,30 +126,30 @@ Page({
         let auth_token = app.globalData.token || wx.getStorageSync('token')
         let file_path = res.tempFilePaths[0]
         if (auth_token === null) {
-          wx.showToast({ title: '未授权登录…', icon: 'fail', duration: 2000 })
+          wx.showToast({ title: '未授权登录…', icon: 'none', duration: 2000 })
           return
         }
         if (file_path === null || file_path === undefined) {
-          wx.showToast({ title: '上传文件异常…', icon: 'fail', duration: 2000 })
+          wx.showToast({ title: '上传文件异常…', icon: 'none', duration: 2000 })
           return
         }
         wx.showLoading({ title: '上传中,请稍等…' })
         wx.uploadFile({
-          url: `${API_ROOT}/api/ai/photo_to_text`,
-          filePath: res.tempFilePaths[0],
+          url: `${API_ROOT}/api/photo/make`,
+          filePath: file_path,
           name: 'file',
           header: {
             'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${auth_token}`,
           },
           formData: {
-            spec: 2,
-            bk: 'blue',
+            spec_id: 1
           },
           success: (result) => {
+            wx.hideLoading()
             let make_res = typeof result.data === 'string' ? JSON.parse(result.data) : result.data
             if(make_res.code !== 0) {
-              wx.showLoading({ title: '证照制作异常…' })
+              wx.showToast({ title: '图片规格不符合', icon: 'none', duration: 2000 })
             } else {
               wx.navigateTo({
                 url: '/pages/photo/preview',
@@ -181,7 +179,6 @@ Page({
       Authorization: `Bearer ${auth_token}`,
     }
     getSpec(request_data, headers).then(res => {
-      console.log(res);
       this.setData({
         spec: res.data
       })

@@ -30,7 +30,8 @@
           <view class="margin-top-sm flex justify-between">
             <view class="text-gray text-df">2018年12月4日</view>
             <view class="flex flex-wrap justify-between align-center bg-white">
-              <button class="cu-btn round bg-red sm">删除订单</button>
+              <button class="cu-btn round bg-blue sm" bindtap="jumpOrderDetailPage">订单详情</button>
+              <button class="cu-btn round margin-left-sm bg-red sm" bindtap="delOrder">删除订单</button>
               <button class="cu-btn round margin-left-sm bg-green sm" bindtap="jumpLogisticPage">
                 查看物流
               </button>
@@ -56,7 +57,8 @@
           <view class="margin-top-sm flex justify-between">
             <view class="text-gray text-df">2018年12月4日</view>
             <view class="flex flex-wrap justify-between align-center bg-white">
-              <button class="cu-btn round bg-red sm" bindtap="delOrder">删除订单</button>
+              <button class="cu-btn round bg-blue sm" bindtap="jumpOrderDetailPage">订单详情</button>
+              <button class="cu-btn round margin-left-sm bg-red sm" bindtap="delOrder">删除订单</button>
               <button class="cu-btn round margin-left-sm bg-green sm" bindtap="jumpLogisticPage">
                 查看物流
               </button>

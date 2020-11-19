@@ -72,7 +72,7 @@
           </view>
           <view class="action">
             <text class="text-grey text-sm">20201118134502125666</text>
-            <view class="cu-tag round bg-blue light sm">复制</view>
+            <view class="cu-tag round bg-blue light sm" bindtap="doCopy">复制</view>
           </view>
         </view>
         <view class="cu-item">

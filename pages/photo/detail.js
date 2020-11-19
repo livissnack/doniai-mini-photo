@@ -123,6 +123,7 @@ Page({
       sizeType: ['original', 'compressed'],
       sourceType: ['camera'],
       success(res) {
+        console.log(res)
         let auth_token = app.globalData.token || wx.getStorageSync('token')
         let file_path = res.tempFilePaths[0]
         if (auth_token === null) {

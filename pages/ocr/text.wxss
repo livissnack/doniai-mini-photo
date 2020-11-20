@@ -1,0 +1,10 @@
+/* pages/crop/content.wxss */
+.gx-center {
+  display: flex;
+  justify-content: center;
+}
+
+.gx-history {
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -6,7 +6,7 @@
   <view class="box">
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class="action">
-        <text class="cuIcon-title text-orange "></text>
+        <text class="cuIcon-title text-orange"></text>
         列表-制作历史
       </view>
     </view>

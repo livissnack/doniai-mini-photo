@@ -1,0 +1,61 @@
+<!-- pages/crop/content.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">图片识别</view>
+  </cu-custom>
+  <view class="box padding-sm">
+      <view class="cu-bar solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">识别图片</text>
+      </view>
+      <view class="action">
+        <text class="text-pink text-bold gx-history">历史识别</text>
+      </view>
+    </view>
+    <view class="cu-card case">
+      <view>
+        <view class="margin-sm bg-white padding-xl radius shadow-lg">
+          <view class="image-center">
+            <view class="cu-bar bg-white">
+              <view class="action">图片上传</view>
+              <view class="action">{{imgList.length}}/1</view>
+            </view>
+            <view class="cu-form-group">
+              <view class="grid col-2 grid-square flex-sub">
+                <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                  <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                  <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                    <text class="cuIcon-close"></text>
+                  </view>
+                </view>
+                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                  <text class="cuIcon-cameraadd"></text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class="margin-tb-sm padding-sm flex-between">
+          <button class="cu-btn round bg-olive sm shadow" bindtap='target_focus'>编辑</button>
+          <view>
+            <view class="text-green text-bold text-center">识别结果</view>
+          </view>
+          <button class="cu-btn round bg-olive sm shadow" data-type='target' bindtap="doCopy">
+            复制
+          </button>
+        </view>
+        <view class="margin-sm bg-white padding-xl radius shadow-lg">
+          <textarea value='{{target_text}}' maxlength="-1" bindinput="setTargetText" focus='{{target_focus}}' placeholder="识别结果内容"></textarea>
+        </view>
+      </view>
+      <view class="padding-xl">
+        <button class="cu-btn bg-blue block btn-center shadow-blur round" bindtap='doTranslate'>
+          快速翻译成英文内容
+        </button>
+      </view>
+    </view>
+  </view>
+</view>

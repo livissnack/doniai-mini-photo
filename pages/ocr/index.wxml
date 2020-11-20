@@ -1,12 +1,63 @@
 <!--pages/ocr/index.wxml-->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
-    <view slot="content">拍照取字</view>
+    <view slot="content">识别结果</view>
   </cu-custom>
-  <view class="box">
-    <view class="margin-xl bg-white padding-xl radius shadow-lg">
-      <view class="text-center margin-bottom text-sm text-grey">拍照取字超时，怎么办？</view>
-      <view class="text-content text-sm">就爱打打打打看</view>
+  <view class="box padding-sm">
+    <view class="cu-card case">
+      <view>
+        <view class="margin-tb-sm padding-sm flex-between">
+          <button class="cu-btn round bg-pink sm shadow" bindtap='source_focus'>编辑</button>
+          <view>
+            <view class="text-black gx-inline text-center">
+              目标语言：
+              <view class="gx-inline">
+                <picker bindchange="sourcePickerChange" range-key="name" value="{{code}}" range="{{langs}}">
+                  <view class="picker">
+                    <view class="text-cyan gx-inline text-center">{{source_lang_text}}</view>
+                    <view class="cuIcon-unfold gx-inline text-blue"></view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          
+          <button class="cu-btn round bg-pink sm shadow" data-type='source' bindtap="doCopy">复制</button>
+        </view>
+        <view class="margin-sm bg-white padding-xl radius shadow-lg">
+          <textarea value='{{source_text}}' maxlength="-1" bindinput="setSourceText" focus='{{source_focus}}' placeholder="目标翻译内容"></textarea>
+        </view>
+      </view>
+
+      <view class="cu-bar">
+        <button class="cu-btn bg-blue btn-center shadow-blur round" bindtap='doTranslate'>开始 ~ 翻译</button>
+      </view>
+
+      <view>
+        <view class="margin-tb-sm padding-sm flex-between">
+          <button class="cu-btn round bg-olive sm shadow" bindtap='target_focus'>编辑</button>
+          <view>
+            <view class="text-black gx-inline text-center">
+              翻译成：
+              <view class="gx-inline">
+                <picker bindchange="targetPickerChange" range-key="name" value="{{code}}" range="{{langs}}">
+                  <view class="picker">
+                    <view class="text-cyan gx-inline text-center">{{target_lang_text}}</view>
+                    <view class="cuIcon-unfold gx-inline text-blue"></view>
+                  </view>
+                </picker>
+              </view>
+            </view>
+          </view>
+          <button class="cu-btn round bg-olive sm shadow" data-type='target' bindtap="doCopy">复制</button>
+        </view>
+        <view class="margin-sm bg-white padding-xl radius shadow-lg">
+          <textarea value='{{target_text}}' maxlength="-1" bindinput="setTargetText" focus='{{target_focus}}' placeholder="翻译结果内容"></textarea>
+        </view>
+      </view>
+    
     </view>
+   
   </view>
 </view>
+

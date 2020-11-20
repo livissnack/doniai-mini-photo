@@ -29,14 +29,14 @@
             <view class="cu-card solid article no-card">
               <view class="cu-item shadow">
                 <view class="title">
-                  <view class="text-cut text-bold">{{item.title}}</view>
+                  <view class="text-cut text-bold">{{item.spec_name}}</view>
                 </view>
                 <view class="content">
                   <view class="desc">
-                    <view class="text-sm text-black">尺寸：{{item.size}}</view>
+                    <view class="text-sm text-black">尺寸：{{item.width_mm}} x {{item.height_mm}}</view>
                     <view>
                       <view class="cu-tag bg-red light sm round">电子照</view>
-                      <view class="cu-tag bg-green light sm round">冲印</view>
+                      <view class="cu-tag bg-green light sm round" wx:if="{{item.is_print===1}}">冲印</view>
                     </view>
                   </view>
                 </view>

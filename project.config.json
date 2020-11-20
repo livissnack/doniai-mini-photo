@@ -91,6 +91,12 @@
         {
           "name": "pages/photo/history",
           "pathName": "pages/photo/history",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ocr/text",
+          "pathName": "pages/ocr/text",
           "scene": null
         }
       ]

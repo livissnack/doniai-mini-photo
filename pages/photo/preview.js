@@ -8,8 +8,9 @@ Page({
    */
   data: {
     CustomBar: app.globalData.CustomBar,
-    preview_image_url: 'http://doniai-mini.oss-cn-shenzhen.aliyuncs.com/4fb53d05a76c97e25fb1ebc14b6ea260.jpg',
-    preview_print_image_url: 'http://doniai-mini.oss-cn-shenzhen.aliyuncs.com/4fb53d05a76c97e25fb1ebc14b6ea260.jpg',
+    preview_image_url: '',
+    preview_print_image_url: '',
+    spec_id: '',
     is_pay: false,
     checkbox: [{
       value: 0,
@@ -35,7 +36,8 @@ Page({
       console.log(data.data.image_url)
       this.setData({
         preview_image_url: data.data.image_url,
-        preview_print_image_url: data.data.print_image_url
+        preview_print_image_url: data.data.print_image_url,
+        spec_id: data.data.spec_id
       })
       console.log(data)
     })
@@ -97,8 +99,13 @@ Page({
 
   pay() {
     let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let spec_id = this.data.spec_id
+    if (spec_id === null || spec_id === undefined || spec_id === '') {
+      wx.showToast({ title: '未选择制作规格…', icon: 'none', duration: 2000 })
+      return
+    }
     let request_data = {
-      amount: 4.99,
+      spec_id: spec_id,
       pay_json: JSON.stringify([this.data.preview_print_image_url, this.data.preview_image_url])
     }
     let headers = {
@@ -109,14 +116,16 @@ Page({
       let is_pay_success = false
       if(res.code === 0) {
         is_pay_success = true
+        wx.showToast({title: '支付成功'});
       } else{ 
         is_pay_success = false
+        wx.showToast({title: '支付失败'});
       }
       this.setData({
         is_pay: is_pay_success,
         modalName: null
       })
-      wx.showToast({title: '支付成功'});
+      
     }).catch(e => {
       wx.showToast({title: '请求失败'});
     })

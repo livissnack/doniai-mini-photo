@@ -10,13 +10,10 @@ Page({
 //获取到image-cropper实例
       this.cropper = this.selectComponent("#image-cropper");
       //开始裁剪
-      console.log(App.globalData.tempFilePaths)
+      console.log(app.globalData.tempFilePaths)
       this.setData({
-          src: App.globalData.tempFilePaths,
+          src: app.globalData.tempFilePaths,
       });
-      wx.showLoading({
-          title: '加载中'
-      })
   },
   cropperload(e){
       console.log("cropper初始化完成");
@@ -37,9 +34,9 @@ Page({
   },
   submit(){
     this.cropper.getImg((obj)=>{
-      app.globalData.imgSrc = obj.url;
-      wx.navigateBack({
-        delta: -1
+      app.globalData.tempFilePaths = obj.url;
+      wx.navigateTo({
+        url: `/pages/ocr/text`
       })
     });
   },
@@ -59,7 +56,7 @@ Page({
         that.setData({
           src: tempFilePaths
         });
-        App.globalData.tempFilePaths = tempFilePaths
+        app.globalData.tempFilePaths = tempFilePaths
       }
     })
   },

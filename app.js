@@ -61,6 +61,7 @@ App({
     userInfo: null,
     wechatDevelopKey: 'GILBZ-JYWEU-A52V6-2GDYQ-GV6ZQ-FDBZA',
     tempFilePaths: [],
+    imgSrc: '',
     ColorList: [
       {
         title: '嫣红',

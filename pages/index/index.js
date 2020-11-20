@@ -82,7 +82,7 @@ Page({
 
   jumpCropPage() {
     wx.navigateTo({
-      url: '/pages/crop/index'
+      url: '/pages/ocr/text'
     })
   },
 

@@ -1,4 +1,4 @@
-<!--pages/index/index.wxml-->
+<!-- pages/index/index.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">智能证件照</view>

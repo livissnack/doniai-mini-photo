@@ -15,7 +15,6 @@ export function formatNumber(n) {
   return n[1] ? n : '0' + n
 }
 
-
 export function isEmpty(obj) {
   try {
     if (obj == null || obj == undefined) {

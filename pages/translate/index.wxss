@@ -1,1 +1,23 @@
 /* pages/translate/index.wxss */
+.startYuyinImage {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  width: 190rpx;
+  height: 240rpx;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20rpx;
+  color: #fff;
+  text-align: center;
+  margin-left: -95rpx;
+}
+
+.startYuyinImage cover-image {
+  margin: 30rpx auto;
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.startYuyinImage cover-view {
+  margin-top: 25rpx;
+}

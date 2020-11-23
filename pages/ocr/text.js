@@ -16,9 +16,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(app.globalData.tempFilePaths)
-  },
+  onLoad: function (options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -98,7 +96,6 @@ Page({
     }
     getTranslate(trans_data)
       .then((res) => {
-        console.log(res)
         wx.hideLoading()
         this.setData({
           target_text:
@@ -110,7 +107,7 @@ Page({
       })
   },
 
-  ChooseImage() {
+  chooseImage() {
     wx.chooseImage({
       count: 1, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
@@ -145,7 +142,6 @@ Page({
               this.setData({
                 target_text: ocr_res.data,
               })
-              console.log(ocr_res)
             },
             fail: (e) => {
               wx.showLoading({ title: '识别失败…' })
@@ -158,16 +154,16 @@ Page({
       },
     })
   },
-  ViewImage(e) {
+  viewImage(e) {
     wx.previewImage({
       urls: this.data.imgList,
       current: e.currentTarget.dataset.url,
     })
   },
-  DelImg(e) {
+  delImg(e) {
     wx.showModal({
       title: '召唤师',
-      content: '确定要删除这段回忆吗？',
+      content: '确定要删除这张照片吗？',
       cancelText: '再看看',
       confirmText: '再见',
       success: (res) => {

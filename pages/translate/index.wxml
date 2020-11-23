@@ -1,4 +1,4 @@
-<!--pages/translate/index.wxml-->
+<!-- pages/translate/index.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">文字翻译</view>
@@ -21,18 +21,23 @@
               </view>
             </view>
           </view>
-          
-          <button class="cu-btn round bg-pink sm shadow" data-type='source' bindtap="doCopy">复制</button>
+          <button class="cu-btn round bg-pink sm shadow" data-type='source' bindtap="doCopy">
+            复制
+          </button>
         </view>
         <view class="margin-sm bg-white padding-xl radius shadow-lg">
+          <button class="cu-btn round bg-purple sm shadow" catch:touchstart="handleTouchStart" catch:touchend="handleTouchEnd">
+            <text class="cuIcon-voicefill" wx:if="{{recordState == false}}">按住 说话</text>
+            <text class="cuIcon-voicefill" wx:else>松开 结束</text>
+          </button>
           <textarea value='{{source_text}}' maxlength="-1" bindinput="setSourceText" focus='{{source_focus}}' placeholder="目标翻译内容"></textarea>
         </view>
       </view>
-
       <view class="cu-bar">
-        <button class="cu-btn bg-blue btn-center shadow-blur round" bindtap='doTranslate'>开始 ~ 翻译</button>
+        <button class="cu-btn bg-blue btn-center shadow-blur round" bindtap='doTranslate'>
+          开始 ~ 翻译
+        </button>
       </view>
-
       <view>
         <view class="margin-tb-sm padding-sm flex-between">
           <button class="cu-btn round bg-olive sm shadow" bindtap='target_focus'>编辑</button>
@@ -49,14 +54,19 @@
               </view>
             </view>
           </view>
-          <button class="cu-btn round bg-olive sm shadow" data-type='target' bindtap="doCopy">复制</button>
+          <button class="cu-btn round bg-olive sm shadow" data-type='target' bindtap="doCopy">
+            复制
+          </button>
         </view>
         <view class="margin-sm bg-white padding-xl radius shadow-lg">
           <textarea value='{{target_text}}' maxlength="-1" bindinput="setTargetText" focus='{{target_focus}}' placeholder="翻译结果内容"></textarea>
         </view>
       </view>
-    
     </view>
-   
   </view>
+  <!-- 开始语音 弹出语音图标表示正在录音 -->
+  <cover-view class="startYuyinImage" wx:if="{{recordState == true}}">
+    <cover-image src="../../images/record/voice.png"></cover-image>
+    <cover-view>开始语音</cover-view>
+  </cover-view>
 </view>

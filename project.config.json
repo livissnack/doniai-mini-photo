@@ -97,6 +97,12 @@
         {
           "name": "pages/ocr/text",
           "pathName": "pages/ocr/text",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/translate/index",
+          "pathName": "pages/translate/index",
           "scene": null
         }
       ]

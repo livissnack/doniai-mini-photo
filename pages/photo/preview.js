@@ -1,8 +1,7 @@
 // pages/photo/preview.js
-const app = getApp();
-import {doPay} from "../../utils/api"
+const app = getApp()
+import { doPay } from '../../utils/api'
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -12,18 +11,20 @@ Page({
     preview_print_image_url: '',
     spec_id: '',
     is_pay: false,
-    checkbox: [{
-      value: 0,
-      name: '个性换装 | 5.99积分',
-      checked: false,
-      hot: false,
-    }, {
-      value: 1,
-      name: '3种底色 | 1.99积分',
-      checked: true,
-      hot: true,
-    }]
-
+    checkbox: [
+      {
+        value: 0,
+        name: '个性换装 | 5.99积分',
+        checked: false,
+        hot: false,
+      },
+      {
+        value: 1,
+        name: '3种底色 | 1.99积分',
+        checked: true,
+        hot: true,
+      },
+    ],
   },
 
   /**
@@ -33,11 +34,10 @@ Page({
     const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('acceptDataFromPhotoDetailPage', (data) => {
-      console.log(data.data.image_url)
       this.setData({
         preview_image_url: data.data.image_url,
         preview_print_image_url: data.data.print_image_url,
-        spec_id: data.data.spec_id
+        spec_id: data.data.spec_id,
       })
       console.log(data)
     })
@@ -46,110 +46,108 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
-  },
+  onShow: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-
-  },
+  onPullDownRefresh: function () {},
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
-  },
+  onReachBottom: function () {},
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  },
+  onShareAppMessage: function () {},
   showModal(e) {
     this.setData({
-      modalName: e.currentTarget.dataset.target
+      modalName: e.currentTarget.dataset.target,
     })
   },
 
   pay() {
-    let auth_token = app.globalData.token || wx.getStorageSync('token')
-    let spec_id = this.data.spec_id
-    if (spec_id === null || spec_id === undefined || spec_id === '') {
-      wx.showToast({ title: '未选择制作规格…', icon: 'none', duration: 2000 })
-      return
-    }
-    let request_data = {
-      spec_id: spec_id,
-      pay_json: JSON.stringify([this.data.preview_print_image_url, this.data.preview_image_url])
-    }
-    let headers = {
-      Authorization: `Bearer ${auth_token}`,
-    }
-    doPay(request_data, headers).then(res => {
-      console.log(res)
-      let is_pay_success = false
-      if(res.code === 0) {
-        is_pay_success = true
-        wx.showToast({title: '支付成功'});
-      } else{ 
-        is_pay_success = false
-        wx.showToast({title: '支付失败'});
+    try {
+      let submit_nums = 0
+      let auth_token = app.globalData.token || wx.getStorageSync('token')
+      let spec_id = this.data.spec_id
+      if (spec_id === null || spec_id === undefined || spec_id === '') {
+        wx.showToast({ title: '未选择制作规格…', icon: 'none', duration: 2000 })
+        return
       }
-      this.setData({
-        is_pay: is_pay_success,
-        modalName: null
-      })
-      
-    }).catch(e => {
-      wx.showToast({title: '请求失败'});
-    })
+      let request_data = {
+        spec_id: spec_id,
+        pay_json: JSON.stringify([
+          this.data.preview_print_image_url,
+          this.data.preview_image_url,
+        ]),
+      }
+      let headers = {
+        Authorization: `Bearer ${auth_token}`,
+      }
+
+      submit_nums++
+      if (submit_nums === 1) {
+        doPay(request_data, headers)
+          .then((res) => {
+            console.log(res)
+            let is_pay_success = false
+            if (res.code === 0) {
+              is_pay_success = true
+              wx.showToast({ title: '支付成功' })
+            } else {
+              is_pay_success = false
+              wx.showToast({ title: '支付失败' })
+            }
+            this.setData({
+              is_pay: is_pay_success,
+              modalName: null,
+            })
+          })
+          .catch((e) => {
+            wx.showToast({ title: '请求失败' })
+          })
+      }
+    } catch (err) {
+      console.log(err)
+    }
   },
 
   hideModal(e) {
     this.setData({
-      modalName: null
+      modalName: null,
     })
   },
   ChooseCheckbox(e) {
-    let items = this.data.checkbox;
-    let values = e.currentTarget.dataset.value;
+    let items = this.data.checkbox
+    let values = e.currentTarget.dataset.value
     for (let i = 0, lenI = items.length; i < lenI; ++i) {
       if (items[i].value == values) {
-        items[i].checked = !items[i].checked;
+        items[i].checked = !items[i].checked
         break
       }
     }
     this.setData({
-      checkbox: items
+      checkbox: items,
     })
   },
-
 
   downloadPhoto() {
     wx.showToast({
@@ -233,7 +231,6 @@ Page({
       },
     })
   },
-
 
   downloadPrintPhoto() {
     wx.showToast({

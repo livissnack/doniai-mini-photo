@@ -4,7 +4,7 @@
     <view slot="content">图片识别</view>
   </cu-custom>
   <view class="box padding-sm">
-      <view class="cu-bar solid-bottom">
+    <view class="cu-bar solid-bottom">
       <view class="action">
         <text class="cuIcon-title text-red"></text>
         <text class="text-gray text-black text-bold">识别图片</text>
@@ -23,13 +23,13 @@
             </view>
             <view class="cu-form-group">
               <view class="grid col-2 grid-square flex-sub">
-                <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <view class="bg-img" wx:for="{{imgList}}" wx:key="index" bindtap="viewImage" data-url="{{imgList[index]}}">
                   <image src='{{imgList[index]}}' mode='aspectFill'></image>
-                  <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                  <view class="cu-tag bg-red" catchtap="delImg" data-index="{{index}}">
                     <text class="cuIcon-close"></text>
                   </view>
                 </view>
-                <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+                <view class="solids" bindtap="chooseImage" wx:if="{{imgList.length<4}}">
                   <text class="cuIcon-cameraadd"></text>
                 </view>
               </view>

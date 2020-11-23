@@ -115,6 +115,24 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/village/index",
+          "pathName": "pages/village/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/village/detail",
+          "pathName": "pages/village/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/village/cart",
+          "pathName": "pages/village/cart",
           "scene": null
         }
       ]

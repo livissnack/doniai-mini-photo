@@ -1,8 +1,6 @@
 // pages/translate/index.js
-
-var plugin = requirePlugin('WechatSI')
-let manager = plugin.getRecordRecognitionManager()
-const innerAudioContext = wx.createInnerAudioContext()
+const plugin = requirePlugin('WechatSI')
+const manager = plugin.getRecordRecognitionManager()
 
 import { getTranslate } from '../../utils/api'
 import { isEmpty } from '../../utils/helper'

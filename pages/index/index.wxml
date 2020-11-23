@@ -35,12 +35,16 @@
         <text>文字翻译</text>
       </view>
       <view class="cu-item">
-        <view class="cuIcon-picfill text-yellow"></view>
+        <view class="cuIcon-evaluate_fill text-green"></view>
         <text>植物识别</text>
       </view>
       <view class="cu-item" bindtap="jumpPhotoPage">
         <view class="cuIcon-picfill text-yellow"></view>
         <text>智能证件照</text>
+      </view>
+       <view class="cu-item" bindtap="jumpVillagePage">
+        <view class="cuIcon-shopfill text-pink"></view>
+        <text>村帮购</text>
       </view>
       <view class="cu-item">
         <view class="cuIcon-more text-gray"></view>

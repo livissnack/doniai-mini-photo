@@ -23,7 +23,8 @@ export const getSpec = (data, headers) => post(`${API_ROOT}/api/photo_spec/detai
 export const getQuestions = () => get(`${API_ROOT}/api/question`);
 export const getQuestion = (question_id) => get(`${API_ROOT}/api/question/detail?question_id=${question_id}`);
 
-export const getOrders = (status) => get(`${API_ROOT}/api/order?status=${status}`);
+export const getOrders = (data, headers) => post(`${API_ROOT}/api/order`, data, headers);
+export const deleteOrder = (data, headers) => post(`${API_ROOT}/api/order/delete`, data, headers);
 export const getOrder = (order_id) => get(`${API_ROOT}/api/order/detail?order_id=${order_id}`);
 
 export const getAddresses = () => get(`${API_ROOT}/api/address`);

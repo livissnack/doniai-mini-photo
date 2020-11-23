@@ -100,4 +100,10 @@ Page({
       url: '/pages/photo/index',
     })
   },
+
+  jumpVillagePage() {
+    wx.navigateTo({
+      url: '/pages/village/index',
+    })
+  }
 })

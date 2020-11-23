@@ -19,7 +19,8 @@
     "pages/photo/preview",
     "pages/order/detail",
     "pages/photo/download",
-    "pages/ocr/text"
+    "pages/ocr/text",
+    "pages/village/index"
   ],
   "permission": {
     "scope.userLocation": {

@@ -1,4 +1,5 @@
 <!-- pages/photo/history.wxml -->
+<wxs src="../../utils/filter.wxs" module="filter"></wxs>
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">专业证件照</view>
@@ -21,7 +22,7 @@
           </view>
         </view>
         <view class="action gx-action">
-          <view class="text-grey text-xs">{{m1.format(item.created_time)}}</view>
+          <view class="text-grey text-xs">{{filter.formatTime(item.created_time)}}</view>
           <view class="cu-tag round bg-grey sm">{{item.ph_id}}</view>
         </view>
         <view class="move">
@@ -32,14 +33,3 @@
     </view>
   </view>
 </view>
-
-
-<wxs module="m1">
-  function format(ts) {
-    var d = getDate(ts)
-    return [d.getFullYear(), d.getMonth()+1, d.getDate()].join('-')
-      + ' '
-      + [d.getHours(), d.getMinutes(), d.getSeconds()].join(':')
-  }
-  module.exports.format = format
-</wxs>

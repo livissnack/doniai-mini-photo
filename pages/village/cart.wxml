@@ -3,7 +3,7 @@
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">购物车</view>
   </cu-custom>
-  <view class="box">
+  <view class="box margin-top">
     <view class="box" style="top:{{CustomBar}}px;">
       <view class="canui-kong" style="display: none;">
         <view class="bg-gradual-orange padding radius text-center shadow-blur canui-kong-icon">

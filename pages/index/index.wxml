@@ -34,7 +34,7 @@
         <view class="cuIcon-recordfill text-blue"></view>
         <text>文字翻译</text>
       </view>
-      <view class="cu-item">
+      <view class="cu-item" bindtap="jumpOcrPlantPage">
         <view class="cuIcon-evaluate_fill text-green"></view>
         <text>植物识别</text>
       </view>

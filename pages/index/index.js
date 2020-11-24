@@ -105,5 +105,11 @@ Page({
     wx.navigateTo({
       url: '/pages/village/index',
     })
+  },
+
+  jumpOcrPlantPage() {
+    wx.navigateTo({
+      url: '/pages/ocr/plant',
+    })
   }
 })

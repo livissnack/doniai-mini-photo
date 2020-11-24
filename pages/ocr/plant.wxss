@@ -72,7 +72,7 @@
 /* 图片选择按钮CSS */
 .btnImg{
   position: fixed;
-  bottom: 5rpx;
+  bottom: 20rpx;
   width: 100%;
 }
 

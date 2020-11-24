@@ -95,7 +95,7 @@ Page({
                 baike,
               }
             })
-            // console.log(answer);
+            console.log(answer);
             // 判断是否为植物
             if (answer[0].name.indexOf('非植物') != -1) {
               this.setData({
@@ -137,7 +137,7 @@ Page({
   },
 
   baikeShow(event) {
-    // console.log(event.currentTarget.dataset.itemdes);
+    console.log(event);
     const baikedata = event.currentTarget.dataset.itemdes
     this.setData({
       isShow: true,

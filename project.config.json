@@ -134,6 +134,12 @@
         {
           "name": "pages/village/cart",
           "pathName": "pages/village/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/ocr/plant",
+          "pathName": "pages/ocr/plant",
           "scene": null
         }
       ]

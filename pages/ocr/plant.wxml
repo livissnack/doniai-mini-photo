@@ -1,0 +1,70 @@
+<!-- pages/ocr/plant.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">识别结果</view>
+  </cu-custom>
+  <view class="box padding-sm">
+    <!-- 图片展示 -->
+    <view class="img">
+      <image src="{{imagePath}}" mode="aspectFit"></image>
+    </view>
+    <view hidden="{{hidden}}">
+      <!-- 识别结果展示 -->
+      <view class="cu-bar solid-bottom">
+        <view class="action">
+          <text class="cuIcon-title text-red"></text>
+          <text class="text-gray text-black text-bold">识别结果</text>
+        </view>
+      </view>
+      <!-- 属性展示 -->
+      <view class="show">
+        <view class="title">
+          <view>
+            <text class="text-black text-bold">名称</text>
+          </view>
+          <view>
+            <text class="text-black text-bold">可信度</text>
+          </view>
+          <view>
+            <text class="text-black text-bold">百度百科</text>
+          </view>
+        </view>
+        <block wx:for="{{answer}}" wx:key="index">
+          <view class="title data">
+            <view>
+              <text class="text-blue text-sm">{{item.name}}</text>
+            </view>
+            <view>
+              <text class="text-blue text-sm">{{item.score}}</text>
+            </view>
+            <view bindtap="baikeShow" data-itemdes="{{item.baike.description}}">
+              <text class="text-blue text-sm text-dec">查看百科</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+    <!-- 没有识别到植物的情况 -->
+    <view class="noplant" wx:if="{{noplant}}">
+      <text>{{noflowers}}</text>
+    </view>
+    <!-- 图片选择按钮 -->
+    <view class="btnImg" hidden="{{btnShow}}">
+      <button class="cu-btn bg-green margin-tb-sm" bindtap="selectImage">
+        <text class="cuIcon-add iconfont-spin"></text>
+        选择图片
+      </button>
+    </view>
+    <!-- 百度百科展示 -->
+    <view class="introduce" wx:if="{{isShow}}">
+      <!-- 百度百科内容 -->
+      <view class="introduceShow">
+        <text class="text-white">{{baikedata}}</text>
+      </view>
+      <!-- 取消按钮 -->
+      <view class="cancel" bindtap="cancelShow">
+        <button class="cu-btn round bg-red shadow">关闭</button>
+      </view>
+    </view>
+  </view>
+</view>

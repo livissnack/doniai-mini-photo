@@ -22,7 +22,8 @@
     "pages/ocr/text",
     "pages/village/index",
     "pages/village/detail",
-    "pages/village/cart"
+    "pages/village/cart",
+    "pages/ocr/plant"
   ],
   "permission": {
     "scope.userLocation": {

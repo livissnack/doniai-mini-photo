@@ -242,19 +242,19 @@ Page({
    * 初始化--语音识别
    */
   initRecord() {
-    manager.onRecognize = function (res) {
+    manager.onRecognize = (res) => {
       console.log(res)
     }
     // 正常开始录音识别时会调用此事件
-    manager.onStart = function (res) {
+    manager.onStart = (res) => {
       console.log('成功开始录音识别', res)
     }
     // 识别错误事件
-    manager.onError = function (res) {
+    manager.onError = (res) => {
       console.error('error msg', res)
     }
     //识别结束事件
-    manager.onStop = function (res) {
+    manager.onStop = (res) => {
       console.log('..............结束录音')
       console.log('录音临时文件地址 -->' + res.tempFilePath)
       console.log('录音总时长 -->' + res.duration + 'ms')
@@ -268,7 +268,8 @@ Page({
         })
         return
       }
-      let text = this.data.content + res.result
+      console.log(this.data)
+      let text = this.data.source_text + res.result
       this.setData({
         source_text: text,
       })

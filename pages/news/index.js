@@ -1,18 +1,24 @@
 // pages/news/index.js
+const app = getApp()
+import {getAllNews} from '../../utils/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    request: {
+      page: 1,
+      size: 20
+    },
+    response: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad(options) {
+    this.getAllNews()
   },
 
   /**
@@ -64,9 +70,26 @@ Page({
 
   },
 
-  jumpNewsDetailPage() {
+  jumpNewsDetailPage(e) {
+    let news_id = e.currentTarget.dataset.id
     wx.navigateTo({
-      url: '/pages/news/detail',
+      url: `/pages/news/detail?news_id=${news_id}`,
     })
-  }
+  },
+
+  getAllNews() {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let request_data = this.data.request
+    let headers = {
+      Authorization: `Bearer ${auth_token}`,
+    }
+    getAllNews(request_data, headers).then(res => {
+      console.log(res);
+      this.setData({
+        response: res.data
+      })
+    }).catch(e => {
+      wx.showToast({title: '请求失败'});
+    })
+  },
 })

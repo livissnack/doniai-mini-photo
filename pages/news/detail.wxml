@@ -1,4 +1,5 @@
 <!-- pages/news/detail.wxml -->
+<import src="../../wxParse/wxParse.wxml"></import>
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">村资讯内容</view>
@@ -7,20 +8,23 @@
     <view class="cu-bar bg-white solid-bottom">
       <view class='action'>
         <text class='icon-title text-black text-bold text-lg text-center'>
-          蕲春县第八届青年相亲文化节200名俊男靓女被甜蜜暴击
+          {{title}}
         </text>
       </view>
     </view>
-    <view class="bg-white padding cauni-details-box">
-      2020年8月23日上午8时，由共青团蕲春县委、蕲春县妇女联合会、蕲春县志愿者协会联合主办的“浪漫七夕·缘来是你”第八届蕲春青年相亲文化节在大中华广场一楼隆重举行。来自全县各县直单位、各乡镇办的200余名“单身贵族们”欢聚一堂，在歌声笑语里相互认识和了解，通过交友平台充分展示青年朝气蓬勃、积极向上精神面貌。
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_3a2f8e82c23549eb90f5bca664e9a54c.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_acca991d09004849b12510c061692348.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_c8be904380ff4f03b34b035bdfb9da7a.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_4297169148234bd591ed26b1fa293261.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_f601a4c1ad2e4f17848e2a341ac7732a.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_630bc3ad92cb41e3830e4c48461a8762.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_e9eab85bb53349b0827ac1431be55415.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
-      <image class="" src="http://www.qichun.gov.cn/picture/0/s_5195c91d19ea4a2c997991e1e0bcf220.jpg" mode="aspectFit|aspectFill" lazy-load="true" binderror="" bindload=""></image>
+    <view class="cu-bar bg-white padding-left padding-right solid-bottom">
+      <view class="action">
+        <text class="text-gray text-sm">发布时间：{{pushed_time}}</text>
+      </view>
+      <view class="action">
+        <text class="text-gray text-sm">来源：{{source}}</text>
+      </view>
+    </view>
+    <view class="bg-white padding">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    </view>
+    <view class="cu-bar bg-white padding-left padding-right gx-text-right">
+      <text class="text-gray text-sm text-right" wx:if="{{author!==''}}">作者：{{author}}</text>
     </view>
   </view>
 </view>

@@ -1,13 +1,14 @@
-export function formatTime(date) {
-  const year = date.getFullYear()
-  const month = date.getMonth() + 1
-  const day = date.getDate()
-  const hour = date.getHours()
-  const minute = date.getMinutes()
-  const second = date.getSeconds()
+export function formatTime(time) {
+  let date = new Date(time)
+  let year = date.getFullYear()
+  let month = date.getMonth() + 1
+  let day = date.getDate()
+  let hour = date.getHours()
+  let minute = date.getMinutes()
+  let second = date.getSeconds()
 
   return [year, month, day].map(formatNumber).join('-')
-  // + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
 export function formatNumber(n) {

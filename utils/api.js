@@ -32,6 +32,9 @@ export const getAddress = (address_id) => get(`${API_ROOT}/api/address/detail?ad
 export const createAddress = (data) => post(`${API_ROOT}/api/address/create`, data);
 export const updateAddress = (data) => post(`${API_ROOT}/api/address/edit`, data);
 
+export const getAllNews = (data, headers) => post(`${API_ROOT}/api/news`, data, headers);
+export const getNews = (data, headers) => post(`${API_ROOT}/api/news/detail`, data, headers);
+
 
 export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data);
 

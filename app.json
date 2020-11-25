@@ -28,7 +28,8 @@
     "pages/farming/detail",
     "pages/farming/apply",
     "pages/chat/index",
-    "pages/news/index"
+    "pages/news/index",
+    "pages/news/detail"
   ],
   "permission": {
     "scope.userLocation": {

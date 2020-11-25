@@ -1,4 +1,4 @@
-// pages/news/index.js
+// pages/news/detail.js
 Page({
 
   /**
@@ -62,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  jumpNewsDetailPage() {
-    wx.navigateTo({
-      url: '/pages/news/detail',
-    })
   }
 })

@@ -1,0 +1,31 @@
+<!-- pages/farming/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">养鸡联盟</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class='action'>
+        <text class='cuIcon-titles text-orange'></text>
+        鸡场专区
+      </view>
+    </view>
+    <view class="cu-card article no-card" bindtap="jumpFarmingDetailPage" wx:for="{{3}}">
+      <view class="cu-item gx-border padding-top padding-bottom shadow">
+        <view class="content">
+          <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="aspectFill"></image>
+          <view class="desc">
+            <view>
+              <view class="cu-tag bg-red light sm">冰洋鸡场</view>
+              <view class="cu-tag bg-green light sm">距离：300m</view>
+              <view class="cu-tag bg-green light sm">编号：0001</view>
+            </view>
+            <view class="text-content text-xs">
+              位于管窑镇土城岗村2组，老板张三，电话15302661170，主销优质粉蛋，满10箱可送货上门，接受拼购，拒绝中间商赚差价，普惠群众，价格从业。
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

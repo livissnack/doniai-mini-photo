@@ -111,5 +111,11 @@ Page({
     wx.navigateTo({
       url: '/pages/ocr/plant',
     })
+  },
+
+  jumpFarmingPage() {
+    wx.navigateTo({
+      url: '/pages/farming/index',
+    })
   }
 })

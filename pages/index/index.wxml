@@ -42,9 +42,15 @@
         <view class="cuIcon-picfill text-yellow"></view>
         <text>智能证件照</text>
       </view>
-       <view class="cu-item" bindtap="jumpVillagePage">
+      <view class="cu-item" bindtap="jumpVillagePage">
         <view class="cuIcon-shopfill text-pink"></view>
         <text>村帮购</text>
+      </view>
+      <view class="cu-item" bindtap="jumpFarmingPage">
+        <view class="cuIcon-egefill text-pink">
+          <image class="eggImg" src="../../images/ege.png"></image>
+        </view>
+        <text>蛋联盟</text>
       </view>
       <view class="cu-item">
         <view class="cuIcon-more text-gray"></view>

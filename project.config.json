@@ -13,7 +13,7 @@
     "newFeature": true,
     "coverView": true,
     "nodeModules": false,
-    "autoAudits": true,
+    "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "scopeDataCheck": false,
     "uglifyFileName": false,
@@ -28,6 +28,7 @@
       "disablePlugins": [],
       "outputPath": ""
     },
+    "enableEngineNative": false,
     "useIsolateContext": true,
     "useCompilerModule": false,
     "userConfirmedUseCompilerModuleSwitch": false,
@@ -139,6 +140,12 @@
         {
           "name": "pages/ocr/plant",
           "pathName": "pages/ocr/plant",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/farming/index",
+          "pathName": "pages/farming/index",
           "scene": null
         }
       ]

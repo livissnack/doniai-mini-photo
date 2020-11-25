@@ -1,0 +1,4 @@
+/* pages/farming/detail.wxss */
+.cauni-details-box{
+  word-wrap:break-word;
+}

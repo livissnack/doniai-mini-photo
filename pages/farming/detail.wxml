@@ -1,0 +1,116 @@
+<!-- pages/farming/detail.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">养鸡详情</view>
+  </cu-custom>
+  <view class="box">
+    <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+      <swiper-item wx:for="{{swiperList}}" wx:key="id">
+        <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+      </swiper-item>
+    </swiper>
+    <view class="solids-bottom bg-white flex align-center">
+      <view class="flex-sub padding text-left">
+        <view class="padding-xs text-sm flex justify-between">
+          <text class="text-grey">地址：管窑镇土城岗村2组</text>
+          <text class="text-green text-right">
+            <text class="cuIcon-global lg text-green"></text>
+            距我300m
+          </text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">营业执照号：xxxxxxxx</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">鸡场编号：00001</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">老板：管冰洋</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">电话：15302661170</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">主营：粉蛋，绿壳蛋，土鸡蛋，鸭蛋等。</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">说明：满10箱可送货上门，满100送5元代金券</text>
+        </view>
+        <view class="padding-xs text-sm">
+          <text class="text-grey">其它信息：微信号123456</text>
+        </view>
+      </view>
+    </view>
+    <view class="cu-bar bg-gray solid-bottom">
+      <view class='action'>
+        <text class='cuIcon-weixin text-green'></text>
+        与鸡场老板聊天
+      </view>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class='action'>
+        <text class='cuIcon-titles text-orange'></text>
+        鸡场动态
+      </view>
+    </view>
+    <view class="bg-white padding">
+      <view class="text-content text-sm">本养鸡场新产粉蛋28件，价格优惠，商品全场消费1000元以上可配送到户，欢迎大家下单或前来考察合作。</view>
+      <view class="flex-sub text-right">
+        <view class="padding-xs text-sm">
+          <text class="text-grey">2020-11-25</text>
+        </view>
+      </view>
+    </view>
+    <!-- 鸡场详介 -->
+    <view class="cu-bar bg-white margin-top solid-bottom">
+      <view class='action'>
+        <text class='icon-title text-red'></text>
+        <text>鸡场详介</text>
+      </view>
+    </view>
+    <view class="bg-white padding cauni-details-box">
+      132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456132456
+      拉大大发发放是的丰富的爽肤水
+      沙发上发的啥地方
+      方式发生的方式
+      所发生的方式
+      sdfsdf
+      孙菲菲水电费水电费
+      所发生的发顺丰
+      啥发送到浮点数
+            拉大大发发放是的丰富的爽肤水
+      沙发上发的啥地方
+      方式发生的方式
+      所发生的方式
+      sdfsdf
+      孙菲菲水电费水电费
+      所发生的发顺丰
+      啥发送到浮点数
+            拉大大发发放是的丰富的爽肤水
+      沙发上发的啥地方
+      方式发生的方式
+      所发生的方式
+      sdfsdf
+      孙菲菲水电费水电费
+      所发生的发顺丰
+      啥发送到浮点数
+            拉大大发发放是的丰富的爽肤水
+      沙发上发的啥地方
+      方式发生的方式
+      所发生的方式
+      sdfsdf
+      孙菲菲水电费水电费
+      所发生的发顺丰
+      啥发送到浮点数
+            拉大大发发放是的丰富的爽肤水
+      沙发上发的啥地方
+      方式发生的方式
+      所发生的方式
+      sdfsdf
+      孙菲菲水电费水电费
+      所发生的发顺丰
+      啥发送到浮点数
+    </view>
+  </view>
+</view>

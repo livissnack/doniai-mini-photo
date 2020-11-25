@@ -15,8 +15,7 @@
         <view class="padding-xs text-sm flex justify-between">
           <text class="text-grey">地址：管窑镇土城岗村2组</text>
           <text class="text-green text-right">
-            <text class="cuIcon-global lg text-green"></text>
-            距我300m
+            <text class="cuIcon-global lg text-green"> 距我300m</text>
           </text>
         </view>
         <view class="padding-xs text-sm">
@@ -43,7 +42,7 @@
       </view>
     </view>
     <view class="cu-bar bg-gray solid-bottom">
-      <view class='action'>
+      <view class='action' bindtap="jumpChatPage">
         <text class='cuIcon-weixin text-green'></text>
         与鸡场老板聊天
       </view>

@@ -25,7 +25,10 @@
     "pages/village/cart",
     "pages/ocr/plant",
     "pages/farming/index",
-    "pages/farming/detail"
+    "pages/farming/detail",
+    "pages/farming/apply",
+    "pages/chat/index",
+    "pages/news/index"
   ],
   "permission": {
     "scope.userLocation": {

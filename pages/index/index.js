@@ -117,5 +117,17 @@ Page({
     wx.navigateTo({
       url: '/pages/farming/index',
     })
+  },
+
+  jumpNewsPage() {
+    wx.navigateTo({
+      url: '/pages/news/index',
+    })
+  },
+
+  jumpJobPage() {
+    wx.showToast({
+      title: '该功能尚未开发'
+    });
   }
 })

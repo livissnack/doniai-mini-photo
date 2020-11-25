@@ -98,5 +98,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  jumpChatPage() {
+    wx.navigateTo({
+      url: '/pages/chat/index',
+    })
   }
 })

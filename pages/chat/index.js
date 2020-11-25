@@ -1,4 +1,4 @@
-// pages/farming/index.js
+// pages/chat/index.js
 Page({
 
   /**
@@ -62,17 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-
-  jumpFarmingDetailPage() {
-    wx.navigateTo({
-      url: '/pages/farming/detail',
-    })
-  },
-
-  jumpFarmingApplyPage() {
-    wx.navigateTo({
-      url: '/pages/farming/apply',
-    })
   }
 })

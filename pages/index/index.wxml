@@ -31,7 +31,9 @@
         <text>拍照取字</text>
       </view>
       <view class="cu-item" bindtap="jumpTrsanlatePage">
-        <view class="cuIcon-recordfill text-blue"></view>
+        <view class="cuIcon-egefill text-pink">
+          <image class="eggImg" src="../../images/translate.png"></image>
+        </view>
         <text>文字翻译</text>
       </view>
       <view class="cu-item" bindtap="jumpOcrPlantPage">
@@ -46,11 +48,27 @@
         <view class="cuIcon-shopfill text-pink"></view>
         <text>村帮购</text>
       </view>
+      <view class="cu-item" bindtap="jumpNewsPage">
+        <view class="cuIcon-news text-blue"></view>
+        <text>村资讯</text>
+      </view>
       <view class="cu-item" bindtap="jumpFarmingPage">
         <view class="cuIcon-egefill text-pink">
           <image class="eggImg" src="../../images/ege.png"></image>
         </view>
         <text>蛋联盟</text>
+      </view>
+      <view class="cu-item" bindtap="jumpJobPage">
+        <view class="cuIcon-egefill text-pink">
+          <image class="eggImg" src="../../images/job.png"></image>
+        </view>
+        <text>村求职</text>
+      </view>
+      <view class="cu-item" bindtap="jumpJobPage">
+        <view class="cuIcon-egefill text-pink">
+          <image class="eggImg" src="../../images/daka.png"></image>
+        </view>
+        <text>康打卡</text>
       </view>
       <view class="cu-item">
         <view class="cuIcon-more text-gray"></view>

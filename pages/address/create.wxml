@@ -7,18 +7,18 @@
     <view class="cu-bar bg-white solid-bottom margin-top">
       <view class="action">
         <text class="cuIcon-title text-orange "></text>
-        新增收件人
+        新增收件信息
       </view>
     </view>
     <form>
       <view class="cu-form-group">
         <view class="title">收件人</view>
-        <input placeholder="请填写收件人姓名"></input>
+        <input placeholder="请填写收件人姓名" bindchange="bindReceiverChange" value="{{receiver}}"></input>
         <text class="cuIcon-addressbook" bindtap="openPhoneContact"></text>
       </view>
       <view class="cu-form-group">
         <view class="title">手机号码</view>
-        <input placeholder="输入框带标签"></input>
+        <input placeholder="请输入手机号" bindchange="bindPhoneChange" value="{{receiver_phone}}"></input>
       </view>
       <view class="cu-form-group">
         <view class="title">所在地区</view>
@@ -32,14 +32,14 @@
       </view>
       <view class="cu-form-group align-start">
         <view class="title">详细地址</view>
-        <textarea maxlength="-1" disabled="{{modalName!=null}}" clearable bindinput="textareaBInput" placeholder="多行文本输入框"></textarea>
+        <textarea maxlength="-1" disabled="{{modalName!=null}}" clearable bindinput="bindAddressChange" value="{{address}}" placeholder="多行文本输入框"></textarea>
         <text class="cuIcon-voicefill text-sm margin-top-lg" bindtap="getVoiceAddressText"></text>
       </view>
       <view class="cu-form-group margin-top align-start">
         <view class="title">标签</view>
         <view class="padding-sm flex">
-          <view class="padding-xs" wx:for="{{tags}}" wx:key wx:if="{{item.name!='gray'}}">
-            <view class="cu-tag round sm bg-{{item.name}}">{{item.title}}</view>
+          <view class="padding-xs" wx:for="{{tags}}" wx:key="index" bindtap="selectTag" data-id="{{item.id}}">
+            <view class="cu-tag round sm bg-{{item.id === tag ? item.name : 'gray'}}">{{item.title}}</view>
           </view>
         </view>
       </view>
@@ -49,12 +49,12 @@
           <view class="text-xs text-gray">提醒：每次下单会默认使用该地址</view>
         </view>
         <view class="action margin-top">
-          <switch class="xs" bindchange="SetShadow"></switch>
+          <switch class="xs" checked="{{is_default}}" bindchange="bindDefaultChange"></switch>
         </view>
       </view>
     </form>
     <view class="padding flex flex-direction">
-      <button class="cu-btn bg-green margin-tb-sm">
+      <button class="cu-btn bg-green margin-tb-sm" bindtap="handleSubmit">
         <text class="cuIcon-add iconfont-spin"></text>
         保存
       </button>

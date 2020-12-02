@@ -27,10 +27,11 @@ export const getOrders = (data, headers) => post(`${API_ROOT}/api/order`, data, 
 export const deleteOrder = (data, headers) => post(`${API_ROOT}/api/order/delete`, data, headers);
 export const getOrder = (order_id) => get(`${API_ROOT}/api/order/detail?order_id=${order_id}`);
 
-export const getAddresses = () => get(`${API_ROOT}/api/address`);
+export const getAddresses = (data, headers) => post(`${API_ROOT}/api/address`, data, headers);
 export const getAddress = (address_id) => get(`${API_ROOT}/api/address/detail?address_id=${address_id}`);
-export const createAddress = (data) => post(`${API_ROOT}/api/address/create`, data);
-export const updateAddress = (data) => post(`${API_ROOT}/api/address/edit`, data);
+export const createAddress = (data, headers) => post(`${API_ROOT}/api/address/create`, data, headers);
+export const updateAddress = (data, headers) => post(`${API_ROOT}/api/address/edit`, data, headers);
+export const deleteAddress = (data) => post(`${API_ROOT}/api/address/delete`, data);
 
 export const getAllNews = (data, headers) => post(`${API_ROOT}/api/news`, data, headers);
 export const getNews = (data, headers) => post(`${API_ROOT}/api/news/detail`, data, headers);

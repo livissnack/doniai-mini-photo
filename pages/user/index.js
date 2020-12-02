@@ -1,6 +1,6 @@
 // pages/user/contact/contact.js
 const app = getApp()
-import {getBalance} from '../../utils/api'
+import {getBalance, authLogin} from '../../utils/api'
 
 Page({
   /**
@@ -83,11 +83,39 @@ Page({
   onShareAppMessage: function () {},
 
   getUserInfo: function (e) {
-    console.log(e)
+    console.log(e.detail.userInfo, app.globalData.openid)
+    let userInfo = e.detail.userInfo
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
-      userInfo: e.detail.userInfo,
+      userInfo: userInfo,
       hasUserInfo: true,
+    })
+    this.doAuthLogin(userInfo)
+  },
+
+  doAuthLogin(userInfo) {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }
+    let request_data = {
+      avatarUrl: userInfo.avatarUrl,
+      city: userInfo.city,
+      country: userInfo.country,
+      gender: userInfo.gender,
+      nickName: userInfo.nickName,
+      province: userInfo.province,
+    }
+  
+    authLogin(request_data, headers).then((res) => {
+      if (res.code === 0) {
+        console.log('auth login success')
+      } else {
+        wx.showToast({
+          title: '授权登录失败',
+        })
+      }
     })
   },
 

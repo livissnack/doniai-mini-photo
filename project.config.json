@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -158,6 +158,18 @@
         {
           "name": "pages/news/detail",
           "pathName": "pages/news/detail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/address/create",
+          "pathName": "pages/address/create",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/address/index",
+          "pathName": "pages/address/index",
           "scene": null
         }
       ]

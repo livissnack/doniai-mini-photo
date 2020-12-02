@@ -44,7 +44,7 @@
         <view class="cuIcon-picfill text-yellow"></view>
         <text>智能证件照</text>
       </view>
-      <view class="cu-item" bindtap="jumpVillagePage">
+      <!-- <view class="cu-item" bindtap="jumpVillagePage">
         <view class="cuIcon-shopfill text-pink"></view>
         <text>村帮购</text>
       </view>
@@ -69,7 +69,7 @@
           <image class="eggImg" src="../../images/daka.png"></image>
         </view>
         <text>康打卡</text>
-      </view>
+      </view> -->
       <view class="cu-item">
         <view class="cuIcon-more text-gray"></view>
         <text>更多</text>

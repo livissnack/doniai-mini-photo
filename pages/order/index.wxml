@@ -19,7 +19,7 @@
             <view class="cu-avatar round" style="background-image:url(https://ossweb-img.qq.com/images/lol/img/champion/Morgana.png);"></view>
             <view class="content margin-left-lg">
               <view class="text-grey">{{item.good_name}}</view>
-              <view class="text-gray text-content text-df">凯尔，你被自己的光芒变的盲目。</view>
+              <view class="text-gray text-content text-df">拍摄一张证件照，幸福生活一整天。</view>
             </view>
           </view>
           <view class="padding-lg text-sm">
@@ -33,7 +33,7 @@
             <view class="flex flex-wrap justify-between align-center bg-white">
               <button class="cu-btn round bg-blue sm" bindtap="jumpOrderDetailPage" data-orderid="{{item.order_id}}">订单详情</button>
               <button class="cu-btn round margin-left-sm bg-red sm" bindtap="delOrder" data-index="{{index}}" data-orderid="{{item.order_id}}">删除订单</button>
-              <button class="cu-btn round margin-left-sm bg-green sm" bindtap="jumpLogisticPage">
+              <button class="cu-btn round margin-left-sm bg-green sm" wx:if="{{item.tracking_number !== ''}}" bindtap="jumpLogisticPage">
                 查看物流
               </button>
             </view>

@@ -32,7 +32,7 @@ Page({
   onLoad: function (options) {
     let spec_id = options.id
     this.setData({
-      photo_spec_id: spec_id
+      spec_id: spec_id
     })
     this.getSpec(spec_id)
   },
@@ -191,7 +191,7 @@ Page({
   getSpec(spec_id) {
     let auth_token = app.globalData.token || wx.getStorageSync('token')
     let request_data = {
-      photo_spec_id: spec_id
+      spec_id: spec_id
     }
     let headers = {
       Authorization: `Bearer ${auth_token}`,

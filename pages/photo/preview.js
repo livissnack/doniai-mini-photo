@@ -1,6 +1,7 @@
 // pages/photo/preview.js
 const app = getApp()
-import { doPay } from '../../utils/api'
+import { doPay, getSpec } from '../../utils/api'
+import { isEmpty } from '../../utils/helper'
 Page({
   /**
    * 页面的初始数据
@@ -10,21 +11,27 @@ Page({
     preview_image_url: '',
     preview_print_image_url: '',
     spec_id: '',
+    spec: {},
+    is_need_print: false,
     is_pay: false,
+    pay_dialog: false,
     checkbox: [
       {
         value: 0,
-        name: '个性换装 | 5.99积分',
+        name: '个性换装 | ￥5.99',
+        price: '5.99',
         checked: false,
         hot: false,
       },
       {
         value: 1,
-        name: '3种底色 | 1.99积分',
-        checked: true,
+        name: '3种底色 | ￥1.99',
+        price: '1.99',
+        checked: false,
         hot: true,
       },
     ],
+    total_price: '',
   },
 
   /**
@@ -39,6 +46,7 @@ Page({
         preview_print_image_url: data.data.print_image_url,
         spec_id: data.data.spec_id,
       })
+      this.getSpec()
       console.log(data)
     })
   },
@@ -77,9 +85,45 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target,
+    })
+  },
+
+  showPayDialog() {
+    this.setData({
+      pay_dialog: true
+    })
+  },
+
+  hidePayDialog() {
+    this.setData({
+      pay_dialog: false
+    })
+  },
+
+  getSpec() {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }
+    let request_data = {
+      spec_id: this.data.spec_id
+    }
+    getSpec(request_data, headers).then((res) => {
+      if (res.code === 0 && !isEmpty(res.data)) {
+        this.setData({
+          spec: res.data,
+          total_price: res.data.price,
+        })
+      } else {
+        wx.showToast({
+          title: '规格获取失败',
+        })
+      }
     })
   },
 
@@ -118,6 +162,7 @@ Page({
             }
             this.setData({
               is_pay: is_pay_success,
+              pay_dialog: false,
               modalName: null,
             })
           })
@@ -144,8 +189,19 @@ Page({
         break
       }
     }
+    let sum = 0
+    items.forEach(function (value) {
+      console.log(value)
+      if(value.checked) {
+        sum += parseFloat(value.price)
+      }
+    })
+    let spec_price = isEmpty(this.data.spec.price) ? 0 : parseFloat(this.data.spec.price)
+    let total_price = sum + spec_price
+    console.log(total_price)
     this.setData({
       checkbox: items,
+      total_price: total_price,
     })
   },
 

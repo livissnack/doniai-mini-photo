@@ -25,7 +25,7 @@ export const getQuestion = (question_id) => get(`${API_ROOT}/api/question/detail
 
 export const getOrders = (data, headers) => post(`${API_ROOT}/api/order`, data, headers);
 export const deleteOrder = (data, headers) => post(`${API_ROOT}/api/order/delete`, data, headers);
-export const getOrder = (order_id) => get(`${API_ROOT}/api/order/detail?order_id=${order_id}`);
+export const getOrder = (data, headers) => get(`${API_ROOT}/api/order/detail`, data, headers);
 
 export const getAddresses = (data, headers) => post(`${API_ROOT}/api/address`, data, headers);
 export const getAddress = (address_id) => get(`${API_ROOT}/api/address/detail?address_id=${address_id}`);

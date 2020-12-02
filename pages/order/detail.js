@@ -1,16 +1,26 @@
 // pages/order/detail.js
+const app = getApp()
+import { getOrder } from '../../utils/api'
+import { isEmpty } from '../../utils/helper'
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    order_id: '',
+    response: {}
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     let order_id = options.order_id
+    this.setData({
+      order_id: order_id
+    })
     console.log(order_id)
+    this.getOrder()
   },
 
   /**
@@ -47,6 +57,28 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {},
+
+  getOrder() {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }
+    let request_data = {
+      order_id: this.data.order_id
+    }
+    getOrder(request_data, headers).then((res) => {
+      if (res.code === 0 && !isEmpty(res.data)) {
+        this.setData({
+          response: res.data
+        })
+      } else {
+        wx.showToast({
+          title: '订单获取失败',
+        })
+      }
+    })
+  },
 
   callContact() {
     wx.makePhoneCall({

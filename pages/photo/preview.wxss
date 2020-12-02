@@ -6,3 +6,12 @@
 .text-underline {
   text-decoration: underline;
 }
+
+.gx-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.gx-soild {
+  border: 1px solid #8799a3;
+}

@@ -25,7 +25,7 @@
     <view class="padding bg-white">
       <view class="bg-white padding solid">
         <view class="grid col-2 margin-bottom text-left">
-          <view class="padding-xs" wx:for="{{response}}" wx:key="index" bindtap="jumpPhotoDetailPage" data-id="{{item.photo_spec_id}}">
+          <view class="padding-xs" wx:for="{{response}}" wx:key="index" bindtap="jumpPhotoDetailPage" data-id="{{item.spec_id}}">
             <view class="cu-card solid article no-card">
               <view class="cu-item shadow">
                 <view class="title">

@@ -5,7 +5,7 @@
   </cu-custom>
   <view class="box bg-white">
     <view class="solid">
-      <view class="solid-bottom padding text-left">
+      <view class="solid-bottom padding text-left" wx:if="{{response.status === 0}}">
         <button class="cu-btn block bg-blue lg">
           <text class="cuIcon-timefill"></text>
           <text class="text-white">订单待付款 29分07秒</text>
@@ -23,7 +23,7 @@
             <text class="text-grey text-sm">商品名称</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">一寸（蓝底）</text>
+            <text class="text-grey text-sm">{{response.good_name}}</text>
           </view>
         </view>
         <view class="cu-item">
@@ -31,7 +31,7 @@
             <text class="text-grey text-sm">商品规格</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">295*413px | 25*35cm</text>
+            <text class="text-grey text-sm">{{response.spec_info === '' ? '无' : response.spec_info}}</text>
           </view>
         </view>
         <view class="cu-item">
@@ -39,7 +39,7 @@
             <text class="text-grey text-sm">价格</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">￥ 4.99</text>
+            <text class="text-grey text-sm">{{'￥' + response.amount}}</text>
           </view>
         </view>
         <view class="cu-item">
@@ -47,7 +47,7 @@
             <text class="text-grey text-sm">增值服务</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">无</text>
+            <text class="text-grey text-sm">{{response.remark === '' ? '无' : response.remark}}</text>
           </view>
         </view>
         <view class="cu-item">
@@ -55,7 +55,7 @@
             <text class="text-grey text-sm">合计</text>
           </view>
           <view class="action">
-            <text class="text-red text-sm">￥4.99</text>
+            <text class="text-red text-sm">{{'￥' + response.total_amount}}</text>
           </view>
         </view>
       </view>
@@ -71,7 +71,7 @@
             <text class="text-grey text-sm">订单编号</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">20201118134502125666</text>
+            <text class="text-grey text-sm">{{response.order_sn}}</text>
             <view class="cu-tag round bg-blue light sm" bindtap="doCopy">复制</view>
           </view>
         </view>
@@ -80,7 +80,7 @@
             <text class="text-grey text-sm">下单时间</text>
           </view>
           <view class="action">
-            <text class="text-grey text-sm">2020-11-18 10:37:22</text>
+            <text class="text-grey text-sm">{{response.created_time}}</text>
           </view>
         </view>
       </view>
@@ -104,7 +104,7 @@
             </button>
           </view>
         </view>
-        <view class="cu-item">
+        <view class="cu-item" wx:if="{{response.status === 0}}">
           <view class="content gx-right">
             <button class="cu-btn bg-red shadow margin-tb-sm margin-right">
               <text class="text-white">取消订单</text>

@@ -61,15 +61,15 @@
           <image mode="aspectFit" src="{{preview_image_url}}"></image>
           <view class="desc">
             <view class="text-content text-left">
-              <view class="block text-black  light sm">一寸</view>
-              <view class="block text-black light sm">包含[单张电子照]和[排版照]</view>
+              <view class="block text-black  light sm">{{spec.spec_name}}</view>
+              <view class="block text-black light sm">包含[单张电子照]{{spec.is_print === 1 ? '和[排版照]' : ''}}</view>
               <view class="block text-black light sm">
                 已选底色 |
                 <view class="cu-tag bg-blue light sm"></view>
               </view>
             </view>
             <view class="text-left">
-              <view class="block text-black light sm">￥ 4.99</view>
+              <view class="block text-black light sm">{{'￥'+spec.price}}</view>
             </view>
           </view>
         </view>
@@ -82,9 +82,9 @@
       </view>
     </view>
     <view class="grid col-2 padding-sm">
-      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
-        <button class="cu-btn orange lg block {{item.checked?'line-green':'line-orange'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}">
-          <text class="text-black text-sm">{{item.name}}</text>
+      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="index">
+        <button class="cu-btn orange lg block {{item.checked ? 'bg-pink' : 'line-pink'}}" bindtap="ChooseCheckbox" data-value="{{item.value}}">
+          <text class="text-{{item.checked ? 'white' : 'black'}} text-sm">{{item.name}}</text>
           <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">
             HOT
           </view>
@@ -92,35 +92,46 @@
       </view>
     </view>
     <view class="solid-bottom padding text-left">
-      <button class="cu-btn block bg-blue lg" bindtap="pay">
+      <button class="cu-btn block bg-blue lg" bindtap="showPayDialog">
         <text class="cuIcon-pulldown"></text>
-        <text class="text-white">支付￥4.99 保存电子照</text>
+        <text class="text-white">支付￥{{total_price}} 保存无水印电子照</text>
       </button>
     </view>
   </view>
 </view>
-<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+<view class="cu-modal {{pay_dialog ? 'show' : ''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">
       <view class="content">证照支付</view>
-      <view class="action" bindtap="hideModal">
+      <view class="action" bindtap="hidePayDialog">
         <text class="cuIcon-close text-red"></text>
       </view>
     </view>
-    <view class="padding-xl">
-      <view class="block text-black  light sm">一寸</view>
-      <view class="block text-black light sm">包含[单张电子照]和[排版照]</view>
-      <view class="block text-black light sm">
+    <view class="padding-xl bg-white gx-soild text-left">
+      <view class="block text-black sm margin-top-sm">一寸</view>
+      <view class="block text-black sm margin-top-sm">包含[单张电子照]和[排版照]</view>
+      <view class="block text-black sm margin-top-sm">
         已选底色 |
-        <view class="cu-tag bg-blue light sm"></view>
+        <view class="cu-tag bg-blue sm"></view>
+      </view>
+      <view class="text-pink sm gx-between margin-top-sm">
+        <view class="title">是否需要打印照</view>
+        <checkbox></checkbox>
+      </view>
+      <view class="text-red sm gx-between margin-top-sm">
+        <view class="title">总价格</view>
+        <view class="text-red sm">￥{{total_price}}</view>
+      </view>
+      <view class="content margin-top-sm">
+        <text class="text-grey text-xs">温馨提示：需要打印照的客户，请先去个人信息里面设置默认收货地址！</text>
       </view>
     </view>
     <view class="cu-bar bg-white">
-      <view class="action margin-0 flex-sub text-green " bindtap="hideModal">
+      <view class="action margin-0 flex-sub text-green " bindtap="hidePayDialog">
         <text class="cuIcon-roundclosefill"></text>
         取消支付
       </view>
-      <view class="action margin-0 flex-sub solid-left" bindtap="hideModal">
+      <view class="action margin-0 flex-sub solid-left" bindtap="pay">
         <text class="cuIcon-moneybagfill"></text>
         确定支付
       </view>

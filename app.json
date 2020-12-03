@@ -29,7 +29,9 @@
     "pages/farming/apply",
     "pages/chat/index",
     "pages/news/index",
-    "pages/news/detail"
+    "pages/news/detail",
+    "pages/calendar/index",
+    "pages/qrcode/index"
   ],
   "permission": {
     "scope.userLocation": {

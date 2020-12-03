@@ -129,5 +129,17 @@ Page({
     wx.showToast({
       title: '该功能尚未开发'
     });
+  },
+
+  jumpCalendarPage() {
+    wx.navigateTo({
+      url: '/pages/calendar/index',
+    })
+  },
+
+  jumpQrcodePage() {
+    wx.navigateTo({
+      url: '/pages/qrcode/index',
+    })
   }
 })

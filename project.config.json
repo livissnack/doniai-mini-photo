@@ -190,6 +190,18 @@
         {
           "name": "pages/index/index",
           "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/calendar/index",
+          "pathName": "pages/calendar/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/qrcode/index",
+          "pathName": "pages/qrcode/index",
           "scene": null
         }
       ]

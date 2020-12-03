@@ -44,6 +44,14 @@
         <view class="cuIcon-picfill text-yellow"></view>
         <text>智能证件照</text>
       </view>
+      <view class="cu-item" bindtap="jumpCalendarPage">
+        <view class="cuIcon-calendar text-blue"></view>
+        <text>万年历</text>
+      </view>
+      <view class="cu-item" bindtap="jumpQrcodePage">
+        <view class="cuIcon-qrcode text-gray"></view>
+        <text>二维码生成</text>
+      </view>
       <!-- <view class="cu-item" bindtap="jumpVillagePage">
         <view class="cuIcon-shopfill text-pink"></view>
         <text>村帮购</text>

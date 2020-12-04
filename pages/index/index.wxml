@@ -52,6 +52,12 @@
         <view class="cuIcon-qrcode text-gray"></view>
         <text>二维码生成</text>
       </view>
+      <view class="cu-item" bindtap="jumpFucaiPage">
+        <view class="cuIcon-egefill text-pink">
+          <image class="eggImg" src="../../images/fucai.png"></image>
+        </view>
+        <text>福彩工具</text>
+      </view>
       <!-- <view class="cu-item" bindtap="jumpVillagePage">
         <view class="cuIcon-shopfill text-pink"></view>
         <text>村帮购</text>

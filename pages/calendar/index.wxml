@@ -37,25 +37,25 @@
           <view class="text-xl">
             <text class="text-bold">今日黄历宜</text>
           </view>
-          <view class="padding">开光 解除 拆卸 修造 动土 安床 纳畜 安葬 启钻 入殓</view>
+          <view class="padding">{{almanac.suitable}}</view>
         </view>
         <view class="flex-sub solid-bottom">
           <view class="text-xl">
             <text class="text-bold">今日黄历忌</text>
           </view>
-          <view class="padding">嫁娶 开市 出火 栽种 破土 动土 入宅 移徙 安香 分居 掘井 作灶</view>
+          <view class="padding">{{almanac.taboo}}</view>
         </view>
         <view class="flex-sub solid-bottom">
           <view class="text-xl">
             <text class="text-bold">今日老黄历吉神宜趋</text>
           </view>
-          <view class="padding">打扫 安床 纳畜 安葬 修造 拆卸 入殓 开光 迁坟</view>
+          <view class="padding">{{almanac.good_luck}}</view>
         </view>
         <view class="flex-sub solid-bottom">
           <view class="text-xl">
             <text class="text-bold">今日老黄历凶煞宜忌</text>
           </view>
-          <view class="padding">嫁娶 搬家 移徙 开市 动土 栽种 分居 作灶 安香 出火 掘井 破土</view>
+          <view class="padding">{{almanac.ferocious}}</view>
         </view>
       </view>
     </view>

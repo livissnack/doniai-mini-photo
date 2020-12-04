@@ -1,18 +1,20 @@
 // pages/user/signin.js
+import {getSigninDays} from '../../utils/api'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    weekdays: []
+    weekdays: [],
+    title: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.weekdays)
+    this.getSigninDays()
   },
 
   /**
@@ -26,7 +28,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(this.weekdays)
 
   },
 
@@ -63,5 +64,16 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  getSigninDays() {
+    getSigninDays({}).then(res => {
+      this.setData({
+        weekdays: res.data.list,
+        title: res.data.name
+      })
+    }).catch(e => {
+      wx.showToast({title: '请求失败'});
+    })
   },
 })

@@ -122,7 +122,8 @@ Page({
     this.setData({
       province: regions[0],
       city: regions[1],
-      area: regions[2]
+      area: regions[2],
+      region: [regions[0], regions[1], regions[2]]
     })
   },
 

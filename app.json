@@ -31,7 +31,8 @@
     "pages/news/index",
     "pages/news/detail",
     "pages/calendar/index",
-    "pages/qrcode/index"
+    "pages/qrcode/index",
+    "pages/fucai/index"
   ],
   "permission": {
     "scope.userLocation": {

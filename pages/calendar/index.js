@@ -2,6 +2,9 @@
 var d = require('../../utils/date')
 var CN_Date = require('../../utils/cndate')
 var t = new Date()
+const app = getApp()
+import { getHuangli } from '../../utils/api'
+import { isEmpty } from '../../utils/helper'
 Page({
   /**
    * 页面的初始数据
@@ -15,6 +18,13 @@ Page({
     toYear: t.getFullYear(),
     fromToday: '今天',
     nongliDetail: CN_Date(t.getFullYear(), t.getMonth() + 1, t.getDate()),
+    almanac: {
+      almanac_id: '',
+      suitable: '',
+      taboo: '',
+      good_luck: '',
+      ferocious: '',
+    },
   },
 
   /**
@@ -23,6 +33,7 @@ Page({
   onLoad: function (options) {
     console.log('onShow')
     this.calcMonthDayArray()
+    this.getHuangLi()
   },
 
   /**
@@ -95,6 +106,7 @@ Page({
       fromToday: d.getFromTodayDays(eId, data.monthNum - 1, data.yearNum),
       nongliDetail: CN_Date(data.yearNum, data.monthNum, eId),
     })
+    this.getHuangLi()
   },
 
   monthTouch: function (e) {
@@ -165,6 +177,30 @@ Page({
       nongliDetail: notToday
         ? CN_Date(data.yearNum, data.monthNum, 1)
         : CN_Date(t.getFullYear(), t.getMonth() + 1, t.getDate()),
+    })
+  },
+
+  getHuangLi() {
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }
+    let day = this.data.toDate < 10 ? '0' + this.data.toDate : this.data.toDate
+    let current_date = `${this.data.toYear}${this.data.toMonth}${day}`
+    let request_data = {
+      current_date: current_date,
+    }
+    getHuangli(request_data, headers).then((res) => {
+      if (res.code === 0) {
+        this.setData({
+          almanac: isEmpty(res.data) ? {} : res.data,
+        })
+      } else {
+        wx.showToast({
+          title: '请求异常',
+        })
+      }
     })
   },
 })

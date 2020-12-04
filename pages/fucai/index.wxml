@@ -1,0 +1,41 @@
+<!-- pages/fucai/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">福彩工具</view>
+  </cu-custom>
+  <view class="box bg-white">
+    <view class="cu-bar solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>
+        双色球开奖信息
+      </view>
+    </view>
+    <view class="padding-xs solid-bottom flex align-left" wx:for="{{response.items}}" wx:key="index">
+      <view class="flex-sub text-left">
+        <view class="solid-bottom text-xl padding">
+          <text class="text-black text-bold">{{item.name}}</text>
+        </view>
+        <view class="padding-sm">{{item.amount}}</view>
+        <view class="padding-sm bg-white">
+          <view class="cu-tag bg-red round" wx:for="{{item.qianqu}}" wx:key="index" wx:for-item="red_ball" wx:for-index="index">
+            {{red_ball}}
+          </view>
+          <view class="cu-tag bg-blue round">{{item.houqu}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="margin-tb padding-sm flex-between">
+      <button class="cu-btn round bg-purple shadow" bindtap='randomTicket'>随机一注</button>
+      <button class="cu-btn round bg-pink shadow" data-type='source' bindtap="doCopy">复制</button>
+    </view>
+    <view class="padding-sm bg-white" wx:if="{{random_ticket.blue !== ''}}">
+      <view class="cu-tag bg-red round" wx:for="{{random_ticket.red}}" wx:key="index" wx:for-item="random_red_ball" wx:for-index="index">{{random_red_ball}}</view>
+      <view class="cu-tag bg-blue round">{{random_ticket.blue}}</view>
+    </view>
+    <view class="padding-xs">
+      <view class="content padding">
+        <text class="text-grey text-xs">数据来源：中国福利彩票官方网站（http://www.cwl.gov.cn/）</text>
+      </view>
+    </view>
+  </view>
+</view>

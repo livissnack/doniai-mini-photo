@@ -141,5 +141,11 @@ Page({
     wx.navigateTo({
       url: '/pages/qrcode/index',
     })
+  },
+
+  jumpFucaiPage() {
+    wx.navigateTo({
+      url: '/pages/fucai/index',
+    })
   }
 })

@@ -3,32 +3,24 @@
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">签到领分</view>
   </cu-custom>
-  <view class="box">
-    <view class="flex justify-between bg-blue padding-xs">
+  <view class="box bg-white">
+    <view class="flex justify-between bg-blue padding">
       <view class="text-white text-lg margin-top">
         已累计签到：3天
       </view>
       <view class="">
-        <button class="cu-btn bg-white margin-tb-sm">
+        <button class="cu-btn margin-tb-sm">
           <text class="text-gray text-sm">已签到</text>
         </button>
       </view>
     </view>
-    <view class="cu-bar margin-top bg-white">
+    <view class="cu-bar">
       <view class="action">
-        <text class="cuIcon-title text-blue"></text>签到日历（2020年11月）
+        <text class="cuIcon-title text-blue"></text>签到日历（{{title}}）
       </view>
     </view>
-    <view class="grid col-7 padding-sm">
-      <view class="margin-tb-sm text-center flex justify-between">
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-        <button class="cu-btn sm round bg-blue shadow">1日</button>
-      </view>
+    <view class="padding-xs">
+      <view class="cu-tag bg-red radius" wx:for="{{weekdays}}" wx:key="index">{{item}}</view>
     </view>
   </view>
 </view>

@@ -42,6 +42,11 @@ export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data)
 export const getBalance = (data, headers) => post(`${API_ROOT}/api/user/balance`, data, headers);
 
 export const doPay = (data, headers) => post(`${API_ROOT}/api/pay/photo`, data, headers);
+export const getHuangli = (data, headers) => post(`${API_ROOT}/api/almanac/detail`, data, headers);
+export const getTickets = (data, headers) => post(`${API_ROOT}/api/ticket`, data, headers);
+export const randomTicket = (data, headers) => post(`${API_ROOT}/api/ticket/random`, data, headers);
+
+export const getSigninDays = (data) => post(`${API_ROOT}/api/signin/weekdays`, data);
 
 
 /*********************************************************************************************登录体系*********************************************************************/

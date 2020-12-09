@@ -14,18 +14,18 @@
       <view class="cu-item solid-bottom {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{response.items}}" wx:key="index" bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
         <view class="cu-avatar lg" style="background-image:url({{item.image_url}});" bindtap="jumpPhotoDownloadPage" data-id="{{item.ph_id}}"></view>
         <view class="content" bindtap="jumpPhotoDownloadPage" data-id="{{item.ph_id}}">
-          <view class="text-black text-bold">
+          <view class="text-black text-bold text-lg">
             <text class="text-cut">{{item.spec}}</text>
           </view>
-          <view class="text-gray text-sm flex">
+          <view class="text-gray text-xs flex">
             <text class="text-cut">
-              <text class="cuIcon-infofill text-red"></text>
-              {{item.size}}
+              <text class="text-gray block">尺寸：{{item.size}}</text>
+              <text class="cuIcon-timefill block text-gray"> {{item.created_time}}</text>
             </text>
           </view>
         </view>
         <view class="action text-right">
-          <view class="text-grey text-xs">{{item.created_time}}</view>
+          <text class="cuIcon-activityfill block text-red"></text>
           <view class="cu-tag round bg-red sm">{{item.ph_id}}</view>
         </view>
         <view class="move">

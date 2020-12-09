@@ -14,6 +14,8 @@ export const API_ROOT = 'https://wechat.doniai.com';
 export const getOpenid = (data) => post(`${API_ROOT}/api/user/login`, data);
 export const authLogin = (data, headers) => post(`${API_ROOT}/api/user/auth`, data, headers);
 
+export const getAllMenu = (data) => post(`${API_ROOT}/api/menu`, data);
+
 export const getPhotoHistorys = (data, headers) => post(`${API_ROOT}/api/photo_history`, data, headers);
 export const getPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/detail`, data, headers);
 export const delPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/delete`, data, headers);

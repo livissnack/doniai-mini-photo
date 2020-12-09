@@ -1,4 +1,5 @@
 const app = getApp()
+import {getAllMenu} from '../../utils/api'
 Page({
   data: {
     PageCur: 'basics',
@@ -59,10 +60,48 @@ Page({
         name: '图像',
       },
     ],
+    request: {
+      keyword: ''
+    },
+    nav_menus: []
   },
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur,
+    })
+  },
+
+  onLoad(options) {
+    this.getMenus()
+  },
+
+  changeSearchValue(e) {
+    let search_value = e.detail.value
+    this.setData({
+      'request.keyword': search_value
+    })
+  },
+
+  
+  doSearch() {
+    let request_data = this.data.request
+    getAllMenu(request_data).then(res => {
+      this.setData({
+        nav_menus: res.data
+      })
+    }).catch(e => {
+      wx.showToast({title: '请求失败'});
+    })
+  },
+
+  getMenus() {
+    getAllMenu({}).then(res => {
+      console.log(res);
+      this.setData({
+        nav_menus: res.data
+      })
+    }).catch(e => {
+      wx.showToast({title: '请求失败'});
     })
   },
   onShareAppMessage() {
@@ -146,6 +185,13 @@ Page({
   jumpFucaiPage() {
     wx.navigateTo({
       url: '/pages/fucai/index',
+    })
+  },
+
+  jumpPage(e) {
+    let url = e.currentTarget.dataset.jumpurl
+    wx.navigateTo({
+      url: url,
     })
   }
 })

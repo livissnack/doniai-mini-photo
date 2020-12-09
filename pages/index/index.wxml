@@ -13,10 +13,10 @@
     <view class="cu-bar search bg-white padding-top">
       <view class="search-form round">
         <text class="cuIcon-search"></text>
-        <input adjust-position="{{false}}" type="text" placeholder="搜索工具名称" confirm-type="search" />
+        <input adjust-position="{{false}}" bindinput="changeSearchValue" value="{{request.keyword}}" type="text" placeholder="搜索工具名称" confirm-type="search" />
       </view>
       <view class="action">
-        <button class="cu-btn bg-green shadow-blur round">搜索</button>
+        <button class="cu-btn bg-green shadow-blur round" bindtap="doSearch">搜索</button>
       </view>
     </view>
     <view class="cu-bar bg-white solid-bottom">
@@ -26,64 +26,13 @@
       </view>
     </view>
     <view class="cu-list grid col-3 no-border">
-      <view class="cu-item" bindtap="jumpCropPage">
-        <view class="cuIcon-cardboardfill text-red"></view>
-        <text>拍照取字</text>
-      </view>
-      <view class="cu-item" bindtap="jumpTrsanlatePage">
-        <view class="cuIcon-egefill text-pink">
-          <image class="eggImg" src="../../images/translate.png"></image>
+      <view class="cu-item" bindtap="jumpPage" data-jumpurl="{{item.jump_url}}" wx:for="{{nav_menus}}" wx:key="index">
+        <view class="cuIcon-{{item.icon_suffix}} text-{{item.color}}" wx:if="{{item.logo_type === 1}}"></view>
+        <view class="cuIcon-egefill text-{{item.color}}" wx:if="{{item.logo_type === 2}}">
+          <image class="eggImg" src="../../images/{{item.image_url}}"></image>
         </view>
-        <text>文字翻译</text>
+        <text>{{item.name}}</text>
       </view>
-      <view class="cu-item" bindtap="jumpOcrPlantPage">
-        <view class="cuIcon-evaluate_fill text-green"></view>
-        <text>植物识别</text>
-      </view>
-      <view class="cu-item" bindtap="jumpPhotoPage">
-        <view class="cuIcon-picfill text-yellow"></view>
-        <text>智能证件照</text>
-      </view>
-      <view class="cu-item" bindtap="jumpCalendarPage">
-        <view class="cuIcon-calendar text-blue"></view>
-        <text>万年历</text>
-      </view>
-      <view class="cu-item" bindtap="jumpQrcodePage">
-        <view class="cuIcon-qrcode text-gray"></view>
-        <text>二维码生成</text>
-      </view>
-      <view class="cu-item" bindtap="jumpFucaiPage">
-        <view class="cuIcon-egefill text-pink">
-          <image class="eggImg" src="../../images/fucai.png"></image>
-        </view>
-        <text>福彩工具</text>
-      </view>
-      <!-- <view class="cu-item" bindtap="jumpVillagePage">
-        <view class="cuIcon-shopfill text-pink"></view>
-        <text>村帮购</text>
-      </view>
-      <view class="cu-item" bindtap="jumpNewsPage">
-        <view class="cuIcon-news text-blue"></view>
-        <text>村资讯</text>
-      </view>
-      <view class="cu-item" bindtap="jumpFarmingPage">
-        <view class="cuIcon-egefill text-pink">
-          <image class="eggImg" src="../../images/ege.png"></image>
-        </view>
-        <text>蛋联盟</text>
-      </view>
-      <view class="cu-item" bindtap="jumpJobPage">
-        <view class="cuIcon-egefill text-pink">
-          <image class="eggImg" src="../../images/job.png"></image>
-        </view>
-        <text>村求职</text>
-      </view>
-      <view class="cu-item" bindtap="jumpJobPage">
-        <view class="cuIcon-egefill text-pink">
-          <image class="eggImg" src="../../images/daka.png"></image>
-        </view>
-        <text>康打卡</text>
-      </view> -->
       <view class="cu-item">
         <view class="cuIcon-more text-gray"></view>
         <text>更多</text>

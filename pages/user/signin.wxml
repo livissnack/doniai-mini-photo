@@ -23,7 +23,7 @@
         <view class="nav-li mr-0 bg-{{item.is_sign ? 'green' : 'red'}}" wx:for="{{weekdays}}" wx:key="index">
           <view class="nav-title">第{{index+1}}天</view>
           <view class="nav-name">{{item.is_sign ? '已签到' : '未签到'}}</view>
-          <text class='cuIcon-book'></text>
+          <text class="gx-white cuIcon-{{item.is_sign ? 'check' : 'close'}}"></text>
         </view>
       </view>
     </view>

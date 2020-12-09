@@ -16,6 +16,7 @@ export const authLogin = (data, headers) => post(`${API_ROOT}/api/user/auth`, da
 
 export const getPhotoHistorys = (data, headers) => post(`${API_ROOT}/api/photo_history`, data, headers);
 export const getPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/detail`, data, headers);
+export const delPhotoHistory = (data, headers) => post(`${API_ROOT}/api/photo_history/delete`, data, headers);
 
 export const getAllSpec = (data, headers) => post(`${API_ROOT}/api/photo_spec`, data, headers);
 export const getSpec = (data, headers) => post(`${API_ROOT}/api/photo_spec/detail`, data, headers);
@@ -46,8 +47,11 @@ export const getHuangli = (data, headers) => post(`${API_ROOT}/api/almanac/detai
 export const getTickets = (data, headers) => post(`${API_ROOT}/api/ticket`, data, headers);
 export const randomTicket = (data, headers) => post(`${API_ROOT}/api/ticket/random`, data, headers);
 
-export const getSigninDays = (data) => post(`${API_ROOT}/api/signin/weekdays`, data);
+export const getSigninDays = (data, headers) => post(`${API_ROOT}/api/signin/weekdays`, data, headers);
+export const doSignin = (data, headers) => post(`${API_ROOT}/api/signin/do`, data, headers);
 
+
+export const getPayLogs = (data, headers) => post(`${API_ROOT}/api/pay/log`, data, headers);
 
 /*********************************************************************************************登录体系*********************************************************************/
 

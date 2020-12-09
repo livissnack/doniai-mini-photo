@@ -137,6 +137,12 @@ Page({
     })
   },
 
+  jumpLogPage() {
+    wx.navigateTo({
+      url: '/pages/user/log',
+    })
+  },
+
   callContact() {
     wx.makePhoneCall({
       phoneNumber: '15302661170',

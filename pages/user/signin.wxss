@@ -1,2 +1,8 @@
 /* pages/user/signin.wxss */
+.mr-0 {
+  margin: 0;
+}
 
+.nav-title {
+  font-size: 22rpx;
+}

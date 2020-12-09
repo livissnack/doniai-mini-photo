@@ -1,26 +1,36 @@
-<!--pages/user/signin.wxml-->
+<!-- pages/user/signin.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
-    <view slot="content">签到领分</view>
+    <view slot="content">签到领积分</view>
   </cu-custom>
   <view class="box bg-white">
     <view class="flex justify-between bg-blue padding">
-      <view class="text-white text-lg margin-top">
-        已累计签到：3天
-      </view>
-      <view class="">
-        <button class="cu-btn margin-tb-sm">
-          <text class="text-gray text-sm">已签到</text>
+      <view class="text-white text-lg margin-top">已累计签到：{{today_sign.continue_days}}天</view>
+      <view>
+        <button class="cu-btn margin-tb-sm bg-{{today_sign.is_sign ? 'gray' : 'pink'}} shadow" disabled="{{today_sign.is_sign}}" bindtap="doSignin">
+          <text class="text-sm">{{today_sign.is_sign ? '已签到' : '去签到'}}</text>
         </button>
       </view>
     </view>
     <view class="cu-bar">
       <view class="action">
-        <text class="cuIcon-title text-blue"></text>签到日历（{{title}}）
+        <text class="cuIcon-title text-blue"></text>
+        签到日历（{{title}}）
       </view>
     </view>
-    <view class="padding-xs">
-      <view class="cu-tag bg-red radius" wx:for="{{weekdays}}" wx:key="index">{{item}}</view>
+    <view class="bg-white padding">
+      <view class="grid col-4 grid-square">
+        <view class="nav-li mr-0 bg-{{item.is_sign ? 'green' : 'red'}}" wx:for="{{weekdays}}" wx:key="index">
+          <view class="nav-title">第{{index+1}}天</view>
+          <view class="nav-name">{{item.is_sign ? '已签到' : '未签到'}}</view>
+          <text class='cuIcon-book'></text>
+        </view>
+      </view>
+    </view>
+    <view class="bg-white padding">
+      <view class="content margin-top-sm">
+        <text class="text-grey text-xs">温馨提示：每次签到赠送1个积分，连续签到7天赠送3个积分！</text>
+      </view>
     </view>
   </view>
 </view>

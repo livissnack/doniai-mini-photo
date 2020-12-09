@@ -54,6 +54,12 @@
               <text class="text-grey">收货地址</text>
             </button>
           </view>
+          <view class="cu-item arrow" bindtap="jumpLogPage">
+            <button class="cu-btn content">
+              <text class="cuIcon-sort text-orange"></text>
+              <text class="text-grey">积分日志</text>
+            </button>
+          </view>
           <view class="cu-item arrow" bindtap="jumpAboutPage">
             <button class="cu-btn content">
               <text class="cuIcon-questionfill text-orange"></text>

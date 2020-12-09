@@ -1,6 +1,7 @@
 // pages/photo/history.js
 const app = getApp()
-import {getPhotoHistorys} from '../../utils/api'
+import {getPhotoHistorys, delPhotoHistory} from '../../utils/api'
+import {isEmpty} from '../../utils/helper'
 Page({
   /**
    * 页面的初始数据
@@ -104,9 +105,32 @@ Page({
     })
   },
 
+  deletePhotoHistory(e) {
+    let ph_id = e.currentTarget.dataset.id
+    if(isEmpty(ph_id)) {
+      wx.showToast({ title: '编号ID为空…', icon: 'fail', duration: 2000 })
+      return
+    } else {
+      let auth_token = app.globalData.token || wx.getStorageSync('token')
+      let request_data = {ph_id: ph_id}
+      let headers = {
+        Authorization: `Bearer ${auth_token}`,
+      }
+      delPhotoHistory(request_data, headers).then(res => {
+        if(res.code === 0) {
+          this.getPhotoHistorys()
+        } else {
+          wx.showToast({title: '删除失败'});
+        }
+      }).catch(e => {
+        wx.showToast({title: '请求失败'});
+      })
+    }
+  },
+
   jumpPhotoDownloadPage(event) {
     let ph_id = event.currentTarget.dataset.id
-    if(ph_id === null || ph_id === undefined || ph_id ==='') {
+    if(isEmpty(ph_id)) {
       wx.showToast({ title: '编号ID为空…', icon: 'fail', duration: 2000 })
       return
     } else {

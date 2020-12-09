@@ -1,0 +1,37 @@
+<!-- pages/user/log.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">积分记录</view>
+  </cu-custom>
+  <view class="box bg-white">
+    <scroll-view scroll-x class="bg-green nav">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{index==request.type?'text-white cur':''}}" wx:for="{{nav_menus}}" wx:key="index" bindtap="tabSelect" data-id="{{index}}">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+    <view class="cu-bar bg-white solid-bottom margin-top">
+      <view class="action">
+        <text class="cuIcon-title text-orange "></text>
+        记录列表
+      </view>
+    </view>
+    <view class="cu-list menu">
+      <view class="cu-item" wx:for="{{response.items}}" wx:key="index">
+        <view class="content">
+          <view class="text-black text-bold">
+            <text class="text-cut">{{item.type_name}}</text>
+          </view>
+          <view class="text-gray text-sm flex">
+            <text class="text-cut">{{item.remark}}</text>
+          </view>
+        </view>
+        <view class="action text-right">
+          <view class="text-grey text-xs">{{item.created_time}}</view>
+          <view class="cu-tag round bg-red sm">￥ {{item.amount}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

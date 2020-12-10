@@ -106,6 +106,7 @@ Page({
             spec_id: spec_id
           },
           success: (result) => {
+            app.globalData.tempFilePaths = file_path
             wx.hideLoading()
             let make_res = typeof result.data === 'string' ? JSON.parse(result.data) : result.data
             if(make_res.code !== 0) {
@@ -164,6 +165,7 @@ Page({
             spec_id: spec_id
           },
           success: (result) => {
+            app.globalData.tempFilePaths = file_path
             wx.hideLoading()
             let make_res = typeof result.data === 'string' ? JSON.parse(result.data) : result.data
             if(make_res.code !== 0) {

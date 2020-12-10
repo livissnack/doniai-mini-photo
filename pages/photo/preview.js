@@ -8,13 +8,15 @@ Page({
    */
   data: {
     CustomBar: app.globalData.CustomBar,
-    preview_image_url: '',
+    preview_image_url:
+      'https://doniai-mini.oss-cn-shenzhen.aliyuncs.com/20201202162253a53b3d58.jpg',
     preview_print_image_url: '',
     spec_id: '',
     spec: {},
     is_need_print: false,
     is_pay: false,
     pay_dialog: false,
+    ph_id: '',
     checkbox: [
       {
         value: 0,
@@ -45,6 +47,7 @@ Page({
         preview_image_url: data.data.image_url,
         preview_print_image_url: data.data.print_image_url,
         spec_id: data.data.spec_id,
+        ph_id: data.data.ph_id,
       })
       this.getSpec()
       console.log(data)
@@ -86,6 +89,43 @@ Page({
    */
   onShareAppMessage: function () {},
 
+  /**
+   * 获取透明底色照片
+   */
+  getWhitePic() {
+    wx.showLoading({
+      title: '加载中',
+    })
+    let file_path = app.globalData.tempFilePaths
+    console.log(file_path)
+    wx.uploadFile({
+      url: 'https://api.id-photo-verify.com/official_web/bgcolor',
+      filePath: file_path,
+      name: 'file',
+      header: {
+        'Content-Type': 'multipart/form-data',
+      },
+      formData: {},
+      success: (result) => {
+        let res_data =
+          typeof result.data === 'string'
+            ? JSON.parse(result.data)
+            : result.data
+        if (res_data.code === 200) {
+          this.setData({
+            preview_image_url: res_data.result.url,
+          })
+        }
+        wx.hideLoading()
+      },
+    })
+  },
+
+  doChangeBgColor(e) {
+    let color = e.currentTarget.dataset.target
+    //读取换背景后的图片
+  },
+
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target,
@@ -94,13 +134,13 @@ Page({
 
   showPayDialog() {
     this.setData({
-      pay_dialog: true
+      pay_dialog: true,
     })
   },
 
   hidePayDialog() {
     this.setData({
-      pay_dialog: false
+      pay_dialog: false,
     })
   },
 
@@ -111,7 +151,7 @@ Page({
       Authorization: `Bearer ${auth_token}`,
     }
     let request_data = {
-      spec_id: this.data.spec_id
+      spec_id: this.data.spec_id,
     }
     getSpec(request_data, headers).then((res) => {
       if (res.code === 0 && !isEmpty(res.data)) {
@@ -192,11 +232,13 @@ Page({
     let sum = 0
     items.forEach(function (value) {
       console.log(value)
-      if(value.checked) {
+      if (value.checked) {
         sum += parseFloat(value.price)
       }
     })
-    let spec_price = isEmpty(this.data.spec.price) ? 0 : parseFloat(this.data.spec.price)
+    let spec_price = isEmpty(this.data.spec.price)
+      ? 0
+      : parseFloat(this.data.spec.price)
     let total_price = sum + spec_price
     console.log(total_price)
     this.setData({

@@ -21,7 +21,7 @@
     <view class="foot">
       <view class="flex justify-between bg-white">
         <view class="padding">
-          <button class="cu-btn bg-olive margin-tb-sm">换底色</button>
+          <button class="cu-btn bg-olive margin-tb-sm" bindtap="getWhitePic">换底色</button>
         </view>
         <view class="padding">
           <button class="cu-btn bg-blue margin-tb-sm">美颜</button>

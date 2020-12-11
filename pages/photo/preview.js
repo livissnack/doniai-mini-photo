@@ -1,13 +1,15 @@
 // pages/photo/preview.js
 const app = getApp()
-import { doPay, getSpec } from '../../utils/api'
+import { doPay, getSpec, getClothes } from '../../utils/api'
 import { isEmpty } from '../../utils/helper'
+const base64 = require('../../utils/base64')
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     CustomBar: app.globalData.CustomBar,
+    scrollLeft: 0,
     preview_image_url:
       'https://doniai-mini.oss-cn-shenzhen.aliyuncs.com/20201202162253a53b3d58.jpg',
     preview_print_image_url: '',
@@ -34,12 +36,68 @@ Page({
       },
     ],
     total_price: '',
+    hiddenWatermarkModalput: true,
+    showMeiyanModal: false,
+    showHuanzhuangModal: false,
+    watermark: '',
+    contrast: 0,  //对比度
+    blur: 0,  //模糊效果
+    sharpen: 100, //锐化
+    bright: 0,  //亮度
+    cardCur: 0,
+    swiperList: [{
+      id: 0,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+    }, {
+      id: 1,
+        type: 'image',
+        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+    }, {
+      id: 2,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+    }, {
+      id: 3,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+    }, {
+      id: 4,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+    }, {
+      id: 5,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
+    }, {
+      id: 6,
+      type: 'image',
+      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+    }],
+    cur_sex: 1,
+    sexList: [
+      {
+        id: 1,
+        name: '男装'
+      },
+      {
+        id: 2,
+        name: '女装'
+      },
+      {
+        id: 3,
+        name: '童装'
+      },
+    ]
   },
+
+ 
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad() {
+    this.towerSwiper('swiperList')
     const eventChannel = this.getOpenerEventChannel()
     // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
     eventChannel.on('acceptDataFromPhotoDetailPage', (data) => {
@@ -52,6 +110,193 @@ Page({
       this.getSpec()
       console.log(data)
     })
+  },
+
+  sexSelect(e) {
+    this.setData({
+      cur_sex: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id-1)*60
+    })
+    this.getClothes()
+  },
+
+  bindWatermark(e) {
+    this.setData({
+      watermark: e.detail.value
+    });
+    console.log(e)
+  },
+
+  clickWatermark() {
+    this.setData({
+      hiddenWatermarkModalput: !this.data.hiddenWatermarkModalput
+    });
+  },
+
+  cancelWatermark() {
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    this.setData({
+      hiddenWatermarkModalput: true,
+      preview_image_url: init_image_url
+    });
+  },
+
+  confirmWatermark() {
+    let str = this.data.watermark
+    if(isEmpty(str)) {
+      wx.showToast({
+        title: '水印内容为空'
+      });
+      return
+    }
+    let base64_text = base64.encode(str)
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    let image_url = `${init_image_url}?x-oss-process=image/watermark,text_${base64_text},g_se,x_10,y_10,size_20,color_FFFFFF,type_d3F5LW1pY3JvaGVp`
+    this.setData({
+      hiddenWatermarkModalput: true,
+      preview_image_url: image_url
+    });
+  },
+
+  changeBlur(e) {
+    let blur = e.detail.value
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    let image_url = `${init_image_url}?x-oss-process=image/blur,r_${blur},s_${blur}`
+    this.setData({
+      preview_image_url: image_url
+    });
+  },
+  changeSharpen(e) {
+    let sharpen = e.detail.value
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    let image_url = `${init_image_url}?x-oss-process=image/sharpen,${sharpen}`
+    this.setData({
+      preview_image_url: image_url
+    });
+  },
+  changeContrast(e) {
+    let contrast = e.detail.value
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    let image_url = `${init_image_url}?x-oss-process=image/contrast,${contrast}`
+    this.setData({
+      preview_image_url: image_url
+    });
+  },
+  changeBright(e) {
+    let bright = e.detail.value
+    let url = this.data.preview_image_url
+    let init_image_url = url.split("?")[0]
+    let image_url = `${init_image_url}?x-oss-process=image/bright,${bright}`
+    this.setData({
+      preview_image_url: image_url
+    });
+  },
+
+  showMeiyanModal() {
+    this.setData({
+      showMeiyanModal: !this.data.showMeiyanModal
+    });
+  },
+
+  hideMeiyanModal() {
+    this.setData({
+      showMeiyanModal: false
+    });
+  },
+
+  saveMeiyanImage() {
+    this.setData({
+      showMeiyanModal: false
+    });
+  },
+
+  showHuanzhuangModal() {
+    this.setData({
+      showHuanzhuangModal: !this.data.showHuanzhuangModal
+    });
+    this.getClothes()
+  },
+
+  hideHuanzhuangModal() {
+    this.setData({
+      showHuanzhuangModal: false
+    });
+  },
+
+  saveHuanzhuangImage() {
+    this.setData({
+      showMeiyanModal: false
+    });
+  },
+
+  DotStyle(e) {
+    this.setData({
+      DotStyle: e.detail.value
+    })
+  },
+  // cardSwiper
+  cardSwiper(e) {
+    this.setData({
+      cardCur: e.detail.current
+    })
+  },
+
+  towerSwiper(name) {
+    let list = this.data[name];
+    for (let i = 0; i < list.length; i++) {
+      list[i].zIndex = parseInt(list.length / 2) + 1 - Math.abs(i - parseInt(list.length / 2))
+      list[i].mLeft = i - parseInt(list.length / 2)
+    }
+    this.setData({
+      swiperList: list
+    })
+  },
+  // towerSwiper触摸开始
+  towerStart(e) {
+    this.setData({
+      towerStart: e.touches[0].pageX
+    })
+  },
+  // towerSwiper计算方向
+  towerMove(e) {
+    this.setData({
+      direction: e.touches[0].pageX - this.data.towerStart > 0 ? 'right' : 'left'
+    })
+  },
+  // towerSwiper计算滚动
+  towerEnd(e) {
+    let direction = this.data.direction;
+    let list = this.data.swiperList;
+    if (direction == 'right') {
+      let mLeft = list[0].mLeft;
+      let zIndex = list[0].zIndex;
+      for (let i = 1; i < list.length; i++) {
+        list[i - 1].mLeft = list[i].mLeft
+        list[i - 1].zIndex = list[i].zIndex
+      }
+      list[list.length - 1].mLeft = mLeft;
+      list[list.length - 1].zIndex = zIndex;
+      this.setData({
+        swiperList: list
+      })
+    } else {
+      let mLeft = list[list.length - 1].mLeft;
+      let zIndex = list[list.length - 1].zIndex;
+      for (let i = list.length - 1; i > 0; i--) {
+        list[i].mLeft = list[i - 1].mLeft
+        list[i].zIndex = list[i - 1].zIndex
+      }
+      list[0].mLeft = mLeft;
+      list[0].zIndex = zIndex;
+      this.setData({
+        swiperList: list
+      })
+    }
   },
 
   /**
@@ -162,6 +407,35 @@ Page({
       } else {
         wx.showToast({
           title: '规格获取失败',
+        })
+      }
+    })
+  },
+
+  
+  getClothes() {
+    wx.showLoading({
+      title: '加载中',
+    });
+    let auth_token = app.globalData.token || wx.getStorageSync('token')
+    let headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${auth_token}`,
+    }
+    let request_data = {
+      sex: this.data.cur_sex,
+    }
+    getClothes(request_data, headers).then((res) => {
+      if (res.code === 0 && !isEmpty(res.data)) {
+        console.log(res.data)
+        this.setData({
+          swiperList: res.data,
+        })
+        this.towerSwiper('swiperList')
+        wx.hideLoading();
+      } else {
+        wx.showToast({
+          title: '获取失败',
         })
       }
     })

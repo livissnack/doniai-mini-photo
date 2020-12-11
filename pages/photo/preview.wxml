@@ -16,7 +16,7 @@
       </view>
     </view>
     <view class="bg-white cu-bar padding-top-xs">
-      <view class="image-center text-underline">添加文字</view>
+      <view class="image-center text-red text-underline" bindtap="clickWatermark">添加水印文字</view>
     </view>
     <view class="foot">
       <view class="flex justify-between bg-white">
@@ -24,10 +24,10 @@
           <button class="cu-btn bg-olive margin-tb-sm" bindtap="getWhitePic">换底色</button>
         </view>
         <view class="padding">
-          <button class="cu-btn bg-blue margin-tb-sm">美颜</button>
+          <button class="cu-btn bg-blue margin-tb-sm" bindtap="showMeiyanModal">美颜</button>
         </view>
         <view class="padding">
-          <button class="cu-btn bg-red margin-tb-sm">换装</button>
+          <button class="cu-btn bg-red margin-tb-sm" bindtap="showHuanzhuangModal">换装</button>
         </view>
       </view>
       <view class="flex justify-between bg-white">
@@ -47,6 +47,119 @@
     </view>
   </view>
 </view>
+<modal hidden="{{hiddenWatermarkModalput}}" title="请输入水印内容" confirm-text="提交" cancel-text="重置" bindcancel="cancelWatermark" bindconfirm="confirmWatermark">
+  <input type='text' placeholder="请输入水印内容" bindinput="bindWatermark" auto-focus />
+</modal>
+<!-- 美颜操作框 -->
+<view class="cu-modal bottom-modal {{showMeiyanModal?'show':''}}" bindtap="hideMeiyanModal">
+  <view class="cu-dialog bg-white" catchtap>
+    <view class="cu-bar bg-white radius solid-bottom">
+      <view class="action text-blue" bindtap="hideMeiyanModal"></view>
+      <view class="action text-green" bindtap="hideMeiyanModal">
+        <text class="cuIcon-roundclosefill lg text-gray"></text>
+      </view>
+    </view>
+    <view class="cu-card article no-card padding-top">
+      <view class="cu-item shadow">
+        <view class="content">
+          <image mode="aspectFit" src="{{preview_image_url}}"></image>
+          <view class="desc">
+            <view class="text-content text-left">
+              <view class="block text-black light sm">{{spec.spec_name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">美化操作</text>
+      </view>
+    </view>
+    <view class="grid col-1 padding-sm">
+      <view class="section section_gap">
+        <text class="section__title text-pink">模糊效果</text>
+        <view class="body-view">
+          <slider bindchange="changeBlur" min="1" max="50" color="#6739b6" activeColor="#e54d42" value="{{blur}}" step="1" show-value />
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title text-blue">锐化</text>
+        <view class="body-view">
+          <slider bindchange="changeSharpen" min="50" max="399" color="#8dc63f" activeColor="#e54d42" value="{{sharpen}}" step="1" show-value />
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title text-orange">对比度</text>
+        <view class="body-view">
+          <slider bindchange="changeContrast" min="-100" max="100" color="#0081ff" activeColor="#e54d42" value="{{contrast}}" step="1" show-value />
+        </view>
+      </view>
+      <view class="section section_gap">
+        <text class="section__title text-purple">亮度</text>
+        <view class="body-view">
+          <slider bindchange="changeBright" min="-100" max="100" color="#39b54a" activeColor="#e54d42" value="{{bright}}" step="1" show-value />
+        </view>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <button class="cu-btn block bg-blue lg" bindtap="saveMeiyanImage">
+        <text class="cuIcon-check"></text>
+        <text class="text-white">保存</text>
+      </button>
+    </view>
+  </view>
+</view>
+<!-- 换装操作框 -->
+<view class="cu-modal bottom-modal {{showHuanzhuangModal?'show':''}}" bindtap="hideHuanzhuangModal">
+  <view class="cu-dialog bg-white" catchtap>
+    <view class="cu-bar bg-white radius solid-bottom">
+      <view class="action text-blue" bindtap="hideHuanzhuangModal"></view>
+      <view class="action text-green" bindtap="hideHuanzhuangModal">
+        <text class="cuIcon-roundclosefill lg text-gray"></text>
+      </view>
+    </view>
+    <view class="cu-card article no-card padding-top">
+      <view class="cu-item shadow">
+        <view class="content">
+          <image mode="aspectFit" src="{{preview_image_url}}"></image>
+          <view class="desc">
+            <view class="text-content text-left">
+              <view class="block text-black light sm">{{spec.spec_name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">换装操作</text>
+      </view>
+    </view>
+    <scroll-view scroll-x class="bg-white nav">
+      <view class="flex text-center">
+        <view class="cu-item flex-sub {{item.id==cur_sex?'text-orange cur':''}}" wx:for="{{sexList}}" wx:key="index" bindtap="sexSelect" data-id="{{item.id}}">
+          {{item.name}}
+        </view>
+      </view>
+    </scroll-view>
+    <view class="tower-swiper padding-sm" bindtouchmove="towerMove" bindtouchstart="towerStart" bindtouchend="towerEnd">
+      <view class="tower-item {{item.zIndex==1?'none':''}}" wx:for="{{swiperList}}" wx:key="index" style="--index:{{item.zIndex}};--left:{{item.mLeft}}">
+        <view class="swiper-item">
+          <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="solid-bottom padding text-left">
+      <button class="cu-btn block bg-blue lg" bindtap="saveHuanzhuangImage">
+        <text class="cuIcon-check"></text>
+        <text class="text-white">执行换装</text>
+      </button>
+    </view>
+  </view>
+</view>
 <view class="cu-modal bottom-modal {{modalName=='ChooseModal'?'show':''}}" bindtap="hideModal">
   <view class="cu-dialog bg-white" catchtap>
     <view class="cu-bar bg-white radius solid-bottom">
@@ -62,7 +175,9 @@
           <view class="desc">
             <view class="text-content text-left">
               <view class="block text-black  light sm">{{spec.spec_name}}</view>
-              <view class="block text-black light sm">包含[单张电子照]{{spec.is_print === 1 ? '和[排版照]' : ''}}</view>
+              <view class="block text-black light sm">
+                包含[单张电子照]{{spec.is_print === 1 ? '和[排版照]' : ''}}
+              </view>
               <view class="block text-black light sm">
                 已选底色 |
                 <view class="cu-tag bg-blue light sm"></view>

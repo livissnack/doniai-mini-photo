@@ -15,3 +15,11 @@
 .gx-soild {
   border: 1px solid #8799a3;
 }
+
+.tower-swiper .tower-item {
+  transform: scale(calc(0.5 + var(--index) / 10));
+  margin-left: calc(var(--left) * 100rpx - 150rpx);
+  z-index: var(--index);
+  width: 200rpx;
+  height: 240rpx;
+}

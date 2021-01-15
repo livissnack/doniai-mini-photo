@@ -71,7 +71,7 @@ Page({
     })
   },
 
-  onLoad(options) {
+  onLoad() {
     this.getMenus()
   },
 

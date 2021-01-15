@@ -1,6 +1,7 @@
 // pages/order/download.js
 const app = getApp()
 import { getPhotoHistory } from '../../utils/api'
+import { isEmpty } from '../../utils/helper'
 Page({
   /**
    * 页面的初始数据
@@ -16,52 +17,14 @@ Page({
     },
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad(options) {
     let ph_id = options.ph_id
-    if (ph_id === null || ph_id === undefined || ph_id === '') {
+    if (isEmpty(ph_id)) {
       wx.showToast({ title: '请求失败' })
       return
     }
     this.getPhotoHistory(ph_id)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {},
 
   getPhotoHistory(ph_id) {
     let auth_token = app.globalData.token || wx.getStorageSync('token')
@@ -88,7 +51,7 @@ Page({
       duration: 2000,
     })
     let img_url = this.data.response.image_url
-    if (img_url === '' || img_url === null || img_url === undefined) {
+    if (isEmpty(img_url)) {
       wx.showToast({
         title: '未生成照片',
         icon: 'none',
@@ -171,7 +134,7 @@ Page({
       duration: 2000,
     })
     let img_url = this.data.response.print_image_url
-    if (img_url === '' || img_url === null || img_url === undefined) {
+    if (isEmpty(img_url)) {
       wx.showToast({
         title: '未生成排版照片',
         icon: 'none',

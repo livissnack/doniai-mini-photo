@@ -33,7 +33,7 @@ Page({
     response: {},
   },
 
-  onLoad: function (options) {
+  onLoad() {
     this.getOrders()
   },
 

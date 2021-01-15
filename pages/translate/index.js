@@ -5,9 +5,6 @@ const manager = plugin.getRecordRecognitionManager()
 import { getTranslate } from '../../utils/api'
 import { isEmpty } from '../../utils/helper'
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     source_focus: false,
     source_text: '',
@@ -25,47 +22,11 @@ Page({
     recordState: false, //录音状态
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onLoad() {
     this.initRecord()
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onShareAppMessage() {
     return {
       title: 'DoniaiMini-心声Lite，让爱发声',
       imageUrl: '/images/share.jpg',
@@ -255,11 +216,6 @@ Page({
     }
     //识别结束事件
     manager.onStop = (res) => {
-      console.log('..............结束录音')
-      console.log('录音临时文件地址 -->' + res.tempFilePath)
-      console.log('录音总时长 -->' + res.duration + 'ms')
-      console.log('文件大小 --> ' + res.fileSize + 'B')
-      console.log('语音内容 --> ' + res.result)
       if (isEmpty(res.result)) {
         wx.showModal({
           title: '提示',
@@ -268,7 +224,6 @@ Page({
         })
         return
       }
-      console.log(this.data)
       let text = this.data.source_text + res.result
       this.setData({
         source_text: text,

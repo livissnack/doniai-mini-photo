@@ -11,7 +11,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     request: {
       page: 1,
-      size: 20
+      size: 3
     },
     response: {},
     random_ticket: {

@@ -122,24 +122,6 @@
           "scene": null
         },
         {
-          "name": "pages/village/index",
-          "pathName": "pages/village/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/village/detail",
-          "pathName": "pages/village/detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/village/cart",
-          "pathName": "pages/village/cart",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/ocr/plant",
           "pathName": "pages/ocr/plant",
           "query": "",

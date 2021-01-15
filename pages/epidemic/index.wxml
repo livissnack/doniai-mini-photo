@@ -1,0 +1,28 @@
+<!-- pages/epidemic/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">疫情动态</view>
+  </cu-custom>
+  <view class="box">
+    <view class="cu-bar bg-white margin-top solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-blue"></text>
+        等分列
+      </view>
+      <view class="action"></view>
+    </view>
+    <view class="bg-white padding">
+      <view class="grid col-5 margin-bottom text-center">
+        <view class="bg-blue padding">
+          <text class="text-price">80.00</text>
+          <text class="text-price">80.00</text>
+          <text class="text-price">80.00</text>
+        </view>
+        <view class="bg-blue padding">2</view>
+        <view class="bg-blue padding">3</view>
+        <view class="bg-blue padding">4</view>
+        <view class="bg-blue padding">5</view>
+      </view>
+    </view>
+  </view>
+</view>

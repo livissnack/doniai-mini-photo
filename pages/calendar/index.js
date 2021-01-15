@@ -186,8 +186,9 @@ Page({
       'Content-Type': 'application/json',
       Authorization: `Bearer ${auth_token}`,
     }
+    let month = this.data.toMonth < 10 ? '0' + this.data.toMonth : this.data.toMonth
     let day = this.data.toDate < 10 ? '0' + this.data.toDate : this.data.toDate
-    let current_date = `${this.data.toYear}${this.data.toMonth}${day}`
+    let current_date = `${this.data.toYear}${month}${day}`
     let request_data = {
       current_date: current_date,
     }

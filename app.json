@@ -33,7 +33,8 @@
     "pages/calendar/index",
     "pages/qrcode/index",
     "pages/fucai/index",
-    "pages/user/log"
+    "pages/user/log",
+    "pages/epidemic/index"
   ],
   "permission": {
     "scope.userLocation": {

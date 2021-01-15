@@ -220,6 +220,12 @@
         {
           "name": "pages/user/log",
           "pathName": "pages/user/log",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/epidemic/index",
+          "pathName": "pages/epidemic/index",
           "scene": null
         }
       ]

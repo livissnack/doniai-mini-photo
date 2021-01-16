@@ -1,0 +1,88 @@
+<!-- pages/news/health.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">回乡统计</view>
+  </cu-custom>
+  <view class="box bg-white">
+    <view class="flex-sub text-center">
+      <view class="text-xl padding">
+        <text class="text-blue text-bold">土城岗计划返乡人员登记表</text>
+      </view>
+    </view>
+    <view class="flex-sub text-left">
+      <view class="text-sm padding">
+        <text class="text-black text-bold">1.您的姓名：</text>
+        <input type="text" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">2.您的身份证号：</text>
+        <input type="idcard" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">3.请输入您的手机号：</text>
+        <input type="text" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">4.您的出发地址</text>
+        <input type="text" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">5.您的返回时间</text>
+        <input type="date" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">6.您的返回交通工具：</text>
+        <view class="flex flex-direction padding-tb-sm">
+          <radio-group bindchange="radioChange">
+            <radio class="block blue radio">飞机</radio>
+            <radio class="block blue radio">火车</radio>
+            <radio class="block blue radio">大巴</radio>
+            <radio class="block blue radio">自驾</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">7.您的返回居住地址：</text>
+        <input type="text" class="solid" />
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">8.最近两周您是否有以下现象：</text>
+        <view class="flex flex-direction padding-tb-sm">
+          <radio-group bindchange="radioChange">
+            <radio class="block blue radio">感冒</radio>
+            <radio class="block blue radio">发烧</radio>
+            <radio class="block blue radio">咳嗽</radio>
+            <radio class="block blue radio">疑似新型冠状病毒肺炎</radio>
+            <radio class="block blue radio">确诊新型冠状病毒肺炎</radio>
+            <radio class="block blue radio">均无</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">9.核酸检测结果：</text>
+        <view class="flex flex-direction padding-tb-sm">
+          <radio-group bindchange="radioChange">
+            <radio class="block blue radio">阳性</radio>
+            <radio class="block blue radio">阴性</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">10.最近两周是否有高危地区旅居史：</text>
+        <view class="flex flex-direction padding-tb-sm">
+          <radio-group bindchange="radioChange">
+            <radio class="block blue radio">有</radio>
+            <radio class="block blue radio">无</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="text-sm padding">
+        <text class="text-black text-bold">11.您的同行人：</text>
+        <textarea class="padding-sm solid" maxlength="-1" placeholder="输入同行人员姓名"></textarea>
+      </view>
+      <view class="text-sm padding">
+        <button class="cu-btn block bg-orange lg">提交</button>
+      </view>
+    </view>
+  </view>
+</view>

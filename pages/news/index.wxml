@@ -1,9 +1,46 @@
 <!-- pages/news/index.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
-    <view slot="content">村资讯</view>
+    <view slot="content">土城岗之声</view>
   </cu-custom>
   <view class="box">
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-title text-red"></text>
+        <text class="text-gray text-black text-bold">土城工具</text>
+      </view>
+    </view>
+    <view class="cu-list grid col-3 no-border">
+      <view class="cu-item">
+        <view class="cuIcon-notificationfill text-red"></view>
+        <text>村公告</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-newsfill text-blue">
+        </view>
+        <text>新闻</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-friendfill text-orange">
+        </view>
+        <text>帮招</text>
+      </view>
+      <view class="cu-item" bindtap="jumpForumPage">
+        <view class="cuIcon-evaluate_fill text-purple">
+        </view>
+        <text>社区</text>
+      </view>
+      <view class="cu-item">
+        <view class="cuIcon-activity text-mauve">
+        </view>
+        <text>健康打卡</text>
+      </view>
+      <view class="cu-item" bindtap="jumpHealthPage">
+        <view class="cuIcon-taxi text-olive">
+        </view>
+        <text>回乡统计</text>
+      </view>
+    </view>
     <view class="cu-card article no-card" wx:for="{{response.items}}" wx:key="index" bindtap="jumpNewsDetailPage" data-id="{{item.news_id}}">
       <view class="cu-item gx-border padding-top padding-bottom shadow">
         <view class="content">

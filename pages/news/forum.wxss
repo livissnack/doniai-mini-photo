@@ -1,0 +1,7 @@
+/* pages/news/forum.wxss */
+.publish-btn {
+  right: 2%;
+  bottom: 10%;
+  cursor: pointer;
+  position: fixed;
+}

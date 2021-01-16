@@ -44,4 +44,16 @@ Page({
       wx.showToast({title: '请求失败'});
     })
   },
+
+  jumpHealthPage() {
+    wx.navigateTo({
+      url: '/pages/news/health',
+    })
+  },
+
+  jumpForumPage() {
+    wx.navigateTo({
+      url: '/pages/news/forum',
+    })
+  }
 })

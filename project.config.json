@@ -21,7 +21,7 @@
     "checkSiteMap": true,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
+    "useMultiFrameRuntime": true,
     "useApiHook": true,
     "babelSetting": {
       "ignore": [],
@@ -36,7 +36,8 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "useApiHostProcess": true
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.0",
@@ -208,6 +209,36 @@
         {
           "name": "pages/epidemic/index",
           "pathName": "pages/epidemic/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/news/index",
+          "pathName": "pages/news/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/question/index",
+          "pathName": "pages/question/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/news/health",
+          "pathName": "pages/news/health",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/news/index",
+          "pathName": "pages/news/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/news/forum",
+          "pathName": "pages/news/forum",
           "scene": null
         }
       ]

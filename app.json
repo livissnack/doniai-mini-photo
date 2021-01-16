@@ -31,7 +31,9 @@
     "pages/qrcode/index",
     "pages/fucai/index",
     "pages/user/log",
-    "pages/epidemic/index"
+    "pages/epidemic/index",
+    "pages/news/health",
+    "pages/news/forum"
   ],
   "permission": {
     "scope.userLocation": {

@@ -80,4 +80,4 @@ export function group(array, subGroupLength) {
       newArray.push(array.slice(index, index += subGroupLength));
   }
   return newArray;
-} 
+}

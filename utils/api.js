@@ -56,6 +56,10 @@ export const doSignin = (data, headers) => post(`${API_ROOT}/api/signin/do`, dat
 
 export const getPayLogs = (data, headers) => post(`${API_ROOT}/api/pay/log`, data, headers);
 
+export const getCovidInfo = (data, headers) => post(`${API_ROOT}/api/covid/info`, data, headers);
+
+export const getCovidStat = (data, headers) => post(`${API_ROOT}/api/covid/district_stat`, data, headers);
+
 /*********************************************************************************************登录体系*********************************************************************/
 
 /**

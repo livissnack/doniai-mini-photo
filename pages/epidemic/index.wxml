@@ -1,27 +1,114 @@
 <!-- pages/epidemic/index.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
-    <view slot="content">疫情动态</view>
+    <view slot="content">春运防疫政策查询</view>
   </cu-custom>
   <view class="box">
-    <view class="cu-bar bg-white margin-top solid-bottom">
-      <view class="action">
-        <text class="cuIcon-title text-blue"></text>
-        等分列
-      </view>
-      <view class="action"></view>
-    </view>
     <view class="bg-white padding">
-      <view class="grid col-5 margin-bottom text-center">
-        <view class="bg-blue padding">
-          <text class="text-price">80.00</text>
-          <text class="text-price">80.00</text>
-          <text class="text-price">80.00</text>
+      <view class="epidemic-header">
+        <view class="card padding-xl radius shadow bg-white">
+          <view class="flex justify-center">
+            <view class="flex-wrap text-center">
+              <view class="padding-xs">
+                <text class="text-black text-sm block">查询出行防疫政策</text>
+                <text class="text-gray text-xs block">鼓励春节期间减少流动和聚集，降低感染风险</text>
+              </view>
+            </view>
+          </view>
+          <view class="flex justify-center bg-gray padding">
+            <view class="">
+              <picker mode="region" bindchange="regionFromChange" value="{{from_city}}" custom-item="{{customItem}}">
+                <view class="picker">
+                  <text class="text-black text-lg">
+                    {{from_city[1]}}<text class="cuIcon-triangledownfill lg text-gray"></text>
+                  </text>
+                </view>
+              </picker>
+            </view>
+            <view class="padding-lr-lg change-center" bindtab="exchangeRegion"><text class="cuIcon-order lg text-gray"></text></view>
+            <view class="">
+              <picker mode="region" bindchange="regionToChange" value="{{to_city}}" custom-item="{{customItem}}">
+                <view class="picker text-black text-lg">
+                  <text class="text-black text-lg">
+                    {{to_city[1]}}<text class="cuIcon-triangledownfill lg text-gray"></text>
+                  </text>
+                </view>
+              </picker>
+            </view>
+          </view>
         </view>
-        <view class="bg-blue padding">2</view>
-        <view class="bg-blue padding">3</view>
-        <view class="bg-blue padding">4</view>
-        <view class="bg-blue padding">5</view>
+      </view>
+    </view>
+    <view class="cu-timeline">
+      <view class="cu-item cur cuIcon-locationfill">
+        <view class="content bg-gray shadow-blur">
+          <view class="padding-tb-xs">
+            <text class="text-black text-lg">出{{from_covid_info.city_name}}</text>
+            <view class="cu-tag sm radius bg-green" wx:if="{{from_covid_info.risk_level <= 2}}">
+              低风险
+            </view>
+            <view class="cu-tag sm radius bg-yellow" wx:elif="{{from_covid_info.risk_level >= 3 && from_covid_info.risk_level <= 4 }}">
+              部分地区中风险
+            </view>
+            <view class="cu-tag sm radius bg-red" wx:else>部分地区中、高风险</view>
+          </view>
+          <text class="text-grey text-sm">{{from_covid_info.out_desc}}</text>
+        </view>
+      </view>
+      <view class="cu-item cur red-custom">
+        <view class="content bg-gray shadow-blur">
+          <view class="padding-tb-xs">
+            <text class="text-black text-lg">进{{to_covid_info.city_name}}</text>
+            <view class="cu-tag sm radius bg-green" wx:if="{{to_covid_info.risk_level <= 2}}">
+              低风险
+            </view>
+            <view class="cu-tag sm radius bg-yellow" wx:elif="{{to_covid_info.risk_level >= 3 && to_covid_info.risk_level <= 4 }}">
+              部分地区中风险
+            </view>
+            <view class="cu-tag sm radius bg-red" wx:else>部分地区中、高风险</view>
+          </view>
+          <text class="text-grey text-sm">{{to_covid_info.low_in_desc}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="bg-white padding-sm solid-bottom line-gray"></view>
+    <view class="cu-timeline">
+      <view class="cu-item cur cuIcon-locationfill">
+        <view class="content bg-gray shadow-blur">
+          <view class="padding-tb-xs">
+            <text class="text-black text-lg">出{{to_covid_info.city_name}}</text>
+            <view class="cu-tag sm radius bg-green" wx:if="{{to_covid_info.risk_level <= 2}}">
+              低风险
+            </view>
+            <view class="cu-tag sm radius bg-yellow" wx:elif="{{to_covid_info.risk_level >= 3 && to_covid_info.risk_level <= 4 }}">
+              部分地区中风险
+            </view>
+            <view class="cu-tag sm radius bg-red" wx:else>部分地区中、高风险</view>
+          </view>
+          <text class="text-grey text-sm">{{to_covid_info.out_desc}}</text>
+        </view>
+      </view>
+      <view class="cu-item cur red-custom">
+        <view class="content bg-gray shadow-blur">
+          <view class="padding-tb-xs">
+            <text class="text-black text-lg">进{{from_covid_info.city_name}}</text>
+            <view class="cu-tag sm radius bg-green" wx:if="{{from_covid_info.risk_level <= 2}}">
+              低风险
+            </view>
+            <view class="cu-tag sm radius bg-yellow" wx:elif="{{from_covid_info.risk_level >= 3 && from_covid_info.risk_level <= 4 }}">
+              部分地区中风险
+            </view>
+            <view class="cu-tag sm radius bg-red" wx:else>部分地区中、高风险</view>
+          </view>
+          <text class="text-grey text-sm">{{from_covid_info.high_in_desc}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="padding-lr-lg bg-white">
+      <view class="content padding-lg">
+        <text class="text-gray text-xs">
+          以上政策整理自当地政府等公开发布的消息，如有更新或错漏，请以最新政策为准，建议在出行前咨询当地防疫部门、机场、火车站等
+        </text>
       </view>
     </view>
   </view>

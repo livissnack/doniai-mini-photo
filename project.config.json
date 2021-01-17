@@ -239,6 +239,12 @@
         {
           "name": "pages/news/forum",
           "pathName": "pages/news/forum",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/epidemic/index",
+          "pathName": "pages/epidemic/index",
           "scene": null
         }
       ]

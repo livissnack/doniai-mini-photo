@@ -1,1 +1,19 @@
 /* pages/epidemic/index.wxss */
+.cu-timeline > .cu-item[class*="cuIcon-locationfill"]::before {
+  color: #f37b1d;
+}
+
+.cu-timeline > .cu-item[class*="red-custom"]::before {
+  color: #e54d42;
+}
+
+.card {
+  margin: 0 .24rem .16rem;
+  border-radius: .16rem;
+  padding: 1.32rem;
+}
+
+.change-center {
+  line-height: 60px;
+  z-index: 900;
+}

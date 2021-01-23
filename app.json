@@ -35,7 +35,9 @@
     "pages/news/health",
     "pages/news/forum",
     "pages/redpack/index",
-    "pages/redpack/detail"
+    "pages/redpack/detail",
+    "pages/live/index",
+    "pages/live/detail"
   ],
   "permission": {
     "scope.userLocation": {

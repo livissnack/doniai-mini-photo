@@ -1,0 +1,4 @@
+/* pages/live/index.wxss */
+.basis-xxl {
+  flex-basis: 100%;
+}

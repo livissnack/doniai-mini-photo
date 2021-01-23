@@ -12,31 +12,36 @@
     </view>
     <view class="cu-list grid col-3 no-border">
       <view class="cu-item">
-        <view class="cuIcon-notificationfill text-red"></view>
+        <view class="cuIcon-egefill text-red">
+          <image class="eggImg" src="../../images/announce.png"></image>
+        </view>
         <text>村公告</text>
       </view>
       <view class="cu-item">
-        <view class="cuIcon-newsfill text-blue">
-        </view>
+        <view class="cuIcon-newsfill text-blue"></view>
         <text>新闻</text>
       </view>
       <view class="cu-item">
-        <view class="cuIcon-friendfill text-orange">
+        <view class="cuIcon-egefill text-orange">
+          <image class="eggImg" src="../../images/job.png"></image>
         </view>
         <text>帮招</text>
       </view>
       <view class="cu-item" bindtap="jumpForumPage">
-        <view class="cuIcon-evaluate_fill text-purple">
+        <view class="cuIcon-egefill text-purple">
+          <image class="eggImg" src="../../images/community.png"></image>
         </view>
         <text>社区</text>
       </view>
       <view class="cu-item">
-        <view class="cuIcon-activity text-mauve">
+        <view class="cuIcon-egefill text-mauve">
+          <image class="eggImg" src="../../images/daka.png"></image>
         </view>
         <text>健康打卡</text>
       </view>
       <view class="cu-item" bindtap="jumpHealthPage">
-        <view class="cuIcon-taxi text-olive">
+        <view class="cuIcon-egefill text-olive">
+          <image class="eggImg" src="../../images/statistics.png"></image>
         </view>
         <text>回乡统计</text>
       </view>
@@ -46,14 +51,12 @@
         <view class="content">
           <image src="{{item.post_image_url}}" mode="aspectFill"></image>
           <view class="desc">
-            <view class="text-content">
-              {{item.title}}
-            </view>
+            <view class="text-content">{{item.title}}</view>
             <view class="margin-top-sm flex justify-between">
               <view class="cu-tag bg-red round sm">{{item.tag}}</view>
               <view>
-                <text class="cuIcon-appreciate text-gray"> {{item.see_nums}}</text>
-                <text class="cuIcon-messagefill text-gray margin-left-sm"> {{item.like_nums}}</text>
+                <text class="cuIcon-appreciate text-gray">{{item.see_nums}}</text>
+                <text class="cuIcon-messagefill text-gray margin-left-sm">{{item.like_nums}}</text>
               </view>
             </view>
           </view>

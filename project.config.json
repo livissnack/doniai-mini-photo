@@ -263,6 +263,30 @@
         {
           "name": "pages/redpack/index",
           "pathName": "pages/redpack/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/news/index",
+          "pathName": "pages/news/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/live/index",
+          "pathName": "pages/live/index",
           "scene": null
         }
       ]

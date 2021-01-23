@@ -1,1 +1,5 @@
 /* pages/news/index.wxss */
+.cuIcon-egefill > .eggImg {
+  height: 50rpx;
+  width: 50rpx;
+}

@@ -1,0 +1,32 @@
+<!-- pages/live/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">热门电视直播</view>
+  </cu-custom>
+  <view class="box">
+    <view class="grid col-2 padding-bottom text-center">
+      <view class="cu-card case" wx:for="{{liveList}}" wx:key="index" bindtap="jumpLiveDetailPage" data-live="{{item}}">
+        <view class="cu-item shadow">
+          <view class="image">
+            <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
+            <view class="cu-tag bg-red">直播</view>
+          </view>
+          <view class="cu-list">
+            <view class="cu-item">
+              <view class="content flex-sub">
+                <view class="text-black">{{item.name}}</view>
+                <view class="text-gray padding-lr-lg padding-tb-sm text-sm flex justify-between">
+                  十天前
+                  <view class="text-gray text-sm">
+                    <text class="cuIcon-attentionfill margin-lr-xs"></text>
+                    {{item.view_count}}
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

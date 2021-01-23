@@ -1,0 +1,39 @@
+<!-- pages/redpack/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">微信红包封面</view>
+  </cu-custom>
+  <view class="box">
+    <view class="bg-white padding-top">
+      <view class="solid-bottom text-xl padding text-center">
+        <text class="text-black text-bold">微信红包封面领取</text>
+      </view>
+      <view class="grid col-3 margin-bottom text-center">
+        <view class="padding redpack-demo">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/12/8/57.jpg);" alt=""></view>
+          <view class="redpack-name">ROARINGWILD</view>
+        </view>
+        <view class="padding">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/12/9/64.jpg);" alt=""></view>
+          <view class="redpack-name">TUMI途明</view>
+        </view>
+        <view class="padding">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/12/10/67.jpg);" alt=""></view>
+          <view class="redpack-name">VansChina</view>
+        </view>
+        <view class="padding redpack-demo">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/4/2/125.jpg);" alt=""></view>
+          <view class="redpack-name">龙湖集团</view>
+        </view>
+        <view class="padding">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/4/4/133.png);" alt=""></view>
+          <view class="redpack-name">微保</view>
+        </view>
+        <view class="padding">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/11/3/294.jpg);" alt=""></view>
+          <view class="redpack-name">施华洛世奇</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

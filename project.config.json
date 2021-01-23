@@ -245,6 +245,24 @@
         {
           "name": "pages/epidemic/index",
           "pathName": "pages/epidemic/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/redpack/index",
+          "pathName": "pages/redpack/index",
           "scene": null
         }
       ]

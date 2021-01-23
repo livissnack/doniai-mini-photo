@@ -33,7 +33,9 @@
     "pages/user/log",
     "pages/epidemic/index",
     "pages/news/health",
-    "pages/news/forum"
+    "pages/news/forum",
+    "pages/redpack/index",
+    "pages/redpack/detail"
   ],
   "permission": {
     "scope.userLocation": {

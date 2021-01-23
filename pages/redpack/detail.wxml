@@ -1,0 +1,16 @@
+<!--pages/redpack/detail.wxml-->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+    <view slot="content">封面详情</view>
+  </cu-custom>
+  <view class="box">
+    <view class="bg-white padding-top">
+      <view class="grid col-1 margin-bottom text-center">
+        <view class="padding redpack-demo">
+          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/12/8/57.jpg);" alt=""></view>
+          <view class="redpack-name">ROARINGWILD</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -5,14 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    img_url: '',
+    name: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad(options) {
+    this.setData({
+      img_url: options.img_url,
+      name: options.name
+    })
+  },
 
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target
+    })
+  },
+  hideModal(e) {
+    this.setData({
+      modalName: null
+    })
   },
 
   /**

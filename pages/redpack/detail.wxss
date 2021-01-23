@@ -1,1 +1,10 @@
 /* pages/redpack/detail.wxss */
+.redpack-pic {
+  background-color: #e0554b;
+  border-radius: 8px;
+  width: 50%;
+  height: 260px;
+  background-size: 100% auto;
+  overflow: hidden;
+  margin: 0 auto;
+}

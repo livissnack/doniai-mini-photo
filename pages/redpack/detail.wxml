@@ -1,14 +1,53 @@
-<!--pages/redpack/detail.wxml-->
+<!-- pages/redpack/detail.wxml -->
 <view hover-class="none" hover-stop-propagation="false">
-  <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
+  <cu-custom bgColor="bg-gradual-red" isCustom="{{true}}">
     <view slot="content">封面详情</view>
   </cu-custom>
   <view class="box">
     <view class="bg-white padding-top">
-      <view class="grid col-1 margin-bottom text-center">
+      <view class="grid col-1 padding-bottom text-center">
         <view class="padding redpack-demo">
-          <view class="redpack-pic hb" style="background-image: url(https://secres.wxqcloud.qq.com//t/wx_fed/red-envelope-cover-platform/case2/12/8/57.jpg);" alt=""></view>
-          <view class="redpack-name">ROARINGWILD</view>
+          <view class="redpack-pic hb" style="background-image: url({{img_url}});"></view>
+          <view class="redpack-name">{{name}}</view>
+        </view>
+      </view>
+      <view class="padding-bottom text-center">
+        <view class="padding">
+          <button class="cu-btn block bg-yellow margin-tb-sm lg round">
+            <text class="cuIcon-share"></text>
+            邀请好友领取（0/1）
+          </button>
+          <button class="cu-btn block bg-yellow margin-tb-sm lg round">
+            <text class="cuIcon-playfill"></text>
+            观看视频领取（0/1）
+          </button>
+          <button class="cu-btn block bg-green margin-tb-sm lg round" bindtap="showModal" data-target="Modal">
+            领取封面
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog">
+      <view class="cu-bar bg-white justify-end">
+        <view class="content">领取红包封面步骤</view>
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-roundclose text-red"></text>
+        </view>
+      </view>
+      <view class="padding-tb-sm">
+        <view class="padding-sm">
+          <text class="text-black text-bold text-lg">领取方式</text>
+        </view>
+        <view class="padding-xs">
+          <text class="text-gray">关注公众号：XXXX</text>
+        </view>
+        <view class="padding-xs">
+          <text class="text-gray">发送 HB2021 即可领取</text>
+        </view>
+        <view class="padding-xs">
+          <text class="text-blue">有疑问？</text>
         </view>
       </view>
     </view>

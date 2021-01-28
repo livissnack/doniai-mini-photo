@@ -8,8 +8,8 @@
       <view class="cu-card case" wx:for="{{liveList}}" wx:key="index" bindtap="jumpLiveDetailPage" data-live="{{item}}">
         <view class="cu-item shadow">
           <view class="image">
-            <image src="https://ossweb-img.qq.com/images/lol/web201310/skin/big10006.jpg" mode="widthFix"></image>
-            <view class="cu-tag bg-red">直播</view>
+            <image class="cover-image" src="{{item.cover_url}}" mode="heightFix"></image>
+            <view class="cu-tag bg-red badge">直播</view>
           </view>
           <view class="cu-list">
             <view class="cu-item">

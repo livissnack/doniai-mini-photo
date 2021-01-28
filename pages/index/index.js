@@ -96,7 +96,6 @@ Page({
 
   getMenus() {
     getAllMenu({}).then(res => {
-      console.log(res);
       this.setData({
         nav_menus: res.data
       })

@@ -37,7 +37,8 @@
     "pages/redpack/index",
     "pages/redpack/detail",
     "pages/live/index",
-    "pages/live/detail"
+    "pages/live/detail",
+    "pages/analyze/index"
   ],
   "permission": {
     "scope.userLocation": {

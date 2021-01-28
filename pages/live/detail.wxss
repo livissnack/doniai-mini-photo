@@ -1,1 +1,4 @@
 /* pages/live/detail.wxss */
+#myVideo {
+  width: 100%;
+}

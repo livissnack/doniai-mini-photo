@@ -4,7 +4,7 @@
     <view slot="content">热门电视直播</view>
   </cu-custom>
   <view class="box">
-    <view class="padding-tb-sm bg-white">
+    <view class="padding-bottom bg-white">
       <view class="flex justify-center">
         <video 
           id="myVideo" 

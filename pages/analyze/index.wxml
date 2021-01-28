@@ -1,0 +1,32 @@
+<!-- pages/analyze/index.wxml -->
+<view hover-class="none" hover-stop-propagation="false">
+  <cu-custom bgColor="bg-gradual-orange" isCustom="{{true}}">
+    <view slot="content">聚合视频解析</view>
+  </cu-custom>
+  <view class="box">
+    <view class="bg-white padding-top">
+      <view class="solid-bottom text-xl padding text-center">
+        <text class="text-black text-bold">聚合视频解析工具</text>
+      </view>
+      <view class="cu-bar search bg-white padding">
+        <view class="search-form round">
+          <text class="cuIcon-share"></text>
+          <input adjust-position="{{false}}" bindinput="changeSearchValue" value="{{request.keyword}}" type="text" placeholder="请输入分享链接" confirm-type="search" />
+        </view>
+        <view class="action">
+          <button class="cu-btn bg-green shadow-blur round" bindtap="doSearch">解析</button>
+        </view>
+      </view>
+       <view class="cu-bar search bg-white padding">
+    
+      </view>
+      <view class='nav-list'>
+        <navigator open-type="navigate" hover-class='none' url="/pages/basics/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+          <view class="nav-title">{{item.title}}</view>
+          <view class="nav-name">{{item.name}}</view>
+          <text class='cuIcon-{{item.icon}}'></text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

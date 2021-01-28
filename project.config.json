@@ -287,6 +287,12 @@
         {
           "name": "pages/live/index",
           "pathName": "pages/live/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/analyze/index",
+          "pathName": "pages/analyze/index",
           "scene": null
         }
       ]

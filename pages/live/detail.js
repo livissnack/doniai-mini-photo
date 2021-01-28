@@ -73,6 +73,9 @@ Page({
   },
   error(e) {
     console.error('live-player error:', e.detail.errMsg)
+  },
+  videoErrorCallback(e) {
+    console.log('视频错误信息:')
+    console.log(e.detail.errMsg)
   }
-
 })

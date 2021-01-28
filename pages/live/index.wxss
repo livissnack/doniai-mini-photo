@@ -2,3 +2,7 @@
 .basis-xxl {
   flex-basis: 100%;
 }
+
+.cover-image {
+  height: 80px!important;
+}

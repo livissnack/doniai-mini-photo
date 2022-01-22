@@ -1,11 +1,11 @@
 <!-- pages/live/index.wxml -->
-<view hover-class="none" hover-stop-propagation="false">
+<scroll-view hover-class="none" hover-stop-propagation="false" scroll-y="true" style="height: 100vh;" bindscrolltoupper="upper" bindscrolltolower="lower" scroll-top="{{scrollTop}}">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">热门电视直播</view>
   </cu-custom>
   <view class="box">
     <view class="grid col-2 padding-bottom text-center">
-      <view class="cu-card case" wx:for="{{liveList}}" wx:key="index" bindtap="jumpLiveDetailPage" data-live="{{item}}">
+      <view class="cu-card case" wx:for="{{response.items}}" wx:key="index" bindtap="jumpLiveDetailPage" data-live="{{item}}">
         <view class="cu-item shadow">
           <view class="image">
             <image class="cover-image" src="{{item.cover_url}}" mode="heightFix"></image>
@@ -14,12 +14,12 @@
           <view class="cu-list">
             <view class="cu-item">
               <view class="content flex-sub">
-                <view class="text-black">{{item.name}}</view>
+                <view class="text-black">{{item.title}}</view>
                 <view class="text-gray padding-lr-lg padding-tb-sm text-sm flex justify-between">
                   十天前
                   <view class="text-gray text-sm">
                     <text class="cuIcon-attentionfill margin-lr-xs"></text>
-                    {{item.view_count}}
+                    {{item.play_nums}}
                   </view>
                 </view>
               </view>
@@ -29,4 +29,4 @@
       </view>
     </view>
   </view>
-</view>
+</scroll-view>

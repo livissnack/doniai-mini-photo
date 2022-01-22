@@ -1,6 +1,4 @@
 /* pages/news/detail.wxss */
-@import "../../wxParse//wxParse.wxss";
-
 .gx-text-right {
   display: flex;
   justify-content: flex-end;

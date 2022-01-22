@@ -1,6 +1,5 @@
 // pages/news/detail.js
 const app = getApp()
-const WxParse = require('../../wxParse/wxParse.js')
 import {isEmpty, formatTime} from '../../utils/helper'
 import {getNews} from '../../utils/api'
 Page({
@@ -38,8 +37,6 @@ Page({
           source: res.data.source,
           pushed_time: format_time,
         })
-        let article = this.data.article
-        WxParse.wxParse('article', 'html', article, this, 5)
       })
       .catch((e) => {
         wx.showToast({ title: '请求失败' })

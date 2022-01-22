@@ -6,3 +6,7 @@
 .cover-image {
   height: 80px!important;
 }
+
+.scroll_view {
+  height: 100vh;
+}

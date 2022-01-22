@@ -40,6 +40,8 @@ export const deleteAddress = (data) => post(`${API_ROOT}/api/address/delete`, da
 export const getAllNews = (data, headers) => post(`${API_ROOT}/api/news`, data, headers);
 export const getNews = (data, headers) => post(`${API_ROOT}/api/news/detail`, data, headers);
 
+export const getAllLives = (data, headers) => post(`${API_ROOT}/api/live`, data, headers);
+export const getLive = (data, headers) => post(`${API_ROOT}/api/live/detail`, data, headers);
 
 export const getTranslate = (data) => post(`${API_ROOT}/api/ai/translate`, data);
 

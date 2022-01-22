@@ -1,5 +1,4 @@
 <!-- pages/news/detail.wxml -->
-<import src="../../wxParse/wxParse.wxml"></import>
 <view hover-class="none" hover-stop-propagation="false">
   <cu-custom bgColor="bg-gradual-pink" isCustom="{{true}}">
     <view slot="content">村资讯内容</view>
@@ -21,7 +20,7 @@
       </view>
     </view>
     <view class="bg-white padding">
-      <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+      <wxparser rich-text="{{article}}" />
     </view>
     <view class="cu-bar bg-white padding-left padding-right gx-text-right">
       <text class="text-gray text-sm text-right" wx:if="{{author!==''}}">作者：{{author}}</text>

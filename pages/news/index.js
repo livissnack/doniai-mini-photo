@@ -36,7 +36,6 @@ Page({
       Authorization: `Bearer ${auth_token}`,
     }
     getAllNews(request_data, headers).then(res => {
-      console.log(res);
       this.setData({
         response: res.data
       })

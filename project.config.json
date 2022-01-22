@@ -1,301 +1,303 @@
 {
-  "description": "智能证照配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": false,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": true,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
+    "description": "智能证照配置文件",
+    "packOptions": {
+        "ignore": []
     },
-    "enableEngineNative": false,
-    "bundle": false,
-    "useIsolateContext": true,
-    "useCompilerModule": false,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "userConfirmedBundleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "useApiHostProcess": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.14.0",
-  "appid": "wx12e6720347a6907f",
-  "projectname": "%E6%99%BA%E8%83%BD%E8%AF%81%E4%BB%B6%E7%85%A7%E5%8A%A9%E6%89%8B",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "scripts": {},
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "condition": {
-    "plugin": {
-      "list": []
+    "setting": {
+        "urlCheck": false,
+        "es6": true,
+        "enhance": true,
+        "postcss": true,
+        "preloadBackgroundData": false,
+        "minified": true,
+        "newFeature": true,
+        "coverView": true,
+        "nodeModules": false,
+        "autoAudits": false,
+        "showShadowRootInWxmlPanel": true,
+        "scopeDataCheck": false,
+        "uglifyFileName": false,
+        "checkInvalidKey": true,
+        "checkSiteMap": true,
+        "uploadWithSourceMap": true,
+        "compileHotReLoad": false,
+        "lazyloadPlaceholderEnable": false,
+        "useMultiFrameRuntime": true,
+        "useApiHook": true,
+        "useApiHostProcess": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "useIsolateContext": true,
+        "userConfirmedBundleSwitch": false,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "disableUseStrict": false,
+        "minifyWXML": true,
+        "showES6CompileOption": false,
+        "useCompilerPlugins": false,
+        "ignoreUploadUnusedFiles": true
     },
-    "game": {
-      "list": []
+    "compileType": "miniprogram",
+    "libVersion": "2.14.0",
+    "appid": "wx12e6720347a6907f",
+    "projectname": "doniai-mini-photo",
+    "debugOptions": {
+        "hidedInDevtools": []
     },
-    "gamePlugin": {
-      "list": []
-    },
-    "miniprogram": {
-      "list": [
-        {
-          "name": "pages/user/signin",
-          "pathName": "pages/user/signin",
-          "query": "",
-          "scene": null
+    "scripts": {},
+    "isGameTourist": false,
+    "simulatorType": "wechat",
+    "simulatorPluginLibVersion": {},
+    "condition": {
+        "plugin": {
+            "list": []
         },
-        {
-          "name": "pages/photo/index",
-          "pathName": "pages/photo/index",
-          "query": "",
-          "scene": null
+        "game": {
+            "list": []
         },
-        {
-          "name": "pages/photo/detail",
-          "pathName": "pages/photo/detail",
-          "query": "",
-          "scene": null
+        "gamePlugin": {
+            "list": []
         },
-        {
-          "name": "pages/photo/preview",
-          "pathName": "pages/photo/preview",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/detail",
-          "pathName": "pages/order/detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/photo/history",
-          "pathName": "pages/photo/history",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/ocr/text",
-          "pathName": "pages/ocr/text",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/translate/index",
-          "pathName": "pages/translate/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/index",
-          "pathName": "pages/order/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/ocr/plant",
-          "pathName": "pages/ocr/plant",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/farming/index",
-          "pathName": "pages/farming/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/index",
-          "pathName": "pages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/detail",
-          "pathName": "pages/news/detail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/address/create",
-          "pathName": "pages/address/create",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/address/index",
-          "pathName": "pages/address/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/order/index",
-          "pathName": "pages/order/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/photo/preview",
-          "pathName": "pages/photo/preview",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/calendar/index",
-          "pathName": "pages/calendar/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/qrcode/index",
-          "pathName": "pages/qrcode/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/fucai/index",
-          "pathName": "pages/fucai/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/user/signin",
-          "pathName": "pages/user/signin",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/user/log",
-          "pathName": "pages/user/log",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/epidemic/index",
-          "pathName": "pages/epidemic/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/index",
-          "pathName": "pages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/question/index",
-          "pathName": "pages/question/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/health",
-          "pathName": "pages/news/health",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/index",
-          "pathName": "pages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/forum",
-          "pathName": "pages/news/forum",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/epidemic/index",
-          "pathName": "pages/epidemic/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/redpack/index",
-          "pathName": "pages/redpack/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/news/index",
-          "pathName": "pages/news/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/live/index",
-          "pathName": "pages/live/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/analyze/index",
-          "pathName": "pages/analyze/index",
-          "scene": null
+        "miniprogram": {
+            "list": [
+                {
+                    "name": "pages/user/signin",
+                    "pathName": "pages/user/signin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/photo/index",
+                    "pathName": "pages/photo/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/photo/detail",
+                    "pathName": "pages/photo/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/photo/preview",
+                    "pathName": "pages/photo/preview",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/detail",
+                    "pathName": "pages/order/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/photo/history",
+                    "pathName": "pages/photo/history",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/ocr/text",
+                    "pathName": "pages/ocr/text",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/translate/index",
+                    "pathName": "pages/translate/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/index",
+                    "pathName": "pages/order/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/ocr/plant",
+                    "pathName": "pages/ocr/plant",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/farming/index",
+                    "pathName": "pages/farming/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/index",
+                    "pathName": "pages/news/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/detail",
+                    "pathName": "pages/news/detail",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/address/create",
+                    "pathName": "pages/address/create",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/address/index",
+                    "pathName": "pages/address/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/order/index",
+                    "pathName": "pages/order/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/photo/preview",
+                    "pathName": "pages/photo/preview",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/calendar/index",
+                    "pathName": "pages/calendar/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/qrcode/index",
+                    "pathName": "pages/qrcode/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/fucai/index",
+                    "pathName": "pages/fucai/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/signin",
+                    "pathName": "pages/user/signin",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/user/log",
+                    "pathName": "pages/user/log",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/epidemic/index",
+                    "pathName": "pages/epidemic/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/index",
+                    "pathName": "pages/news/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/question/index",
+                    "pathName": "pages/question/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/health",
+                    "pathName": "pages/news/health",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/index",
+                    "pathName": "pages/news/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/forum",
+                    "pathName": "pages/news/forum",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/epidemic/index",
+                    "pathName": "pages/epidemic/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/redpack/index",
+                    "pathName": "pages/redpack/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/news/index",
+                    "pathName": "pages/news/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/index/index",
+                    "pathName": "pages/index/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/live/index",
+                    "pathName": "pages/live/index",
+                    "query": "",
+                    "scene": null
+                },
+                {
+                    "name": "pages/analyze/index",
+                    "pathName": "pages/analyze/index",
+                    "scene": null
+                }
+            ]
         }
-      ]
     }
-  }
 }

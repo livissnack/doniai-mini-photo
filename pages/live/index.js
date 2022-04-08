@@ -8,7 +8,7 @@ Page({
   data: {
     request: {
       page: 1,
-      size: 40
+      size: 140
     },
     response: {}
   },
